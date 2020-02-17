@@ -5,6 +5,9 @@
 #ifndef DEUBER_CAR_H
 #define DEUBER_CAR_H
 
+enum operation{
+    NONE = 0, WORKING = 1
+};
 
 class car {
 private:
@@ -12,6 +15,8 @@ private:
 public:
     car();
     ~car();
+
+
 };
 
 

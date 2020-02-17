@@ -42,9 +42,9 @@ void map::reshape(int width, int height){
 
 std::string map::print_map(){
     std::string temp_result = "";
-    for(unsigned int i_height = 0; i_height < n_height; i_height){
-        for(unsigned int i_width = 0; i_width < n_width; i_width)
-            temp_result += (char)  map_values[i_height][i_width];
+    for(unsigned int i_height = 0; i_height < n_height; i_height++){
+        for(unsigned int i_width = 0; i_width < n_width; i_width++)
+            temp_result +=  (map_values[i_height][i_width]+48);
         temp_result += "\n";
     }
     return temp_result;
