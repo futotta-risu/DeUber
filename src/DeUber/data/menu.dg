@@ -1,0 +1,15 @@
+# Node
+Node : 4
+0 : Bienvenido a {COMPANY_NAME}. \n\n\t1) Cargar mapa.\n\t2) Escoger algoritmo.\n\t3) Ejecutar Algortimo.\n\t4) Configuración.\n
+1 : Escoja su siguiente operacion. \nOpciones:\n\t1) Volver
+2 : Escoja su siguiente operacion. \nOpciones:\n\t1) Volver
+3 : Escoja su siguiente operacion. \nOpciones:\n\t1) Volver
+
+# Edges
+Edge : 6
+0 : 1 : map_menu
+0 : 2 : algorithm_menu
+0 : 3 : config_menu
+1 : 0 : home_menu
+2 : 0 : home_menu
+3 : 0 : home_menu

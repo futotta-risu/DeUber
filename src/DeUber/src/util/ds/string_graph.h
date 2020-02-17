@@ -5,39 +5,39 @@
 #ifndef DEUBER_STRING_GRAPH_H
 #define DEUBER_STRING_GRAPH_H
 
+#include <string.h>
 
-#include <vector>
-#include <string>
+const int MAX_NODE_STR_LENGTH = 32;
 
-struct string_node{
-    std::string value;
-    int weigth = 0 ;
-    int src, from;
+typedef struct adj_list_node adj_list_node;
+typedef struct adj_list adj_list;
+typedef struct node node;
+
+struct node{
+    char text[MAX_NODE_STR_LENGTH];
+    int neightbors;
 };
 
-
-struct string_graph{
-    bool is_directed = false;
-    bool is_weigthed = false;
-
-    std::vector<std::vector<string_node> >  adj_graph;
-
+struct adj_list_node{
+    int vertex;
+    char text[MAX_NODE_STR_LENGTH];
+    struct adj_list_node *next;
 };
 
-void create_graph(string_graph* g);
-void add_node(string_graph* g, std::string val);
-void add_edge(string_graph* g, int src, int dest);
+struct adj_list{
+    int total_members;
+    struct adj_list_node *head;
+};
 
-void set_weighted(string_graph* g, bool is_weighted){
-    g->is_weigthed = is_weighted;
-}
-bool is_weighted(string_graph* g){
-    return g->is_weigthed;
-}
-void set_directed(string_graph* g, bool is_directed){
-    g->is_directed = is_directed;
-}
-bool is_directed(string_graph* g){
-    return g->is_directed;
-}
+typedef struct{
+    int total_nodes;
+    int total_edges;
+    adj_list *adj_list_arr;
+    node *node_list;
+} string_graph;
+
+string_graph* create_graph(int v);
+void add_edge(string_graph* g, int src, int dest, char text[]);
+void add_node(string_graph* g, int pos, char text[]);
+
 #endif //DEUBER_STRING_GRAPH_H
