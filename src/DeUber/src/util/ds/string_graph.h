@@ -1,11 +1,11 @@
 //
-// Created by 34634 on 2/17/2020.
+// Created by erikberter on 2/17/2020.
 //
 
 #ifndef DEUBER_STRING_GRAPH_H
 #define DEUBER_STRING_GRAPH_H
 
-#define MAX_NODE_STR_LENGTH 32
+#define MAX_NODE_STR_LENGTH 128
 
 #include <string.h>
 
@@ -41,5 +41,8 @@ typedef struct{
 string_graph* create_graph(int v);
 void add_edge(string_graph* g, int src, int dest, char text[]);
 void add_node(string_graph* g, int pos, char text[]);
+
+char* get_node_var(string_graph* g,int n);
+int get_next_node(string_graph* g, int src, int n);
 
 #endif //DEUBER_STRING_GRAPH_H

@@ -1,9 +1,13 @@
-#include <iostream>
-#include "menu.h"
-int main() {
 
+#include "menu.h"
+#include "util/strings/strings_c.h"
+#include<stdio.h>
+#include<string.h>
+int main() {
     // TODO Config file
-    char* menu_file = "../data/menu.dg";
-    load_menu_graph(menu_file);
+    constexpr const char* menu_file = "../data/menu.dg";
+    run_menu(menu_file);
+
+
     return 0;
 }

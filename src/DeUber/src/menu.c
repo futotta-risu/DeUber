@@ -1,7 +1,6 @@
 //
-// Created by whiwho on 17/02/2020.
+// Created by erikberter on 17/02/2020.
 //
-
 
 #include <stdio.h>
 #include <assert.h>
@@ -10,7 +9,7 @@
 #include "menu.h"
 
 
-void load_menu_graph(char* file_name){
+void load_menu_graph(const char* file_name){
     FILE *fptr = fopen(file_name, "r");
     assert(fptr  != NULL);
 
@@ -32,9 +31,10 @@ void load_menu_graph(char* file_name){
     while ((line_s = getline(&buffer, &line_s, fptr)) != -1) {
         buffer = trim(buffer);
         line_s = strlen(buffer);
-        printf("La linea tiene tamanio %i y valor %s. \n", line_s, buffer);
+        printf("##La linea tiene tamanio %i y valor \"%s\".\n", line_s, buffer);
+        // TODO Bug 1 : Empty lines bug
         // Comment on the file
-        if(buffer[0] == '#')
+        if(buffer[0] == '#' || line_s==0)
             continue;
 
         switch(phase){
@@ -42,12 +42,7 @@ void load_menu_graph(char* file_name){
                 char *node_expected = trim(strtok(buffer, delim));
                 assert(strcmp(node_expected,"Node")==0);
 
-                // TODO eliminar esto tras comprobar
-                char* temp = trim(strtok(buffer, delim));
-                printf("El total de nodos es %s\n", temp);
-                node_number_t = atoi(temp);
-
-                printf("El total de nodos es %i\n", node_number_t);
+                node_number_t = atoi(trim(strtok(NULL, delim)));
                 assert(node_number_i < MAX_GRAPH_SIZE && node_number_i>=0);
 
                 node_number_i = node_number_t;
@@ -59,25 +54,27 @@ void load_menu_graph(char* file_name){
             }
             case 1:{
                 // check if end of nodes
-                node_number_i--;
-                if(node_number_i==0){
+
+                int node_act = atoi(trim(strtok(buffer, delim)));
+                assert(node_act < node_number_t && node_act>=0);
+
+                char *node_text = trim(strtok(NULL, delim));
+                add_node(menu_tree, node_act, node_text);
+                if(--node_number_i==0){
                     phase++;
                     continue;
                 }
-                int node_act = atoi(trim(strtok(buffer, delim)));
-                printf("El nodo actual es %i - %i\n", node_act, node_number_t);
-                assert(node_act < node_number_t && node_act>=0);
-
-                char *node_text = trim(strtok(buffer, delim));
-                add_node(menu_tree, node_number_i, node_text);
                 continue;
             }
             case 2:{
                 char *edge_expected = trim(strtok(buffer, delim));
-                assert(strcmp(edge_expected,"Edge"));
 
-                edge_number_t = atoi(trim(strtok(buffer, delim)));
-                assert(edge_number_t < node_number_t*(node_number_t-1)/2 && edge_number_t>=0);
+                assert(strcmp(edge_expected,"Edge")==0);
+
+                edge_number_t = atoi(trim(strtok(NULL, delim)));
+                edge_number_i = edge_number_t;
+
+                assert(edge_number_t <= node_number_t*(node_number_t-1) && edge_number_t>=0);
 
                 menu_tree->total_edges = edge_number_t;
                 phase++;
@@ -85,19 +82,19 @@ void load_menu_graph(char* file_name){
             }
             case 3:{
 
-                // TODO check if the -- is correct
-                node_number_i--;
-                if(node_number_i==0){
+                int edge_src = atoi(trim(strtok(buffer, delim)));
+                int edge_dst = atoi(trim(strtok(NULL, delim)));
+
+                assert(edge_src < node_number_t && edge_src>=0);
+                assert(edge_dst < node_number_t && edge_dst>=0);
+
+                char *node_text = trim(strtok(NULL, delim));
+                add_edge(menu_tree, edge_src, edge_dst, node_text);
+
+                if(--edge_number_i==0){
                     phase++;
                     continue;
                 }
-                int edge_src = atoi(trim(strtok(buffer, delim)));
-                int edge_dst = atoi(trim(strtok(buffer, delim)));
-                assert(edge_src < node_number_i && edge_src>=0);
-                assert(edge_dst < node_number_i && edge_dst>=0);
-
-                char *node_text = trim(strtok(buffer, delim));
-                add_node(menu_tree, node_number_i, node_text);
                 continue;
             }
             default:{
@@ -106,13 +103,29 @@ void load_menu_graph(char* file_name){
         }
 
     }
-
+    printf("Load \n");
 
     fclose(fptr);
 }
-void run_menu(char* file_name){
-    load_menu_graph( file_name);
+void run_menu(const char* file_name){
+    load_menu_graph(file_name);
+    int act_node = 0;
+    int temp_input_line;
 
+    for(int i =0 ; i < 4; i++){
+        printf("Nodo %i : %s\n",i,menu_tree->node_list[i].text);
+    }
+
+    // TODO Redefine this loop
+    for(unsigned int i = 0; i < 200; i++){
+        printf("Estamos en el nodo %i.\n", act_node);
+        printf("Paso %i : %s",i, get_node_var(menu_tree,act_node));
+        // TODO check int input
+        scanf("%i",&temp_input_line);
+        if(temp_input_line == "-1")
+            break;
+        act_node = get_next_node(menu_tree, act_node, temp_input_line);
+    }
 }
 
 void map_menu(){

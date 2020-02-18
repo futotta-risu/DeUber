@@ -1,5 +1,5 @@
 //
-// Created by whiwho on 17/02/2020.
+// Created by erikberter on 17/02/2020.
 //
 
 #include "strings_c.h"

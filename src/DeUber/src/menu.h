@@ -1,9 +1,10 @@
 //
-// Created by 34634 on 2/18/2020.
+// Created by erikberter on 2/18/2020.
 //
 
 #ifndef DEUBER_MENU_H
 #define DEUBER_MENU_H
+
 #if defined (__cplusplus)
 extern "C" {
 #endif
@@ -15,9 +16,9 @@ const int MAX_GRAPH_SIZE = 128;
 
 string_graph *menu_tree;
 
-void load_menu_graph(char *file_name);
+void load_menu_graph(const char *file_name);
 
-void run_menu(char *file_name);
+void run_menu(const char *file_name);
 
 void map_menu();
 

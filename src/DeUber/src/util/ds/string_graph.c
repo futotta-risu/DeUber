@@ -1,5 +1,5 @@
 //
-// Created by 34634 on 2/17/2020.
+// Created by erikberter on 2/17/2020.
 //
 
 #include "string_graph.h"
@@ -48,8 +48,8 @@ string_graph* create_graph(int v){
     return graph;
 }
 void add_edge(string_graph* g, int src, int dest, char text[]){
-    assert(src <= g->total_nodes && src > 0);
-    assert(dest <= g->total_nodes && dest > 0);
+    assert(src <= g->total_nodes && src >= 0);
+    assert(dest <= g->total_nodes && dest >= 0);
 
     // TODO Is alredy the edge in?
 
@@ -61,4 +61,12 @@ void add_edge(string_graph* g, int src, int dest, char text[]){
     g->adj_list_arr[src].total_members++;
 
 }
+char* get_node_var(string_graph* g,int n){
+    assert(g->total_nodes>n);
+    return g->node_list[n].text;
+}
 
+int get_next_node(string_graph* g, int src, int n){
+    assert(g->total_nodes>n);
+    return g->adj_list_arr[src].head->vertex;
+}
