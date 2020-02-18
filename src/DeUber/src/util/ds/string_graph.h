@@ -5,9 +5,11 @@
 #ifndef DEUBER_STRING_GRAPH_H
 #define DEUBER_STRING_GRAPH_H
 
+#define MAX_NODE_STR_LENGTH 32
+
 #include <string.h>
 
-const int MAX_NODE_STR_LENGTH = 32;
+
 
 typedef struct adj_list_node adj_list_node;
 typedef struct adj_list adj_list;

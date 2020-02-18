@@ -5,6 +5,7 @@
 #ifndef DEUBER_STRINGS_C_H
 #define DEUBER_STRINGS_C_H
 
-char* trim(char *str);
+
+char* trim(char* str);
 
 #endif //DEUBER_STRINGS_C_H

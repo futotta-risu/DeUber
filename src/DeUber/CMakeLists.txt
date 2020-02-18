@@ -4,8 +4,8 @@ project(DeUber)
 set(CMAKE_CXX_STANDARD 14)
 
 
-
-add_executable(DeUber src/main.cpp src/maps/map.cpp src/maps/map.h src/cars/car.cpp src/cars/car.h src/util/ds/string_graph.c src/util/ds/string_graph.h src/menu.c src/util/file/file_reader.c src/util/strings/strings_c.c src/util/strings/strings_c.h)
+include_directories(src/maps src/cars src/util/ds src/util/strings src)
+add_executable(DeUber src/main.cpp src/maps/map.cpp  src/cars/car.cpp  src/util/ds/string_graph.c  src/menu.c src/util/strings/strings_c.c )
 
 set(TEST_FOLDER tests)
 include_directories(${TEST_FOLDER}/include)

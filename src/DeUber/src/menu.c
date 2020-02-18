@@ -2,21 +2,19 @@
 // Created by whiwho on 17/02/2020.
 //
 
-#include "util/ds/string_graph.h"
+
 #include <stdio.h>
 #include <assert.h>
+#include <stdlib.h>
 #include "util/strings/strings_c.h"
+#include "menu.h"
 
-const int MAX_BUFFER_SIZE = 1024;
-const int MAX_GRAPH_SIZE = 128;
 
-string_graph* menu_tree;
+void load_menu_graph(char* file_name){
+    FILE *fptr = fopen(file_name, "r");
+    assert(fptr  != NULL);
 
-void load_menu_graph(){
-    FILE *fptr;
-    assert(fptr = fopen("program.txt", "r") != NULL);
-
-    ssize_t line_s;
+    size_t line_s;
     char * buffer = NULL;
     char delim[] = ":";
 
@@ -29,38 +27,46 @@ void load_menu_graph(){
     unsigned short phase = 0;
     int node_number_i = 0;
     int edge_number_i = 0;
+    int node_number_t = 0;
+    int edge_number_t = 0;
     while ((line_s = getline(&buffer, &line_s, fptr)) != -1) {
         buffer = trim(buffer);
         line_s = strlen(buffer);
-
+        printf("La linea tiene tamanio %i y valor %s. \n", line_s, buffer);
         // Comment on the file
-        if(line_s[0] == '#')
+        if(buffer[0] == '#')
             continue;
 
         switch(phase){
             case 0:{
                 char *node_expected = trim(strtok(buffer, delim));
-                assert(strcmp(node_expected,"Node"));
+                assert(strcmp(node_expected,"Node")==0);
 
-                char *node_number_c = trim(strtok(buffer, delim));
-                node_number_i = node_number_c -'0';
+                // TODO eliminar esto tras comprobar
+                char* temp = trim(strtok(buffer, delim));
+                printf("El total de nodos es %s\n", temp);
+                node_number_t = atoi(temp);
+
+                printf("El total de nodos es %i\n", node_number_t);
                 assert(node_number_i < MAX_GRAPH_SIZE && node_number_i>=0);
 
-                menu_tree = create_graph(node_number_i);
+                node_number_i = node_number_t;
+                menu_tree = create_graph(node_number_t);
                 assert(menu_tree!= NULL);
 
                 phase++;
                 continue;
             }
             case 1:{
-                char *node_expected = trim(strtok(buffer, delim));
                 // check if end of nodes
-                if(strcmp(node_expected,"end")){
+                node_number_i--;
+                if(node_number_i==0){
                     phase++;
                     continue;
                 }
-                int node_number_i = node_expected -'0';
-                assert(node_number_i < node_number_i && node_number_i>=0);
+                int node_act = atoi(trim(strtok(buffer, delim)));
+                printf("El nodo actual es %i - %i\n", node_act, node_number_t);
+                assert(node_act < node_number_t && node_act>=0);
 
                 char *node_text = trim(strtok(buffer, delim));
                 add_node(menu_tree, node_number_i, node_text);
@@ -70,27 +76,27 @@ void load_menu_graph(){
                 char *edge_expected = trim(strtok(buffer, delim));
                 assert(strcmp(edge_expected,"Edge"));
 
-                char *edge_number_c = trim(strtok(buffer, delim));
-                edge_number_i = edge_number_c -'0';
-                assert(edge_number_i < node_number_i*(node_number_i-1)/2 && edge_number_i>=0);
+                edge_number_t = atoi(trim(strtok(buffer, delim)));
+                assert(edge_number_t < node_number_t*(node_number_t-1)/2 && edge_number_t>=0);
 
-                menu_tree->total_edges = edge_number_i;
+                menu_tree->total_edges = edge_number_t;
                 phase++;
                 continue;
             }
             case 3:{
-                // TODO Acabar esto
-                char *edge_expected = trim(strtok(buffer, delim));
-                // check if end of nodes
-                if(strcmp(edge_expected,"end")){
+
+                // TODO check if the -- is correct
+                node_number_i--;
+                if(node_number_i==0){
                     phase++;
                     continue;
                 }
-                int node_number_i = node_expected -'0';
-                assert(node_number_i < node_number_i && node_number_i>=0);
+                int edge_src = atoi(trim(strtok(buffer, delim)));
+                int edge_dst = atoi(trim(strtok(buffer, delim)));
+                assert(edge_src < node_number_i && edge_src>=0);
+                assert(edge_dst < node_number_i && edge_dst>=0);
 
-                char *node_text = strtok(buffer, delim);
-                node_text = trim(node_text);
+                char *node_text = trim(strtok(buffer, delim));
                 add_node(menu_tree, node_number_i, node_text);
                 continue;
             }
@@ -102,14 +108,10 @@ void load_menu_graph(){
     }
 
 
-
-
-
-
     fclose(fptr);
 }
-void run_menu(){
-    load_menu_graph();
+void run_menu(char* file_name){
+    load_menu_graph( file_name);
 
 }
 
