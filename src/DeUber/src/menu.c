@@ -9,9 +9,7 @@
 #include "menu.h"
 
 int call_function(const char *name){
-    int i;
-
-    for (i = 0; i < (sizeof(function_map) / sizeof(function_map[0])); i++) {
+    for (int i = 0; i < (sizeof(function_map) / sizeof(function_map[0])); i++) {
         if (!strcmp(function_map[i].name, name) && function_map[i].func) {
             function_map[i].func();
             return 0;
@@ -108,9 +106,8 @@ void load_menu_graph(const char* file_name){
                 }
                 continue;
             }
-            default:{
+            default:
                 return;
-            }
         }
 
     }
@@ -130,11 +127,21 @@ void run_menu(const char* file_name){
         //printf("Estamos en el nodo %i.\n", act_node);
         //printf("Paso %i : %s\n",i, get_node_var(menu_tree,act_node));
         call_function(get_node_var(menu_tree,act_node));
-        print_next_node_list(menu_tree, act_node, &temp_list_size);
-        // TODO check int input
-        scanf("%i",&temp_input_line);
-        if(temp_input_line == "-1")
-            break;
+
+        // TODO check input type validity
+        unsigned short invalid_input = 0;
+        do{
+            invalid_input = 0;
+            print_next_node_list(menu_tree, act_node, &temp_list_size);
+            printf("Introduzca la opcion que desea:");
+            scanf("%i",&temp_input_line);
+            fflush(stdin);
+            printf("\n");
+            if(temp_input_line<0 || temp_input_line>= temp_list_size){
+                printf("Por favor, introduzca un numero de entre las opciones.\n");
+                invalid_input = 1;
+            }
+        }while(invalid_input==1);
         act_node = get_next_node(menu_tree, act_node, temp_input_line);
     }
 }

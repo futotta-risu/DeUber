@@ -38,9 +38,10 @@ public:
     // Operators
 
     // Other Functions
-    void reshape(int width, int height);
-    std::string print_map();
+    void reshape(int height, int width);
+    void print_map();
 
+    void read_map(const char* file_name);
 };
 
 

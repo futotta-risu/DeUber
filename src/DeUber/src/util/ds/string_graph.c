@@ -32,7 +32,6 @@ string_graph* create_graph(int v){
     string_graph* graph = (string_graph *)malloc(sizeof(string_graph));
     assert(graph != NULL);
 
-
     graph->total_nodes = v;
     graph->total_edges = 0;
     graph->adj_list_arr = malloc(v * sizeof(adj_list));
@@ -79,11 +78,20 @@ void print_next_node_list(string_graph* g, int src, size_t* list_size){
 
 }
 
+/**
+ * Obtiene el indice del nodo con el que conecta la n-ava arista de src.
+ *
+ * @param g Grafo de texto
+ * @param src Nodo de salida
+ * @param n Arista Buscada
+ * @return (|src| < n)-1 ; (|src|>= n) src.edges[n]
+ */
 int get_next_node(string_graph* g, int src, int n){
-    // TODO assert not NULL node
     adj_list_node* temp_node = g->adj_list_arr[src].head;
-    while(n--)
+    while(n--){
         temp_node = temp_node->next;
-
+        if(temp_node == NULL)
+            return -1;
+    }
     return temp_node->vertex;
 }
