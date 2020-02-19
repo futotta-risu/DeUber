@@ -45,4 +45,6 @@ void add_node(string_graph* g, int pos, char text[]);
 char* get_node_var(string_graph* g,int n);
 int get_next_node(string_graph* g, int src, int n);
 
+void print_next_node_list(string_graph* g, int src, size_t* list_size);
+
 #endif //DEUBER_STRING_GRAPH_H

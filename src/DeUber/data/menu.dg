@@ -1,14 +1,14 @@
 # Node
 Node : 4
-0 : Bienvenido a {COMPANY_NAME}. \n\n\t1) Cargar mapa.\n\t2) Escoger algoritmo.\n\t3) Ejecutar Algortimo.\n\t4) Configuración.\n
-1 : E2scoja su siguiente operacion. \nOpciones.\n\t1) Volver
-2 : E3scoja su siguiente operacion. \nOpciones.\n\t1) Volver
-3 : E4scoja su siguiente operacion. \nOpciones.\n\t1) Volver
+0 : home_menu
+1 : map_menu
+2 : algorithm_menu
+3 : config_menu
 # Edges
 Edge : 6
-0 : 1 : map_menu
-0 : 2 : algorithm_menu
-0 : 3 : config_menu
-1 : 0 : home_menu
-2 : 0 : home_menu
-3 : 0 : home_menu
+0 : 3 : Menu de Configuracion
+0 : 2 : Menu de Algoritmos
+0 : 1 : Menu de Mapas
+1 : 0 : Volver a Home
+2 : 0 : Volver a Home
+3 : 0 : Volver a Home

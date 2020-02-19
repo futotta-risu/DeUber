@@ -8,6 +8,17 @@
 #include "util/strings/strings_c.h"
 #include "menu.h"
 
+int call_function(const char *name){
+    int i;
+
+    for (i = 0; i < (sizeof(function_map) / sizeof(function_map[0])); i++) {
+        if (!strcmp(function_map[i].name, name) && function_map[i].func) {
+            function_map[i].func();
+            return 0;
+        }
+    }
+    return -1;
+}
 
 void load_menu_graph(const char* file_name){
     FILE *fptr = fopen(file_name, "r");
@@ -31,7 +42,7 @@ void load_menu_graph(const char* file_name){
     while ((line_s = getline(&buffer, &line_s, fptr)) != -1) {
         buffer = trim(buffer);
         line_s = strlen(buffer);
-        printf("##La linea tiene tamanio %i y valor \"%s\".\n", line_s, buffer);
+        //printf("##La linea tiene tamanio %i y valor \"%s\".\n", line_s, buffer);
         // TODO Bug 1 : Empty lines bug
         // Comment on the file
         if(buffer[0] == '#' || line_s==0)
@@ -103,7 +114,7 @@ void load_menu_graph(const char* file_name){
         }
 
     }
-    printf("Load \n");
+    printf("Load Compelted \n\n");
 
     fclose(fptr);
 }
@@ -111,15 +122,15 @@ void run_menu(const char* file_name){
     load_menu_graph(file_name);
     int act_node = 0;
     int temp_input_line;
-
-    for(int i =0 ; i < 4; i++){
-        printf("Nodo %i : %s\n",i,menu_tree->node_list[i].text);
-    }
+    size_t temp_list_size = 0;
 
     // TODO Redefine this loop
     for(unsigned int i = 0; i < 200; i++){
-        printf("Estamos en el nodo %i.\n", act_node);
-        printf("Paso %i : %s",i, get_node_var(menu_tree,act_node));
+        // TODO Delete when its working
+        //printf("Estamos en el nodo %i.\n", act_node);
+        //printf("Paso %i : %s\n",i, get_node_var(menu_tree,act_node));
+        call_function(get_node_var(menu_tree,act_node));
+        print_next_node_list(menu_tree, act_node, &temp_list_size);
         // TODO check int input
         scanf("%i",&temp_input_line);
         if(temp_input_line == "-1")
@@ -128,15 +139,16 @@ void run_menu(const char* file_name){
     }
 }
 
+void home_menu(){
+    printf("Estamos en el Home Menu\n");
+}
 void map_menu(){
-    printf("Escoja el mapa que desee que aparezca:");
+    printf("Estamos en el Menu de Mapas.\n");
 }
 void algorithm_menu(){
-    printf("Escoja el mapa que desee que aparezca:");
+    printf("Estamos en el Menu de Algoritmos.\n");
 }
 void config_menu(){
-    printf("Escoja el mapa que desee que aparezca:");
+    printf("Estamos en el Menu de Configuracion.\n");
 }
-void home_menu(){
-    printf("Escoja el mapa que desee que aparezca:");
-}
+

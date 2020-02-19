@@ -4,6 +4,7 @@
 
 #include "string_graph.h"
 #include <stdlib.h>
+#include <stdio.h>
 #include <assert.h>
 #include <string.h>
 
@@ -66,7 +67,23 @@ char* get_node_var(string_graph* g,int n){
     return g->node_list[n].text;
 }
 
+void print_next_node_list(string_graph* g, int src, size_t* list_size){
+    assert(src<g->total_nodes);
+    adj_list_node* temp_node = g->adj_list_arr[src].head;
+
+    *list_size = 0;
+    while(temp_node!= NULL){
+        printf("\t%i) %s\n", (*list_size)++,  temp_node->text);
+        temp_node = temp_node->next;
+    }
+
+}
+
 int get_next_node(string_graph* g, int src, int n){
-    assert(g->total_nodes>n);
-    return g->adj_list_arr[src].head->vertex;
+    // TODO assert not NULL node
+    adj_list_node* temp_node = g->adj_list_arr[src].head;
+    while(n--)
+        temp_node = temp_node->next;
+
+    return temp_node->vertex;
 }

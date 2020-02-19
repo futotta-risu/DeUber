@@ -16,17 +16,27 @@ const int MAX_GRAPH_SIZE = 128;
 
 string_graph *menu_tree;
 
-void load_menu_graph(const char *file_name);
+void map_menu();
+void algorithm_menu();
+void config_menu();
+void home_menu();
 
+const static struct {
+    const char *name;
+    void (*func)(void);
+} function_map [] = {
+        {"home_menu", home_menu },
+        { "map_menu", map_menu },
+        { "algorithm_menu", algorithm_menu },
+        { "config_menu", config_menu }
+};
+
+int call_function(const char *name);
+
+void load_menu_graph(const char *file_name);
 void run_menu(const char *file_name);
 
-void map_menu();
 
-void algorithm_menu();
-
-void config_menu();
-
-void home_menu();
 
 #if defined (__cplusplus)
 }
