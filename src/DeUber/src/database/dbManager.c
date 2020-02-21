@@ -1,11 +1,11 @@
 //
-// Created by aritz on 15/02/2020.
+// Created by aritz on 21/02/2020.
 //
 #include <stdio.h>
 #include <stdlib.h>
 #include <sqlite3.h>
 
-static int callback(void *NotUsed, int argc, char **argv, char **azColName) {
+static int callback(int argc, char **argv, char **azColName) {
     int i;
     for(i = 0; i<argc; i++) {
         printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
@@ -14,7 +14,7 @@ static int callback(void *NotUsed, int argc, char **argv, char **azColName) {
     return 0;
 }
 
-int connectDB(int argc, char* argv[]) {
+int connectDB() {
     sqlite3 *db;
     char *zErrMsg = 0;
     int rc;
@@ -30,7 +30,7 @@ int connectDB(int argc, char* argv[]) {
     sqlite3_close(db);
 }
 
-int createTableDB(int argc, char* argv[]) {
+int createTableDB() {
     sqlite3 *db;
     char *zErrMsg = 0;
     int rc;
@@ -47,7 +47,7 @@ int createTableDB(int argc, char* argv[]) {
     }
 
     /* Create SQL statement */
-    sql = "CREATE TABLE  IF NOT EXIST COMPANY("  \
+    sql = "CREATE TABLE  IF NOT EXIST CAR("  \
       "ID INT PRIMARY KEY     NOT NULL," \
       "NAME           TEXT    NOT NULL," \
       "AGE            INT     NOT NULL," \
@@ -67,7 +67,7 @@ int createTableDB(int argc, char* argv[]) {
     return 0;
 }
 
-int insertDB(int argc, char* argv[]) {
+int insertDB() {
     sqlite3 *db;
     char *zErrMsg = 0;
     int rc;
@@ -106,7 +106,7 @@ int insertDB(int argc, char* argv[]) {
     return 0;
 }
 
-int selectDB(int argc, char* argv[]) {
+int selectDB() {
     sqlite3 *db;
     char *zErrMsg = 0;
     int rc;
@@ -139,7 +139,7 @@ int selectDB(int argc, char* argv[]) {
     return 0;
 }
 
-int updateDB(int argc, char* argv[]) {
+int updateDB() {
     sqlite3 *db;
     char *zErrMsg = 0;
     int rc;
@@ -172,7 +172,7 @@ int updateDB(int argc, char* argv[]) {
     sqlite3_close(db);
     return 0;
 }
-int deleteFromBD(int argc, char* argv[]) {
+int deleteFromBD() {
     sqlite3 *db;
     char *zErrMsg = 0;
     int rc;
