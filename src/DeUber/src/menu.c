@@ -68,7 +68,7 @@ void load_menu_graph(const char* file_name){
                 assert(node_act < node_number_t && node_act>=0);
 
                 char *node_text = trim(strtok(NULL, delim));
-                add_node(menu_tree, node_act, node_text);
+                add_node_text(menu_tree, node_act, node_text);
                 if(--node_number_i==0){
                     phase++;
                     continue;
@@ -126,7 +126,7 @@ void run_menu(const char* file_name){
         // TODO Delete when its working
         //printf("Estamos en el nodo %i.\n", act_node);
         //printf("Paso %i : %s\n",i, get_node_var(menu_tree,act_node));
-        call_function(get_node_var(menu_tree,act_node));
+        call_function(get_node_text(menu_tree,act_node));
 
         // TODO check input type validity
         unsigned short invalid_input = 0;

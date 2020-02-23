@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 14)
 
 
 include_directories(src/maps src/cars src/util/ds src/util/strings src)
-add_executable(DeUber src/main.cpp src/maps/map.cpp  src/cars/car.cpp  src/util/ds/string_graph.c  src/menu.c src/util/strings/strings_c.c )
+add_executable(DeUber src/main.cpp src/maps/map.cpp src/util/ds/string_graph.c  src/menu.c src/util/strings/strings_c.c )
 
 set(TEST_FOLDER tests)
 include_directories(${TEST_FOLDER}/include)

@@ -19,7 +19,14 @@ adj_list_node* create_adj_list_node(int vertex, char text[]){
     return temp_node;
 }
 
-void add_node(string_graph* g, int pos, char text[]){
+/**
+ * Adjunta el texto al nodo el nodo del grafo seleccionado.
+ *
+ * @param g string_graph
+ * @param pos Posicion de nodo
+ * @param text Texto a adjuntar
+ */
+void add_node_text(string_graph* g, int pos, char text[]){
     assert(strlen(text)<MAX_NODE_STR_LENGTH);
     node *temp_node = (node *)malloc(sizeof(node));
     assert(temp_node!=NULL);
@@ -61,7 +68,15 @@ void add_edge(string_graph* g, int src, int dest, char text[]){
     g->adj_list_arr[src].total_members++;
 
 }
-char* get_node_var(string_graph* g,int n){
+
+/**
+ * Devuelve el texto adjuntado al nodo en cuestion.
+ *
+ * @param g string_graph
+ * @param n Numero del nodo(ordenado desde 0 al n-1)
+ * @return Texto del nodo
+ */
+char* get_node_text(string_graph* g,int n){
     assert(g->total_nodes>n);
     return g->node_list[n].text;
 }
