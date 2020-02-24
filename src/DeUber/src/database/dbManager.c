@@ -3,7 +3,7 @@
 //
 #include <stdio.h>
 #include <stdlib.h>
-#include <sqlite3.h>
+#include "sqlite3.h"
 
 static int callback(int argc, char **argv, char **azColName) {
     int i;
@@ -272,7 +272,7 @@ int updateMapa() {
     return 0;
 }
 
-int deleteFromPersona(int id) {
+int deleteFromPersona() {
     sqlite3 *db;
     char *zErrMsg = 0;
     int rc;
@@ -290,7 +290,7 @@ int deleteFromPersona(int id) {
     }
 
     /* Create merged SQL statement */
-    sql = "DELETE from PERSONA where ID= " + id + "; " \
+    sql = "DELETE from PERSONA where ID= 2; " \
          "SELECT * from PERSONA";
 
     /* Execute SQL statement */
@@ -305,7 +305,7 @@ int deleteFromPersona(int id) {
     sqlite3_close(db);
     return 0;
 }
-int deleteFromMapa(int id) {
+int deleteFromMapa() {
     sqlite3 *db;
     char *zErrMsg = 0;
     int rc;
@@ -323,7 +323,7 @@ int deleteFromMapa(int id) {
     }
 
     /* Create merged SQL statement */
-    sql = "DELETE from MAPA where ID= " + id + "; " \
+    sql = "DELETE from MAPA where ID= 2; " \
          "SELECT * from MAPA";
 
     /* Execute SQL statement */
