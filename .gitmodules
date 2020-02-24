@@ -1,0 +1,3 @@
+[submodule "src/external/Catch2"]
+	path = src/DeUber/tests/include/Catch2
+	url = https://github.com/catchorg/Catch2

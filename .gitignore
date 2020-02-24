@@ -36,3 +36,9 @@
 
 .idea/
 cmake-build-debug/
+
+# Other
+.settings/
+.autotools
+.cproject
+.project
