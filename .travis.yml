@@ -27,5 +27,3 @@ script:
   - cd DeUber
   - cmake --version
   - cmake CMakeLists.txt
-  - make
-  - make DeUberTest

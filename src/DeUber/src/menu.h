@@ -14,6 +14,11 @@ extern "C" {
 const int MAX_BUFFER_SIZE = 1024;
 const int MAX_GRAPH_SIZE = 128;
 
+struct running_info{
+    char map_name[64];
+    int alg_name;
+};
+
 string_graph *menu_tree;
 
 void map_menu();
@@ -34,7 +39,7 @@ const static struct {
 int call_function(const char *name);
 
 void load_menu_graph(const char *file_name);
-void run_menu(const char *file_name);
+struct running_info run_menu(const char *file_name);
 
 
 

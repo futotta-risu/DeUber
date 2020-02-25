@@ -1,21 +1,18 @@
-
-#include "menu.h"
-#include "util/strings/strings_c.h"
-#include<stdio.h>
-#include<string.h>
 #include "maps/map.h"
+#include "util/file/config_handler.h"
 
-int main() {
-    // TODO Config file
-    constexpr const char* menu_file = "../data/menu.dg";
-    constexpr const char* map_file = "../data/maps/ej1.map";
-    constexpr const char* map_write = "../data/maps/mapaWrite.map";
+#include "global.h"
+#include "menu.h"
 
-    //run_menu(menu_file);
-    map mapa;
-    mapa.read_map(map_file);
-    mapa.print_map();
-    mapa.write_map(map_write);
+int main(int argc, char **argv ) {
+
+    run_menu(menu_file);
+    //map mapa;
+    //mapa.read_map(map_file);
+    //mapa.print_map();
+    //mapa.write_map(map_write);
+
+
 
     return 0;
 }
