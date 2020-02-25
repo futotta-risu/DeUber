@@ -30,7 +30,7 @@ int connectDB() {
     sqlite3_close(db);
 }
 
-int createTablePersona() {
+int createTableUsuario() {
     sqlite3 *db;
     char *zErrMsg = 0;
     int rc;
@@ -47,10 +47,10 @@ int createTablePersona() {
     }
 
     /* Create SQL statement */
-    sql = "CREATE TABLE  IF NOT EXIST PERSONA("  \
-      "ID_PERSONA INT PRIMARY KEY     NOT NULL," \
+    sql = "CREATE TABLE  IF NOT EXIST USUARIO("  \
+      "ID_USUARIO INT PRIMARY KEY     NOT NULL," \
       "NOMBRE           TEXT    ," \
-      "RUTA            INT     );";
+      "CONTRASEÑA            TEXT     );";
 
     /* Execute SQL statement */
     rc = sqlite3_exec(db, sql, callback, 0, &zErrMsg);
@@ -84,7 +84,7 @@ int createTableMapa() {
     /* Create SQL statement */
     sql = "CREATE TABLE  IF NOT EXIST MAPA("  \
       "ID_MAPA INT PRIMARY KEY     NOT NULL," \
-      "NOMBRE           TEXT    );";
+      "DATA           TEXT    );";
 
     /* Execute SQL statement */
     rc = sqlite3_exec(db, sql, callback, 0, &zErrMsg);
@@ -116,14 +116,14 @@ int insertDB() {
     }
 
     /* Create SQL statement */
-    sql = "INSERT INTO PERSONA (ID_PERSONA,NOMBRE,RUTA) "  \
-         "VALUES (1, 'Paul', 32); " \
-         "INSERT INTO PERSONA (ID_PERSONA,NOMBRE,RUTA) "  \
-         "VALUES (2, 'Allen', 25); "     \
-         "INSERT INTO MAPA (ID_MAPA,NOMBRE)" \
-         "VALUES (1, 'Bilbao');" \
-         "INSERT INTO MAPA (ID_MAPA,NOMBRE)" \
-         "VALUES (2, 'Madrid');";
+    sql = "INSERT INTO USUARIO (ID_USUARIO,NOMBRE,CONTRASEÑA) "  \
+         "VALUES (1, 'Paul', '12345'); " \
+         "INSERT INTO USUARIO (ID_USUARIO,NOMBRE,CONTRASEÑA) "  \
+         "VALUES (2, 'Allen', 'abcd123'); "     \
+         "INSERT INTO MAPA (ID_MAPA,DATA)" \
+         "VALUES (1, '1010111001');" \
+         "INSERT INTO MAPA (ID_MAPA,DATA)" \
+         "VALUES (2, '1000111101');";
 
     /* Execute SQL statement */
     rc = sqlite3_exec(db, sql, callback, 0, &zErrMsg);
@@ -138,7 +138,7 @@ int insertDB() {
     return 0;
 }
 
-int selectPersona() {
+int selectUsuario() {
     sqlite3 *db;
     char *zErrMsg = 0;
     int rc;
@@ -156,7 +156,7 @@ int selectPersona() {
     }
 
     /* Create SQL statement */
-    sql = "SELECT * from PERSONA";
+    sql = "SELECT * from USUARIO";
 
     /* Execute SQL statement */
     rc = sqlite3_exec(db, sql, callback, (void*)data, &zErrMsg);
@@ -204,7 +204,7 @@ int selectMapa() {
     return 0;
 }
 
-int updatePersona() {
+int updateUsuaio() {
     sqlite3 *db;
     char *zErrMsg = 0;
     int rc;
@@ -222,8 +222,8 @@ int updatePersona() {
     }
 
     /* Create merged SQL statement */
-    sql = "UPDATE PERSONA set RUTA = 14 where ID=1; " \
-         "SELECT * from PERSONA";
+    sql = "UPDATE USUARIO set NOMBRE = 'Marcos' where ID=1; " \
+         "SELECT * from USUARIO";
 
     /* Execute SQL statement */
     rc = sqlite3_exec(db, sql, callback, (void*)data, &zErrMsg);
@@ -256,7 +256,7 @@ int updateMapa() {
     }
 
     /* Create merged SQL statement */
-    sql = "UPDATE MAPA set NOMBRE = 'Barcelona' where ID=2; " \
+    sql = "UPDATE MAPA set DATA = '1010111000' where ID=2; " \
          "SELECT * from MAPA";
 
     /* Execute SQL statement */
@@ -272,7 +272,7 @@ int updateMapa() {
     return 0;
 }
 
-int deleteFromPersona() {
+int deleteFromUsuario() {
     sqlite3 *db;
     char *zErrMsg = 0;
     int rc;
@@ -290,8 +290,8 @@ int deleteFromPersona() {
     }
 
     /* Create merged SQL statement */
-    sql = "DELETE from PERSONA where ID= 2; " \
-         "SELECT * from PERSONA";
+    sql = "DELETE from USUARIO where ID= 2; " \
+         "SELECT * from USUARIO";
 
     /* Execute SQL statement */
     rc = sqlite3_exec(db, sql, callback, (void*)data, &zErrMsg);
