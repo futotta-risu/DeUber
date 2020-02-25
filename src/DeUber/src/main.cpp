@@ -9,10 +9,13 @@ int main() {
     // TODO Config file
     constexpr const char* menu_file = "../data/menu.dg";
     constexpr const char* map_file = "../data/maps/ej1.map";
+    constexpr const char* map_write = "../data/maps/mapaWrite.map";
+
     //run_menu(menu_file);
     map mapa;
     mapa.read_map(map_file);
     mapa.print_map();
+    mapa.write_map(map_write);
 
     return 0;
 }

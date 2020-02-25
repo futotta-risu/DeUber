@@ -5,8 +5,11 @@
 #include <assert.h>
 #include <stdlib.h>
 #include <cstring>
+#include <iostream>
+#include <fstream>
 #include "util/strings/strings_c.h"
 #include "map.h"
+using namespace std;
 
 map::map(){
     n_height = 0;
@@ -78,4 +81,18 @@ void map::read_map(const char* file_name){
             map_values[temp_height][i] = buffer[i] -'0';
         temp_height++;
     }
+}
+
+
+void map::write_map(const char* file_name){
+    ofstream myfile;
+    cout << file_name <<endl;
+    myfile.open (file_name);
+    myfile << n_width << " " << n_height << endl;
+    for(unsigned int i_height = 0; i_height < n_height; i_height++) {
+        for (unsigned int i_width = 0; i_width < n_width; i_width++)
+            myfile << map_values[i_height][i_width];
+        myfile << "\n";
+    }
+    myfile.close();
 }

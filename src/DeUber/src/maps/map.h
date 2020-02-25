@@ -42,6 +42,8 @@ public:
     void print_map();
 
     void read_map(const char* file_name);
+
+    void write_map(const char *file_name);
 };
 
 
