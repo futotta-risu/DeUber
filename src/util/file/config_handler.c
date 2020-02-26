@@ -11,11 +11,22 @@
 config_property* config_vals;
 int n_config;
 
+void save_config(){
+    FILE *fp = fopen(config_name, "w");
+    printf("config: %s", config_name);
+    for(int i_temp = 0; i_temp < n_config; i_temp++)
+        fprintf(fp, "%s : %s\n", (config_vals + i_temp)->property_name,(config_vals + i_temp)->property_value );
+
+    fclose(fp);
+
+}
+
 void change_property(char* property_name, char* property_value){
     for(unsigned int i = 0; i < n_config; i++){
         if(strcmp((config_vals +i)->property_name, property_name) == 0)
-            (config_vals +i)->property_name =  strdup(property_value);
+            (config_vals +i)->property_value =  strdup(property_value);
     }
+    save_config();
 }
 
 
@@ -68,7 +79,6 @@ void read_config(const char* file_name){
     }
     fclose(fptr);
 }
-void save_config();
 
 void print_config(){
     for(int temp_val = 0; temp_val < n_config; temp_val++)

@@ -12,7 +12,7 @@ extern "C" {
 #define MAX_NODE_STR_LENGTH 128
 
 #include <string.h>
-
+#include "../../error_coding.h"
 
 typedef struct adj_list_node adj_list_node;
 typedef struct adj_list adj_list;
@@ -41,16 +41,14 @@ typedef struct {
     node *node_list;
 } string_graph;
 
-string_graph *create_graph(int v);
+adj_list_node* create_adj_list_node(int vertex, char text[]);
 
-void add_edge(string_graph *g, int src, int dest, char text[]);
+error_c create_graph(int v, string_graph **s_graph);
+error_c add_edge(string_graph **g, int src, int dest, char text[]);
+error_c add_node_text(string_graph **g, int pos, char text[]);
 
-void add_node_text(string_graph *g, int pos, char text[]);
-
-char *get_node_text(string_graph *g, int n);
-
+char* get_node_text(string_graph *g, int n);
 int get_next_node(string_graph *g, int src, int n);
-
 void print_next_node_list(string_graph *g, int src, size_t *list_size);
 
 #if defined (__cplusplus)

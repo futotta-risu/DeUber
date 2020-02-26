@@ -5,6 +5,8 @@
 #ifndef DEUBER_STRINGS_C_H
 #define DEUBER_STRINGS_C_H
 
+
+
 #if defined (__cplusplus)
 extern "C" {
 #endif

@@ -9,10 +9,9 @@
 #include <string.h>
 
 adj_list_node* create_adj_list_node(int vertex, char text[]){
-    assert(strlen(text)<MAX_NODE_STR_LENGTH);
     adj_list_node *temp_node = (adj_list_node *)malloc(sizeof(adj_list_node));
+    if(temp_node == NULL) return NULL;
 
-    assert(temp_node!=NULL);
     temp_node->vertex = vertex;
     temp_node->next = NULL;
     strcpy(temp_node->text, text);
@@ -25,47 +24,52 @@ adj_list_node* create_adj_list_node(int vertex, char text[]){
  * @param g string_graph
  * @param pos Posicion de nodo
  * @param text Texto a adjuntar
+ * @return Error Code
  */
-void add_node_text(string_graph* g, int pos, char text[]){
-    assert(strlen(text)<MAX_NODE_STR_LENGTH);
+error_c add_node_text(string_graph** g, int pos, char text[]){
+    if(strlen(text) > MAX_NODE_STR_LENGTH) return E_STRING_SIZE_ERROR;
     node *temp_node = (node *)malloc(sizeof(node));
-    assert(temp_node!=NULL);
+    if(temp_node == NULL) return E_BUFFER_OVERFLOW_ERROR;
+
     strcpy(temp_node->text, text);
     temp_node->neightbors=0;
-    g->node_list[pos] = *temp_node;
+    (*g)->node_list[pos] = *temp_node;
+    return E_SUCCESS;
 }
 
-string_graph* create_graph(int v){
-    string_graph* graph = (string_graph *)malloc(sizeof(string_graph));
-    assert(graph != NULL);
+error_c create_graph(int v, string_graph** s_graph){
+    (*s_graph)= (string_graph *)malloc(sizeof(string_graph));
+    if(*s_graph == NULL) return E_BUFFER_OVERFLOW_ERROR;
 
-    graph->total_nodes = v;
-    graph->total_edges = 0;
-    graph->adj_list_arr = malloc(v * sizeof(adj_list));
-    graph->node_list = malloc(v * sizeof(node));
+    (*s_graph)->total_nodes = v;
+    (*s_graph)->total_edges = 0;
+    (*s_graph)->adj_list_arr = malloc(v * sizeof(adj_list));
+    (*s_graph)->node_list = malloc(v * sizeof(node));
 
-    if(graph->adj_list_arr == NULL){
-        free(graph);
-        return NULL;
+    if((*s_graph)->adj_list_arr == NULL){
+        free(s_graph);
+        return E_BUFFER_OVERFLOW_ERROR;
     }
     for(int i = 0; i < v; i++){
-        graph->adj_list_arr[i].head = NULL;
-        graph->adj_list_arr[i].total_members = 0;
+        (*s_graph)->adj_list_arr[i].head = NULL;
+        (*s_graph)->adj_list_arr[i].total_members = 0;
     }
-    return graph;
-}
-void add_edge(string_graph* g, int src, int dest, char text[]){
-    assert(src <= g->total_nodes && src >= 0);
-    assert(dest <= g->total_nodes && dest >= 0);
 
+
+    return E_SUCCESS;
+}
+error_c add_edge(string_graph** g, int src, int dest, char text[]){
+    if(src > (*g)->total_nodes ||  src <0) return E_INVALID_NODE_CONNECTION;
+    if(dest > (*g)->total_nodes ||  dest <0) return E_INVALID_NODE_CONNECTION;
+    if(strlen(text) >= MAX_NODE_STR_LENGTH) return E_STRING_SIZE_ERROR;
     // TODO Is alredy the edge in?
 
     adj_list_node *temp_node = create_adj_list_node(dest, text);
-    assert(temp_node != NULL);
+    if(temp_node == NULL) return E_BUFFER_OVERFLOW_ERROR;
 
-    temp_node->next = g->adj_list_arr[src].head;
-    g->adj_list_arr[src].head = temp_node;
-    g->adj_list_arr[src].total_members++;
+    temp_node->next = (*g)->adj_list_arr[src].head;
+    (*g)->adj_list_arr[src].head = temp_node;
+    (*g)->adj_list_arr[src].total_members++;
 
 }
 
@@ -77,7 +81,6 @@ void add_edge(string_graph* g, int src, int dest, char text[]){
  * @return Texto del nodo
  */
 char* get_node_text(string_graph* g,int n){
-    assert(g->total_nodes>n);
     return g->node_list[n].text;
 }
 
