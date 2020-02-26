@@ -23,9 +23,5 @@ before_install:
     fi
     cmake --version
 script:
-  - cd src
-  - cd DeUber
   - cmake --version
   - cmake CMakeLists.txt
-  - make
-  - make DeUberTest

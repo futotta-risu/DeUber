@@ -5,8 +5,18 @@
 #include <stdio.h>
 #include <assert.h>
 #include <stdlib.h>
+#include <dirent.h>
 #include "util/strings/strings_c.h"
 #include "menu.h"
+#include "util/file/config_handler.h"
+#include "global.h"
+
+#ifdef _WIN32
+#define clrscr() system("cls");
+#else
+#include <stdio.h>
+#define clrscr() printf("\e[1;1H\e[2J")
+#endif
 
 int call_function(const char *name){
     for (int i = 0; i < (sizeof(function_map) / sizeof(function_map[0])); i++) {
@@ -17,6 +27,18 @@ int call_function(const char *name){
     }
     return -1;
 }
+
+void print_logo(){
+    printf("oooooooooo.             ooooo     ooo  .o8\n");
+    printf("`888'   `Y8b            `888'     `8' \"888                          \n");
+    printf("888      888  .ooooo.   888       8   888oooo.   .ooooo.  oooo d8b\n");
+    printf("888      888 d88' `88b  888       8   d88' `88b d88' `88b `888\"\"8P \n");
+    printf("888      888 888ooo888  888       8   888   888 888ooo888  888\n");
+    printf("888     d88' 888    .o  `88.    .8'   888   888 888    .o  888\n");
+    printf("o888bood8P'   `Y8bod8P'    `YbodP'     `Y8bod8P' `Y8bod8P' d888b    \n");
+    printf("\n \n");
+}
+
 
 void load_menu_graph(const char* file_name){
     FILE *fptr = fopen(file_name, "r");
@@ -101,8 +123,7 @@ void load_menu_graph(const char* file_name){
                 add_edge(menu_tree, edge_src, edge_dst, node_text);
 
                 if(--edge_number_i==0){
-                    phase++;
-                    continue;
+                    phase++; continue;
                 }
                 continue;
             }
@@ -111,11 +132,14 @@ void load_menu_graph(const char* file_name){
         }
 
     }
-    printf("Load Compelted \n\n");
+    printf("Load Completed \n\n");
 
     fclose(fptr);
 }
-void run_menu(const char* file_name){
+struct running_info run_menu(const char* file_name){
+
+    struct running_info r_info = {"", -1};
+
     load_menu_graph(file_name);
     int act_node = 0;
     int temp_input_line;
@@ -126,6 +150,8 @@ void run_menu(const char* file_name){
         // TODO Delete when its working
         //printf("Estamos en el nodo %i.\n", act_node);
         //printf("Paso %i : %s\n",i, get_node_var(menu_tree,act_node));
+        clrscr();
+        print_logo();
         call_function(get_node_text(menu_tree,act_node));
 
         // TODO check input type validity
@@ -142,20 +168,55 @@ void run_menu(const char* file_name){
                 invalid_input = 1;
             }
         }while(invalid_input==1);
+
         act_node = get_next_node(menu_tree, act_node, temp_input_line);
     }
+    return r_info;
 }
+
 
 void home_menu(){
     printf("Estamos en el Home Menu\n");
 }
 void map_menu(){
-    printf("Estamos en el Menu de Mapas.\n");
+
+    DIR *d;
+    struct dirent *dir;
+    d = opendir("../data/maps");
+    if (d){
+        printf("Escoja el mapa que quiera usar de ahora en adelante.\n");
+        int i = 0;
+        while ((dir = readdir(d)) != NULL){
+            if(dir->d_name[0]=='.')
+                continue;
+            printf("\t\t%i)%s\n",i, dir->d_name);
+        }
+        closedir(d);
+    }else{
+        // TODO Error
+        return;
+    }
+    printf("Escriba algo:");
+    int i;
+    scanf("%i", &i);
+    fflush(stdin);
+    // TODO Implement this function
+
 }
 void algorithm_menu(){
     printf("Estamos en el Menu de Algoritmos.\n");
 }
 void config_menu(){
-    printf("Estamos en el Menu de Configuracion.\n");
+    int temp_resp;
+    do{
+        printf("Escriba 2 si quiere ver la configuracion y -1 si quiere salir.");
+        scanf("%i", &temp_resp);
+        fflush(stdin);
+        if(temp_resp == 2){
+            read_config(config_file);
+            print_config();
+        }
+    }while(temp_resp != -1);
+    // TODO Implement correclty
 }
 
