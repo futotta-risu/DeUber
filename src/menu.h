@@ -28,6 +28,7 @@ void home_menu( struct running_info* run_info);
 void config_change(struct running_info* run_info);
 void config_print(struct running_info* run_info);
 
+
 const static struct {
     const char *name;
     void (*func)( struct running_info* run_info);

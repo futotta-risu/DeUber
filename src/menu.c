@@ -40,15 +40,8 @@ void print_logo(){
 }
 
 string_graph *menu_tree;
-/**
- *
 
- *
- *
- * @param file_name
- * @return Error code
- *
- */
+
 error_c load_menu_graph(const char* file_name){
     FILE *fptr = fopen(file_name, "r");
     if(fptr == NULL) return E_BUFFER_OVERFLOW_ERROR;
@@ -171,6 +164,7 @@ struct running_info run_menu(const char* file_name){
             scanf("%i",&temp_input_line);
             fflush(stdin);
             printf("\n");
+            if(temp_input_line == -1) return r_info;
             if(temp_input_line<0 || temp_input_line>= temp_list_size){
                 printf("Por favor, introduzca un numero de entre las opciones.\n");
                 invalid_input = 1;
@@ -186,6 +180,7 @@ struct running_info run_menu(const char* file_name){
 void home_menu( struct running_info* run_info){
     printf("Estamos en el Home Menu\n");
     printf("Estado del pack informativo \n");
+    printf("\n\tRecuerda que para ejecutar el programa debes escribir -1.\n");
     printf("\n Map Name : %s \n Algorithm %i\n\n", run_info->map_name, run_info->alg_name);
 }
 void map_menu( struct running_info* run_info){
