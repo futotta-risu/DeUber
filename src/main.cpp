@@ -4,11 +4,15 @@
 #include "global.h"
 #include "menu.h"
 #include "algorithms/random_algorithm.h"
-#include <iostream>
+#include "running_menu.h"
 
+#include <iostream>
+#include <time.h>
 int car::car_id = 0;
 
 int main(int argc, char **argv ) {
+
+    srand(time(NULL));
 
     //struct running_info run_inf = run_menu(menu_file);
     //printf("Hemos salido\n\n");
@@ -24,9 +28,7 @@ int main(int argc, char **argv ) {
     mapa.print_map();
     std::cout << "The car id---------" << car::car_id << std::endl;
     random_algorithm alg;
-    alg.move_cars(&mapa);
-    std::cout << "The car id---------" << car::car_id << std::endl;
-    mapa.print_map();
+    running_menu_launch(&mapa, &alg);
 
 
     return 0;

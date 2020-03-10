@@ -17,6 +17,8 @@ struct _error_info _error_val[] = {
         };
 const int _error_n = sizeof(_error_val) / sizeof(struct _error_info);
 
+// Could be improved y implementing some kind of hash function bashed on the code number to the array position
+// if the array gets long enough.
 struct _error_info get_error_by_type(error_c err_c) {
     for (int i = 0; i < _error_n; i++)
         if (_error_val[i].code_type == err_c)

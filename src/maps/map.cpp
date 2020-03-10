@@ -51,8 +51,11 @@ void map::reshape(int height, int width){
 
 void map::print_map(){
     for(unsigned int i_height = 0; i_height < n_height; i_height++){
-        for(unsigned int i_width = 0; i_width < n_width; i_width++)
-            printf("%i",map_values[i_height][i_width].act_val);
+        for(unsigned int i_width = 0; i_width < n_width; i_width++){
+            if(map_values[i_height][i_width].act_val == 0) printf("%c" , ' ');
+            else printf("%i",map_values[i_height][i_width].act_val);
+        }
+
         printf("\n");
     }
 }
@@ -133,9 +136,14 @@ void map::move_car(int id, int dir){
     int val_x = car_list[index_of_car].get_coord_x();
     int val_y_n = val_y + (2*(dir%2)-((dir*dir*dir)%4));
     int val_x_n = val_x + (((dir+1)%2==0) ? 0: ((dir == 2) ? 1 : -1));
-    if(map_values[val_y_n][val_x_n].def_val != 0) return;
+
+    if(val_x_n<0 || val_x_n>= this->n_width) return;
+    if(val_y_n<0 || val_y_n>= this->n_height) return;
+    if(map_values[val_y_n][val_x_n].def_val != 0 || map_values[val_y_n][val_x_n].act_val==CAR) return;
 
     map_values[val_y][val_x].act_val = map_values[val_y][val_x].def_val;
     map_values[val_y_n][val_x_n].act_val = CAR;
+    car_list[index_of_car].set_coords(val_x_n,val_y_n);
+
 }
 

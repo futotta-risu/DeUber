@@ -8,7 +8,7 @@
 
 static const char config_file[] = "../data/config.txt";
 static const char menu_file[] = "../data/menu.dg";
-static const char map_file[] = "../data/maps/ej1.map";
+static const char map_file[] = "../data/maps/ej2.map";
 static const char map_write[] = "../data/maps/mapaWrite.map";
 
 
