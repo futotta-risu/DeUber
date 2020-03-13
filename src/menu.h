@@ -11,12 +11,14 @@ extern "C" {
 
 #include "util/ds/string_graph.h"
 #include "error_coding.h"
+
+#include "algorithms/algorithm_type.h"
 const int MAX_BUFFER_SIZE = 1024;
 const int MAX_GRAPH_SIZE = 128;
 
 struct running_info{
     char* map_name;
-    int alg_name;
+    enum algorithm_type alg_name;
 };
 
 string_graph *menu_tree;

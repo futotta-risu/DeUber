@@ -67,7 +67,10 @@ map::~map() {
 }
 
 void map::read_map(const char* file_name){
-    FILE *fptr = fopen(file_name, "r");
+    char file_name_t[] = "../data/maps/";
+    char* full_file_name = strcat(file_name_t, file_name);
+
+    FILE *fptr = fopen(full_file_name, "r");
     assert(fptr != NULL);
 
     size_t line_s;

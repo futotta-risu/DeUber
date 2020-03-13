@@ -9,6 +9,7 @@
 #include "map.h"
 #include "car.h"
 
+
 class generic_algorithm {
 public:
     virtual int get_best_move(map *map_t, car car_t) = 0;

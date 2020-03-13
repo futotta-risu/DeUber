@@ -8,9 +8,6 @@
 #include "generic_algorithm.h"
 #include "random_algorithm.h"
 
-enum algorithm_type{
-    RANDOM
-};
 
 generic_algorithm* get_algorithm_by_type(algorithm_type alg_type){
     switch(alg_type){
@@ -20,6 +17,7 @@ generic_algorithm* get_algorithm_by_type(algorithm_type alg_type){
     }
     return nullptr;
 }
+
 
 
 #endif //DEUBER_ALGORITHM_HELPER_H

@@ -133,7 +133,7 @@ error_c load_menu_graph(const char* file_name){
 }
 struct running_info run_menu(const char* file_name){
     error_c er_t;
-    struct running_info r_info = {"", -1};
+    struct running_info r_info = {"", RANDOM};
     er_t = load_menu_graph(file_name);
 
     // TODO Make the running info to have error handling to work with the errors
