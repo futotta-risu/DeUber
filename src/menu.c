@@ -3,7 +3,6 @@
 //
 
 #include <stdio.h>
-#include <assert.h>
 #include <stdlib.h>
 #include <dirent.h>
 #include "util/strings/strings_c.h"
@@ -133,7 +132,7 @@ error_c load_menu_graph(const char* file_name){
 }
 struct running_info run_menu(const char* file_name){
     error_c er_t;
-    struct running_info r_info = {"", RANDOM};
+    struct running_info r_info = {"", BFS};
     er_t = load_menu_graph(file_name);
 
     // TODO Make the running info to have error handling to work with the errors

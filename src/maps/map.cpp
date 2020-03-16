@@ -128,6 +128,7 @@ void map::add_car(car car_t){
 }
 
 void map::move_car(int id, int dir){
+    if(dir==0) return;
     int index_of_car = -1;
     for(int i = 0; i < car_list.size(); i++)
         if(car_list[i].get_id() == id) {
@@ -137,6 +138,7 @@ void map::move_car(int id, int dir){
     if(index_of_car==-1) return;
     int val_y = car_list[index_of_car].get_coord_y();
     int val_x = car_list[index_of_car].get_coord_x();
+
     int val_y_n = val_y + (2*(dir%2)-((dir*dir*dir)%4));
     int val_x_n = val_x + (((dir+1)%2==0) ? 0: ((dir == 2) ? 1 : -1));
 
@@ -150,3 +152,18 @@ void map::move_car(int id, int dir){
 
 }
 
+int** map::get_aval_map(){
+    int** map_copy = new int*[n_height];
+    for(unsigned int i = 0; i < n_height; i++){
+        map_copy[i] = new int[n_width];
+        for(unsigned int j = 0; j < n_width; j++){
+            if(map_values[i][j].act_val==FLOOR) map_copy[i][j] = 0;
+            else if(map_values[i][j].act_val==CAR) map_copy[i][j] = 0;
+            else if(map_values[i][j].act_val==BUILDING) map_copy[i][j] = 1;
+            else map_copy[i][j] = 3;
+        }
+    }
+
+
+    return map_copy;
+}

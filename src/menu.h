@@ -13,6 +13,7 @@ extern "C" {
 #include "error_coding.h"
 
 #include "algorithms/algorithm_type.h"
+
 const int MAX_BUFFER_SIZE = 1024;
 const int MAX_GRAPH_SIZE = 128;
 
@@ -21,7 +22,9 @@ struct running_info{
     enum algorithm_type alg_name;
 };
 
-string_graph *menu_tree;
+extern string_graph *menu_tree;
+
+
 
 void map_menu( struct running_info* run_info);
 void algorithm_menu( struct running_info* run_info);

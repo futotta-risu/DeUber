@@ -5,6 +5,7 @@
 #ifndef DEUBER_CAR_H
 #define DEUBER_CAR_H
 
+#include <queue>
 #include "global.h"
 
 enum operation{
@@ -18,6 +19,8 @@ private:
     int coord_x, coord_y;
     int point_t;
     operation op;
+
+    std::queue<int> moves;
 public:
     static int car_id;
     car(){
@@ -63,6 +66,18 @@ public:
 
     operation get_operation(){
         return op;
+    }
+
+    int get_move(){
+        int move_t = moves.front();
+        moves.pop();
+        if(moves.empty())
+            op = NONE;
+        return move_t;
+    }
+    void add_move(int dir){
+        moves.push(dir);
+        op=WORKING;
     }
 
     int set_points(int i_point_t){

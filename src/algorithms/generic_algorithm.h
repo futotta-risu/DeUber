@@ -12,7 +12,7 @@
 
 class generic_algorithm {
 public:
-    virtual int get_best_move(map *map_t, car car_t) = 0;
+    virtual int get_best_move(map *map_t, car *car_t) = 0;
     virtual void move_cars(map *map_t) = 0;
 private:
 };

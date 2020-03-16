@@ -6,7 +6,7 @@
 #define DEUBER_ALGORITHM_TYPE_H
 
 enum algorithm_type{
-    RANDOM
+    RANDOM, BFS
 };
 
 #endif //DEUBER_ALGORITHM_TYPE_H

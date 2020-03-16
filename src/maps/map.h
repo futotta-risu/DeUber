@@ -60,11 +60,13 @@ public:
 
     void move_car(int id, int dir);
 
+    int** get_aval_map();
+
     int get_car_list_size(){
         return car_list.size();
     }
-    car get_car(int i){
-        return car_list[i];
+    car *get_car(int i){
+        return &car_list[i];
     }
 };
 
