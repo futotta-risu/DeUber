@@ -44,3 +44,7 @@ cmake-build-debug/
 .autotools
 .cproject
 .project
+
+# Special files from project
+!bin/*exe
+def*.map

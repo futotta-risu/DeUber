@@ -23,7 +23,7 @@ void software_launcher::non_visual_handler(){
     map mapa;
     mapa.read_map(run_inf.map_name);
 
-    mapa.add_car(1,1);
+    mapa.add_car(1,0);
     running_menu_launch(&mapa, get_algorithm_by_type(run_inf.alg_name));
 }
 

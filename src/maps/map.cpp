@@ -32,14 +32,9 @@ map::map(int height, int width) {
 
 void map::reshape(int height, int width){
     // TODO Mejorar los errores
-    if(width < 0)
-        throw "Negative Width"; // Un mapa no puede tener tamaño negativo
-    else if(width > MAX_MAP_WIDTH)
-        throw "Excesive Width";
-    if(height < 0)
-        throw "Negative height"; // Un mapa no puede tener tamaño negativo
-    else if(height > MAX_MAP_HEIGHT)
-        throw "Excesive height";
+
+    if(width < 0 || width > MAX_MAP_WIDTH || height < 0 || height > MAX_MAP_HEIGHT)
+        throw map_out_of_bounds(width, height);
 
     n_width = width;
     n_height = height;
@@ -114,15 +109,19 @@ void map::write_map(const char* file_name){
 }
 
 void map::add_car(int pos_x, int pos_y){
-    // TODO check if valid coords
+
+    if(!check_coords(pos_x, pos_y))
+        throw invalid_coords(pos_x, pos_y, this);
+
     car car_temp(pos_x, pos_y);
     car_list.push_back(car_temp);
 
     map_values[pos_y][pos_x].act_val = CAR;
 }
 void map::add_car(car car_t){
-    // TODO check if correct coords
     car_list.push_back(car_t);
+    if(!check_coords(car_t.get_coord_x(), car_t.get_coord_y()))
+        throw invalid_coords(car_t.get_coord_x(), car_t.get_coord_y(), this);
 
     map_values[car_t.get_coord_y()][car_t.get_coord_x()].act_val = CAR;
 }
@@ -142,9 +141,8 @@ void map::move_car(int id, int dir){
     int val_y_n = val_y + (2*(dir%2)-((dir*dir*dir)%4));
     int val_x_n = val_x + (((dir+1)%2==0) ? 0: ((dir == 2) ? 1 : -1));
 
-    if(val_x_n<0 || val_x_n>= this->n_width) return;
-    if(val_y_n<0 || val_y_n>= this->n_height) return;
-    if(map_values[val_y_n][val_x_n].def_val != 0 || map_values[val_y_n][val_x_n].act_val==CAR) return;
+
+    if(map_values[val_y_n][val_x_n].def_val == BUILDING || map_values[val_y_n][val_x_n].act_val==CAR) return;
 
     map_values[val_y][val_x].act_val = map_values[val_y][val_x].def_val;
     map_values[val_y_n][val_x_n].act_val = CAR;
@@ -163,7 +161,12 @@ int** map::get_aval_map(){
             else map_copy[i][j] = 3;
         }
     }
-
-
     return map_copy;
 }
+bool map::check_coords(int x, int y){
+    if(x<0 || x>= this->n_width)
+        throw invalid_coords(x,y,this);
+    if(y<0 || y>= this->n_height)
+        throw invalid_coords(x,y,this);
+}
+

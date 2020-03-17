@@ -37,7 +37,7 @@ public:
         }
     }
 
-    int get_best_move(map *map_t, car *car_t){
+    int get_best_move(map *map_t, car *car_t) override{
         if(car_t->get_operation() == WORKING)
             return car_t->get_move();
         int** map = map_t->get_aval_map();
@@ -73,8 +73,6 @@ public:
         int act_val_back = map[goal_coords.second][goal_coords.first];
         std::stack<int> move_list;
         while(map[back_coords.second][back_coords.first]!=5){
-            int dir_back = -1;
-            int val_back = -1;
             std::pair<int,int> vals = std::make_pair(-1, -1);
             get_dir_val(&map, 4, std::make_pair(back_coords.first-1,back_coords.second), map_size, &vals);
             get_dir_val(&map, 1, std::make_pair(back_coords.first,back_coords.second+1), map_size, &vals);
@@ -100,7 +98,7 @@ public:
         return 0;
     };
 
-    void move_cars(map *map_t){
+    void move_cars(map *map_t) override{
         for(int i = 0; i < map_t->get_car_list_size(); i++){
             car *car_t = map_t->get_car(i);
             int dir = get_best_move(map_t, car_t);
