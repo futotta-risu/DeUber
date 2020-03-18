@@ -17,9 +17,12 @@ extern "C" {
 const int MAX_BUFFER_SIZE = 1024;
 const int MAX_GRAPH_SIZE = 128;
 
+const int MAX_FILE_BUFFER_SIZE = 16;
+
 struct running_info{
     char* map_name;
     enum algorithm_type alg_name;
+    error_c  err;
 };
 
 extern string_graph *menu_tree;

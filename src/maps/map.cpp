@@ -2,13 +2,13 @@
 // Created by whiwho on 11/02/2020.
 //
 
-#include <assert.h>
-#include <stdlib.h>
+
 #include <cstring>
 #include <iostream>
 #include <fstream>
 #include "util/strings/strings_c.h"
 #include "map.h"
+#include "map_errors.h"
 using namespace std;
 
 map::map(){
@@ -16,7 +16,6 @@ map::map(){
     n_width = 0;
     map_values = nullptr;
     car_list = {};
-    assert(map_values == nullptr);
 }
 
 map::map(int height, int width) {
@@ -66,7 +65,6 @@ void map::read_map(const char* file_name){
     char* full_file_name = strcat(file_name_t, file_name);
 
     FILE *fptr = fopen(full_file_name, "r");
-    assert(fptr != NULL);
 
     size_t line_s;
     char * buffer = NULL;
@@ -168,5 +166,6 @@ bool map::check_coords(int x, int y){
         throw invalid_coords(x,y,this);
     if(y<0 || y>= this->n_height)
         throw invalid_coords(x,y,this);
+    return true;
 }
 

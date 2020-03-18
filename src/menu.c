@@ -10,6 +10,9 @@
 #include "util/file/config_handler.h"
 #include "global.h"
 
+#include <errno.h>
+#include <limits.h>
+
 #ifdef _WIN32
 #define clrscr() system("cls");
 #else
@@ -56,10 +59,8 @@ error_c load_menu_graph(const char* file_name){
      * Phase 4 - Get Edge Vals
      */
     unsigned short phase = 0;
-    int node_number_i = 0;
-    int edge_number_i = 0;
-    int node_number_t = 0;
-    int edge_number_t = 0;
+    int node_number_i = 0, edge_number_i = 0, node_number_t = 0;
+
     while ((line_s = getline(&buffer, &line_s, fptr)) != -1) {
         buffer = trim(buffer);
         line_s = strlen(buffer);
@@ -71,11 +72,17 @@ error_c load_menu_graph(const char* file_name){
 
         switch(phase){
             case 0:{
-                char *node_expected = trim(strtok(buffer, delim));
 
+                char *node_expected = trim(strtok(buffer, delim));
                 if(strcmp(node_expected,"Node")!=0) return E_INVALID_MENU_GRAPH_FILE;
 
-                node_number_i = node_number_t = atoi(trim(strtok(NULL, delim)));
+                errno = 0;
+                long err_a = strtol(trim(strtok(NULL, delim)), NULL, 10);
+                if(err_a == LONG_MAX || err_a == LONG_MIN )
+                    return E_TOO_LONG_NUMBER_GRAPH_FILE;
+                else if(errno==EINVAL) return E_INVALID_MENU_GRAPH_FILE;
+                else node_number_i = node_number_t = err_a;
+
                 if(node_number_i >= MAX_GRAPH_SIZE || node_number_i<0)
                     return E_INVALID_MENU_GRAPH_FILE;
 
@@ -86,7 +93,15 @@ error_c load_menu_graph(const char* file_name){
                 continue;
             }
             case 1:{
-                int node_act = atoi(trim(strtok(buffer, delim)));
+                int node_act;
+
+                errno = 0;
+                long err_a = strtol(trim(strtok(buffer, delim)), NULL, 10);
+                if(err_a == LONG_MAX || err_a == LONG_MIN )
+                    return E_TOO_LONG_NUMBER_GRAPH_FILE;
+                else if(errno==EINVAL) return E_INVALID_MENU_GRAPH_FILE;
+                else node_act = err_a;
+
                 if(node_act > node_number_t || node_act < 0)
                     return E_INVALID_NODE_NUMBER;
 
@@ -95,27 +110,45 @@ error_c load_menu_graph(const char* file_name){
                 if(err_c != 0) return err_c;
 
                 if(--node_number_i==0) phase++;
-
                 continue;
             }
             case 2:{
                 char *edge_expected = trim(strtok(buffer, delim));
                 if(strcmp(edge_expected,"Edge")!=0) return E_INVALID_MENU_GRAPH_FILE;
 
-                edge_number_i = edge_number_t = atoi(trim(strtok(NULL, delim)));
-                if(edge_number_t > node_number_t*(node_number_t-1) || edge_number_t<0)
+                errno = 0;
+                long err_a = strtol(trim(strtok(NULL, delim)), NULL, 10);
+                if(err_a == LONG_MAX || err_a == LONG_MIN )
+                    return E_TOO_LONG_NUMBER_GRAPH_FILE;
+                else if(errno==EINVAL) return E_INVALID_MENU_GRAPH_FILE;
+                else edge_number_i = err_a;
+
+                if(edge_number_i > node_number_t*(node_number_t-1) || edge_number_i<0)
                     return E_INVALID_EDGE_NUMBER;
 
-                menu_tree->total_edges = edge_number_t;
+                menu_tree->total_edges = edge_number_i;
                 phase++;
                 continue;
             }
             case 3:{
-                int edge_src = atoi(trim(strtok(buffer, delim)));
-                int edge_dst = atoi(trim(strtok(NULL, delim)));
+                int edge_src, edge_dst;
 
-                if(edge_dst > node_number_t || edge_dst < 0) return E_INVALID_NODE_CONNECTION;
-                if(edge_src > node_number_t || edge_src < 0) return E_INVALID_NODE_CONNECTION;
+                errno = 0;
+                long err_src = strtol(trim(strtok(buffer, delim)), NULL, 10);
+                if(err_src == LONG_MAX || err_src == LONG_MIN  )
+                    return E_TOO_LONG_NUMBER_GRAPH_FILE;
+                else if(errno==EINVAL) return E_INVALID_MENU_GRAPH_FILE;
+                else edge_src = err_src;
+
+                errno = 0;
+                long err_dest= strtol(trim(strtok(NULL, delim)), NULL, 10);
+                if(err_dest == LONG_MAX || err_dest == LONG_MIN )
+                    return E_TOO_LONG_NUMBER_GRAPH_FILE;
+                else if(errno==EINVAL) return E_INVALID_MENU_GRAPH_FILE;
+                else edge_dst = err_dest;
+
+                if(edge_dst > node_number_t || edge_dst < 0 ||
+                        edge_src > node_number_t ||  edge_src < 0) return E_INVALID_NODE_CONNECTION;
 
                 char *node_text = trim(strtok(NULL, delim));
                 add_edge(&menu_tree, edge_src, edge_dst, node_text);
@@ -123,6 +156,8 @@ error_c load_menu_graph(const char* file_name){
                 if(--edge_number_i==0)  phase++;
                 continue;
             }
+            default:
+                break;
         }
     }
     printf("Load Completed \n\n");
@@ -131,47 +166,40 @@ error_c load_menu_graph(const char* file_name){
     return E_SUCCESS;
 }
 struct running_info run_menu(const char* file_name){
-    error_c er_t;
-    struct running_info r_info = {"", BFS};
-    er_t = load_menu_graph(file_name);
+    struct running_info r_info = {"", BFS, E_SUCCESS};
+    r_info.err = load_menu_graph(file_name);
 
-    // TODO Make the running info to have error handling to work with the errors
-    if(er_t != E_SUCCESS){
-        print_error(er_t);
+    if(r_info.err != E_SUCCESS){
+        print_error(r_info.err);
         return  r_info;
     }
 
-
-    int act_node = 0;
-    int temp_input_line;
+    int act_node = 0, temp_input_line;
     size_t temp_list_size = 0;
 
-    // TODO Redefine this loop
-    for(unsigned int i = 0; i < 200; i++){
-        // TODO Delete when its working
-        //printf("Estamos en el nodo %i.\n", act_node);
-        //printf("Paso %i : %s\n",i, get_node_var(menu_tree,act_node));
+    while(r_info.err == E_SUCCESS){
         clrscr();
         print_logo();
         call_function(get_node_text(menu_tree,act_node),&r_info);
-        // TODO check input type validity
+
         unsigned short invalid_input = 0;
         do{
-            invalid_input = 0;
-            print_next_node_list(menu_tree, act_node, &temp_list_size);
-            printf("Introduzca la opcion que desea:");
+            if(invalid_input==0)
+                print_next_node_list(menu_tree, act_node, &temp_list_size);
+            printf("Introduzca la opcion que desea, recuerde que para salir debe escribir -1:");
             scanf("%i",&temp_input_line);
             fflush(stdin);
             printf("\n");
             if(temp_input_line == -1) return r_info;
-            if(temp_input_line<0 || temp_input_line>= temp_list_size){
-                printf("Por favor, introduzca un numero de entre las opciones.\n");
-                invalid_input = 1;
-            }
-        }while(invalid_input==1);
+            else if(temp_input_line<0 || temp_input_line>= temp_list_size)
+                printf("\nError %i: Por favor, introduzca un numero de entre las opciones.\n",
+                       ++invalid_input);
+            else invalid_input=0;
+        }while(invalid_input>0);
 
         act_node = get_next_node(menu_tree, act_node, temp_input_line);
     }
+    print_error(r_info.err);
     return r_info;
 }
 

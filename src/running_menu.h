@@ -16,7 +16,7 @@ typedef struct {
 
 
 void running_menu_launch(map *mapa, generic_algorithm *algorithm);
-void run_program(map *mapa, generic_algorithm *algorithm);
+void run_program(map *mapa, generic_algorithm *algorithm, running_menu_data run_dat);
 running_menu_data config_running_menu_type();
 
 #endif //DEUBER_RUNNING_MENU_H

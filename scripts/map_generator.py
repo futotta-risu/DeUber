@@ -19,7 +19,7 @@ class Map:
     def __init__(self, map_dims = (5,5) ):
         self.width = int(map_dims[0])
         self.height = int(map_dims[1])
-        self.map = [ [0 for i in range(self.width)] for j in range(self.height)]
+        self.map = [[0 for i in range(self.width)] for j in range(self.height)]
 
     def randomMap(self):
         self.map = [[randint(0, 1) for i in range(self.width)] for j in range(self.height)]
@@ -36,7 +36,7 @@ class MapGenerator:
 
     def save_map(self, map_name):
         file_info_map = dict()
-        with open(Path_generated_data +  Support_file_name, "r") as fR:
+        with open(Path_generated_data + Support_file_name, "r") as fR:
             for line in fR:
                 key, value = [part.strip() for part in line.split(":")]
                 file_info_map[key] = value

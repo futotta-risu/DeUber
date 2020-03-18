@@ -13,7 +13,7 @@ struct _error_info _error_val[] = {
         {E_INVALID_NODE_CONNECTION, "Invalid Edge Connection", " An invalid node was given to an edge creation"},
         {E_STRING_SIZE_ERROR, "String Size Error","String exceeded maximum size"},
         {E_INVALID_MENU_GRAPH_FILE,"Invalid Menu Graph File", "The format in the Menu Graph file is invalid"},
-
+        {E_TOO_LONG_NUMBER_GRAPH_FILE, "Too Long Number", "A number in the graph file is too long."},
         };
 const int _error_n = sizeof(_error_val) / sizeof(struct _error_info);
 
