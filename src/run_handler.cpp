@@ -3,19 +3,22 @@
 //
 
 #include "algorithms/algorithm_helper.h"
-#include "software_launcher.h"
+#include "run_handler.h"
 #include "running_menu.h"
+#include "visual/visual_run_handler.h"
 
 
-bool software_launcher::visual = false;
-
-void software_launcher::main_launch(){
-    if(software_launcher::visual) visual_handler();
+run_handler::run_handler(bool visual_t){
+    visual = visual_t;
+    if(visual) visual_handler();
     else non_visual_handler();
+}
+
+run_handler::~run_handler(){
 
 }
 
-void software_launcher::non_visual_handler(){
+void run_handler::non_visual_handler(){
     // First Step get the info menu to get the whole running_info data
     run_inf = run_menu(menu_file);
 
@@ -28,8 +31,8 @@ void software_launcher::non_visual_handler(){
 }
 
 
-void software_launcher::visual_handler(){
-
-
-
+void run_handler::visual_handler(){
+    visual_run_handler vrh("ej2.map",BFS);
+    vrh.main_loop();
 }
+

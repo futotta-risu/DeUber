@@ -27,8 +27,6 @@ struct running_info{
 
 extern string_graph *menu_tree;
 
-
-
 void map_menu( struct running_info* run_info);
 void algorithm_menu( struct running_info* run_info);
 void config_menu( struct running_info* run_info);
