@@ -10,11 +10,11 @@
 #include <stdlib.h>
 class random_algorithm : public generic_algorithm {
 public:
-    int get_best_move(map *map_t, car* car_t){
+    int get_best_move(Map *map_t, car* car_t){
       return rand() % 4+1;
     };
 
-    void move_cars(map *map_t){
+    void move_cars(Map *map_t){
         for(int i = 0; i < map_t->get_car_list_size(); i++){
             car *car_t = map_t->get_car(i);
             int dir = get_best_move(map_t, car_t);

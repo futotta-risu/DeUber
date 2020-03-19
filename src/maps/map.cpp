@@ -11,14 +11,14 @@
 #include "map_errors.h"
 using namespace std;
 
-map::map(){
+Map::Map(){
     n_height = 0;
     n_width = 0;
     map_values = nullptr;
     car_list = {};
 }
 
-map::map(int height, int width) {
+Map::Map(int height, int width) {
     n_height = height;
     n_width = width;
     try{
@@ -29,7 +29,7 @@ map::map(int height, int width) {
     car_list = {};
 }
 
-void map::reshape(int height, int width){
+void Map::reshape(int height, int width){
     // TODO Mejorar los errores
 
     if(width < 0 || width > MAX_MAP_WIDTH || height < 0 || height > MAX_MAP_HEIGHT)
@@ -43,7 +43,7 @@ void map::reshape(int height, int width){
 
 }
 
-void map::print_map(){
+void Map::print_map(){
     for(unsigned int i_height = 0; i_height < n_height; i_height++){
         for(unsigned int i_width = 0; i_width < n_width; i_width++){
             if(map_values[i_height][i_width].act_val == 0) printf("%c" , ' ');
@@ -54,13 +54,13 @@ void map::print_map(){
     }
 }
 
-map::~map() {
+Map::~Map() {
     for(unsigned int i = 0; i < n_height; i++)
         delete[] map_values[i];
     delete[] map_values;
 }
 
-void map::read_map(const char* file_name){
+void Map::read_map(const char* file_name){
     char file_name_t[] = "../data/maps/";
     char* full_file_name = strcat(file_name_t, file_name);
 
@@ -83,9 +83,9 @@ void map::read_map(const char* file_name){
             if(map_values[temp_height][i].act_val == CAR){
                 map_values[temp_height][i].def_val = FLOOR;
                 car car_t(i,temp_height);
-                car_list.push_back(car_t);
-            }
-
+                car_list->push_back(car_t);
+            }else if(map_values[temp_height][i].act_val == GOAL)
+                map_values[temp_height][i].def_val = FLOOR;
         }
 
         temp_height++;
@@ -93,7 +93,7 @@ void map::read_map(const char* file_name){
 }
 
 
-void map::write_map(const char* file_name){
+void Map::write_map(const char* file_name){
     ofstream myfile;
     cout << file_name <<endl;
     myfile.open (file_name);
@@ -106,49 +106,73 @@ void map::write_map(const char* file_name){
     myfile.close();
 }
 
-void map::add_car(int pos_x, int pos_y){
+void Map::add_car(int pos_x, int pos_y){
 
     if(!check_coords(pos_x, pos_y))
         throw invalid_coords(pos_x, pos_y, this);
 
     car car_temp(pos_x, pos_y);
-    car_list.push_back(car_temp);
+    car_list->push_back(car_temp);
 
     map_values[pos_y][pos_x].act_val = CAR;
 }
-void map::add_car(car car_t){
-    car_list.push_back(car_t);
+Goal* Map::add_goal(int pos_x, int pos_y){
+    if(!check_coords(pos_x, pos_y))
+        throw invalid_coords(pos_x, pos_y, this);
+    if(goal_list.count(pos_y*n_height+pos_x)){
+        goal_list[pos_y*n_height+pos_x]->active = true;
+    }else{
+        Goal* goal_t  = new Goal();
+        goal_list[pos_y*n_height+pos_x] = goal_t;
+    }
+
+    map_values[pos_y][pos_x].act_val = GOAL;
+    return goal_list[pos_y*n_height+pos_x];
+}
+void Map::delete_goal(int pos_x, int pos_y){
+    goal_list[pos_y*n_height+pos_x]->destroy();
+    map_values[pos_y][pos_x].act_val =  map_values[pos_y][pos_x].def_val;
+}
+
+void Map::add_car(car car_t){
+    car_list->push_back(car_t);
     if(!check_coords(car_t.get_coord_x(), car_t.get_coord_y()))
         throw invalid_coords(car_t.get_coord_x(), car_t.get_coord_y(), this);
 
     map_values[car_t.get_coord_y()][car_t.get_coord_x()].act_val = CAR;
 }
 
-void map::move_car(int id, int dir){
+void Map::move_car(int id, int dir){
     if(dir==0) return;
     int index_of_car = -1;
-    for(int i = 0; i < car_list.size(); i++)
-        if(car_list[i].get_id() == id) {
+    for(int i = 0; i < car_list->size(); i++)
+        if((*car_list)[i].get_id() == id) {
             index_of_car = i;
             break;
         }
     if(index_of_car==-1) return;
-    int val_y = car_list[index_of_car].get_coord_y();
-    int val_x = car_list[index_of_car].get_coord_x();
+    int val_y = (*car_list)[index_of_car].get_coord_y();
+    int val_x = (*car_list)[index_of_car].get_coord_x();
 
     int val_y_n = val_y + (2*(dir%2)-((dir*dir*dir)%4));
     int val_x_n = val_x + (((dir+1)%2==0) ? 0: ((dir == 2) ? 1 : -1));
 
 
-    if(map_values[val_y_n][val_x_n].def_val == BUILDING || map_values[val_y_n][val_x_n].act_val==CAR) return;
+    if(map_values[val_y_n][val_x_n].def_val == BUILDING || map_values[val_y_n][val_x_n].act_val==CAR){
+        (*car_list)[index_of_car].dir = 0;
+        (*car_list)[index_of_car].set_operation(NONE);
+        return;
+    }
+    if(map_values[val_y_n][val_x_n].act_val == GOAL)
+        clear_cell(val_x_n,val_y_n);
 
     map_values[val_y][val_x].act_val = map_values[val_y][val_x].def_val;
     map_values[val_y_n][val_x_n].act_val = CAR;
-    car_list[index_of_car].set_coords(val_x_n,val_y_n);
+    (*car_list)[index_of_car].set_coords(val_x_n,val_y_n);
 
 }
 
-int** map::get_aval_map(){
+int** Map::get_aval_map(){
     int** map_copy = new int*[n_height];
     for(unsigned int i = 0; i < n_height; i++){
         map_copy[i] = new int[n_width];
@@ -161,7 +185,7 @@ int** map::get_aval_map(){
     }
     return map_copy;
 }
-bool map::check_coords(int x, int y){
+bool Map::check_coords(int x, int y){
     if(x<0 || x>= this->n_width)
         throw invalid_coords(x,y,this);
     if(y<0 || y>= this->n_height)

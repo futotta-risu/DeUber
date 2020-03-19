@@ -23,7 +23,7 @@ void run_handler::non_visual_handler(){
     run_inf = run_menu(menu_file);
 
     // Load the data
-    map mapa;
+    Map mapa;
     mapa.read_map(run_inf.map_name);
 
     mapa.add_car(1,0);

@@ -10,7 +10,7 @@
 #include "algorithm_type.h"
 #include "BFS_algorithm.h"
 
-generic_algorithm* get_algorithm_by_type(algorithm_type alg_type){
+static generic_algorithm* get_algorithm_by_type(algorithm_type alg_type){
     switch(alg_type){
         case RANDOM: {
             random_algorithm *ran_alg = new random_algorithm;

@@ -21,7 +21,7 @@ public:
         sprintf(msg_t, "Invalid coordinates error. You tried: (%d,%d)", x,y);
         msg = static_cast<const char*>(msg_t);
     }
-    invalid_coords(int x, int y, map* map_t){
+    invalid_coords(int x, int y, Map* map_t){
         char* const msg_t = "";
         sprintf(msg_t, "Invalid coordinates error. You tried: (x:%d,y:%d) but the bounds where (x:%d,y:%d)",
                 x,y, (*map_t).get_width(),map_t->get_height());

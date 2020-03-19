@@ -5,9 +5,10 @@
 #ifndef DEUBER_VISUAL_RUN_HANDLER_H
 #define DEUBER_VISUAL_RUN_HANDLER_H
 
-#include <visual/ECS/EntityManager.h>
-#include <visual/ECS/asset_manager.h>
-#include <algorithms/algorithm_type.h>
+#include "visual/ECS/EntityManager.h"
+#include "visual/ECS/asset_manager.h"
+#include "algorithms/algorithm_type.h"
+#include "algorithms/generic_algorithm.h"
 
 #include "../maps/map.h"
 
@@ -28,8 +29,12 @@ private:
 
 public:
 
-    map mapa;
+    int counter;
+
+    std::vector<car> car_list;
+    Map mapa;
     algorithm_type alg_type;
+    generic_algorithm *algorithm;
 
     running_menu_data run_dat;
 

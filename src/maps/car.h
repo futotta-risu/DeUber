@@ -22,8 +22,14 @@ private:
 
     std::queue<int> moves;
 public:
+
+    int dir;
+
     static int car_id;
+    static std::vector<car> read_car_list_file(const char* file_path);
+
     car(){
+        dir = 0;
         coord_x = 0;
         coord_y = 0;
         op = NONE;
@@ -73,6 +79,7 @@ public:
         moves.pop();
         if(moves.empty())
             op = NONE;
+
         return move_t;
     }
     void add_move(int dir){

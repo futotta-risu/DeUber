@@ -1,7 +1,7 @@
 
 #include <time.h>
 #include <cstdlib>
-#include <stdio.h>
+
 #define SDL_MAIN_HANDLED
 #include "run_handler.h"
 

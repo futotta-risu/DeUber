@@ -6,6 +6,7 @@
 #define DEUBER_BFS_ALGORITHM_H
 
 #include <stack>
+#include <iostream>
 
 class BFS_algorithm : public generic_algorithm {
 public:
@@ -37,14 +38,16 @@ public:
         }
     }
 
-    int get_best_move(map *map_t, car *car_t) override{
+    int get_best_move(Map *map_t, car *car_t) override{
         if(car_t->get_operation() == WORKING)
             return car_t->get_move();
         int** map = map_t->get_aval_map();
         std::pair<int,int> map_size = std::make_pair(map_t->get_height(),map_t->get_width());
+
         bool goal_reached = false;
         int pos_x = car_t->get_coord_x();
         int pos_y = car_t->get_coord_y();
+
         std::queue<std::pair<int,int> > coord_list;
         coord_list.push(std::make_pair(pos_x,pos_y));
         std::pair<int,int> goal_coords;
@@ -67,7 +70,7 @@ public:
                       &goal_coords,&goal_reached,map_size,act_coords);
         }
         if(!goal_reached)
-            return 1;
+            return 0;
 
         std::pair<int,int> back_coords = goal_coords;
         int act_val_back = map[goal_coords.second][goal_coords.first];
@@ -83,9 +86,9 @@ public:
             back_coords.second += (2*(vals.second%2)-((vals.second*vals.second*vals.second)%4));
 
         }
-
+        std::cout << "PROBANDO" << std::endl;
         while(!move_list.empty()){
-            car_t->add_move((move_list.top()+2)%4);
+            car_t->add_move(((move_list.top()+2)%4==0) ? 4 : (move_list.top()+2)%4);
             move_list.pop();
         }
 
@@ -98,10 +101,12 @@ public:
         return 0;
     };
 
-    void move_cars(map *map_t) override{
+    void move_cars(Map *map_t) override{
         for(int i = 0; i < map_t->get_car_list_size(); i++){
             car *car_t = map_t->get_car(i);
+            std::cout << std::endl << car_t->get_coord_x() << ":" << car_t->get_coord_y() << std::endl;
             int dir = get_best_move(map_t, car_t);
+            car_t->dir = dir;
             map_t->move_car(car_t->get_id(),dir);
         }
     }

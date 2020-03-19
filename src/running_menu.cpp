@@ -28,7 +28,7 @@ void print_logo(){
 }
 
 
-void running_menu_launch(map *mapa, generic_algorithm *algorithm){
+void running_menu_launch(Map *mapa, generic_algorithm *algorithm){
     running_menu_data act_dat;
     std::cout << "Se va a proceder a ejecutar el programa. Antes de ello, si lo desea, puede optar por cambiar "
                  "parte de la configuración de la misma." << std::endl;
@@ -62,7 +62,7 @@ void running_menu_launch(map *mapa, generic_algorithm *algorithm){
 
 }
 
-void run_program(map *mapa, generic_algorithm *algorithm, running_menu_data run_dat){
+void run_program(Map *mapa, generic_algorithm *algorithm, running_menu_data run_dat){
     std::cout << "\n STEP1 \n";
     mapa->print_map();
     bool is_running = true;
