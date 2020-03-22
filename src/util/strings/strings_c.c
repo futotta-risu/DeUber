@@ -2,7 +2,7 @@
 // Created by erikberter on 17/02/2020.
 //
 
-#include "strings_c.h"
+#include "../../../include/util/strings/strings_c.h"
 #include <ctype.h>
 #include <string.h>
 

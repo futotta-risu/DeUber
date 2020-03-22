@@ -3,13 +3,16 @@
 //
 
 
-#include "visual_run_handler.h"
+#include "visual/visual_run_handler.h"
 
-#include "visual/ECS/objects/car_entity.h"
-#include "visual/ECS/objects/tile_entity.h"
-#include "visual/ECS/objects/goal_entity.h"
+#include "ECS/objects/car_entity.h"
+#include "ECS/objects/tile_entity.h"
+#include "ECS/objects/goal_entity.h"
 
-#include "../algorithms/algorithm_helper.h"
+#include "algorithms/algorithm_helper.h"
+
+#include "texture_manager.h"
+
 
 SDL_Renderer *visual_run_handler::ren;
 SDL_Event visual_run_handler::event;
@@ -21,9 +24,9 @@ std::vector<Collision_component*> visual_run_handler::colliders;
 visual_run_handler::visual_run_handler(std::string map_file_name, algorithm_type alg_t){
 
     SDL_Init(0);
-    SDL_CreateWindowAndRenderer(WIDTH, HEIGH, 0, &win, &ren);
+    SDL_CreateWindowAndRenderer(WIDTH, HEIGHT, 0, &win, &ren);
     SDL_SetWindowTitle(win, "DeUber");
-
+    TextureManager::ren = &ren;
     run_dat = {true, 20};
     std::cout << " sdas " << std::endl;
     mapa = Map();

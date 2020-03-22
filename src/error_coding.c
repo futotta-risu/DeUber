@@ -2,7 +2,7 @@
 // Created by erikberter on 2/26/2020.
 //
 
-#include "error_coding.h"
+#include "../include/error_coding.h"
 #include <stdio.h>
 struct _error_info _error_val[] = {
         {E_SUCCESS,             "Success",             "Success"},

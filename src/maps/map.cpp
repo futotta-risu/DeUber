@@ -6,9 +6,9 @@
 #include <cstring>
 #include <iostream>
 #include <fstream>
-#include "util/strings/strings_c.h"
-#include "map.h"
-#include "map_errors.h"
+#include "../../include/util/strings/strings_c.h"
+#include "../../include/maps/map.h"
+#include "../../include/maps/map_errors.h"
 using namespace std;
 
 Map::Map(){

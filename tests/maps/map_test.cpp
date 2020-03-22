@@ -7,7 +7,7 @@
 #define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
 #include "catch.hpp"
 
-#include "../../src/maps/map.h"
+#include "../../include/maps/map.h"
 
 TEST_CASE("Map creation", "[map]"){
     int** map_pruebas = new int*[3];

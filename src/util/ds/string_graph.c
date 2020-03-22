@@ -2,7 +2,7 @@
 // Created by erikberter on 2/17/2020.
 //
 
-#include "string_graph.h"
+#include "../../../include/util/ds/string_graph.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <assert.h>
