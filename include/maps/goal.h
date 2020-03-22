@@ -1,5 +1,5 @@
 //
-// Created by whiwho on 19/03/2020.
+// Created by erikberter on 19/03/2020.
 //
 
 #ifndef DEUBER_GOAL_H

@@ -1,5 +1,5 @@
 //
-// Created by whiwho on 18/03/2020.
+// Created by erikberter on 18/03/2020.
 //
 
 #ifndef DEUBER_ECS_H
@@ -130,6 +130,7 @@ public:
     std::vector<Entity*>& get_group(std::size_t group_t){
         return grouped_entities[group_t];
     }
+
 
     Entity& add_entity(){
         Entity* e = new Entity(*this);

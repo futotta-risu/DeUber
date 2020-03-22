@@ -2,9 +2,11 @@
 // Created by erikberter on 17/02/2020.
 //
 
-#include "../../../include/util/strings/strings_c.h"
+
 #include <ctype.h>
 #include <string.h>
+
+#include "util/strings/strings_c.h"
 
 /**
  *  Reference : https://stackoverflow.com/questions/122616/how-do-i-trim-leading-trailing-whitespace-in-a-standard-way

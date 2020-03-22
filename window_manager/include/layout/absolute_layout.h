@@ -1,5 +1,5 @@
 //
-// Created by whiwho on 20/03/2020.
+// Created by erikberter on 20/03/2020.
 //
 
 #ifndef WINDOWMANAGER_ABSOLUTE_LAYOUT_H

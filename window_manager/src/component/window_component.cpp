@@ -1,5 +1,5 @@
 //
-// Created by whiwho on 21/03/2020.
+// Created by erikberter on 21/03/2020.
 //
 
 #include "component/window_component.h"

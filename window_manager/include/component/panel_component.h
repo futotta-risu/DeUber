@@ -1,5 +1,5 @@
 //
-// Created by whiwho on 21/03/2020.
+// Created by erikberter on 21/03/2020.
 //
 
 #ifndef WINDOWMANAGER_PANEL_COMPONENT_H
@@ -55,6 +55,7 @@ public:
         }
         if(!updated){
             panel_layout->set_size(component_list, get_dst());
+            updated = !updated;
         }
     }
 

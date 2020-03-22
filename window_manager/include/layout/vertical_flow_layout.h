@@ -1,5 +1,5 @@
 //
-// Created by whiwho on 21/03/2020.
+// Created by erikberter on 21/03/2020.
 //
 
 #ifndef WINDOWMANAGER_VERTICAL_FLOW_LAYOUT_H

@@ -1,5 +1,5 @@
 //
-// Created by whiwho on 20/03/2020.
+// Created by erikberter on 20/03/2020.
 //
 
 #include <SDL_ttf.h>
@@ -41,15 +41,10 @@ void WindowHandler::set_defaults(){
 }
 
 void WindowHandler::init_window(){
-    init_SDL(0);
     w_active = true;
     run_window();
 }
-void WindowHandler::init_window(int SDL_flags){
-    init_SDL(SDL_flags);
-    w_active = true;
-    run_window();
-}
+
 
 void WindowHandler::init_SDL(int SDL_flags){
     SDL_Init(0);
@@ -57,6 +52,11 @@ void WindowHandler::init_SDL(int SDL_flags){
     SDL_SetWindowTitle(win, w_title.c_str());
     if(TTF_Init() < 0)
         std::cout << "Error:" << TTF_GetError() << std::endl;
+}
+WindowHandler::~WindowHandler(){
+    SDL_DestroyRenderer(ren);
+    SDL_DestroyWindow(win);
+    SDL_Quit();
 }
 
 void WindowHandler::run_window(){
@@ -102,3 +102,4 @@ void WindowHandler::add(WindowComponent* component){
 void WindowHandler::set_layout(WindowLayout* layout){
     window_panel->set_layout(layout);
 }
+

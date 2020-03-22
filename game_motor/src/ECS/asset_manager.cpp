@@ -1,5 +1,5 @@
 //
-// Created by whiwho on 18/03/2020.
+// Created by erikberter on 18/03/2020.
 //
 
 
@@ -8,8 +8,7 @@
 #include "ECS/animation.h"
 #include <fstream>
 
-Asset_manager::Asset_manager(Manager* man) :  man{man}{}
-Asset_manager::~Asset_manager(){}
+
 
 void Asset_manager::load_default(){
 
@@ -26,14 +25,14 @@ void Asset_manager::load_default(){
 
 }
 
-void Asset_manager::add_texture(std::string id, const char* path){
+void Asset_manager::add_texture(std::string& id, const char* path){
     texture_map.emplace(id, TextureManager::LoadTexture(path));
 }
-SDL_Texture* Asset_manager::get_texture(std::string id){
+SDL_Texture* Asset_manager::get_texture(std::string& id){
     return texture_map[id];
 }
 
-void Asset_manager::add_animation(std::string id, const char* path){
+void Asset_manager::add_animation(std::string& id, const char* path){
     std::map<std::string, Animation> temp_a;
     std::ifstream asset_list_f(path);
 
@@ -43,11 +42,11 @@ void Asset_manager::add_animation(std::string id, const char* path){
     int anim_f;
     for(int i = 0; i < n_asset; i++){
         asset_list_f >> anim_id >> anim_f;
-        temp_a[anim_id.c_str()]  = Animation(i,anim_f,100);
+        temp_a[anim_id]  = Animation(i,anim_f,100);
     }
     texture_anim_map[id] = temp_a;
 }
 
-std::map<std::string, Animation> Asset_manager::get_animation_map(std::string id){
+std::map<std::string, Animation> Asset_manager::get_animation_map(std::string& id){
     return texture_anim_map[id];
 }

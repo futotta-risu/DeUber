@@ -1,13 +1,14 @@
 //
-// Created by whiwho on 07/03/2020.
+// Created by erikberter on 07/03/2020.
 //
 
 #ifndef DEUBER_RANDOM_ALGORITHM_H
 #define DEUBER_RANDOM_ALGORITHM_H
 
+#include <stdlib.h>
+
 #include "generic_algorithm.h"
 
-#include <stdlib.h>
 class random_algorithm : public generic_algorithm {
 public:
     int get_best_move(Map *map_t, car* car_t){
@@ -20,6 +21,11 @@ public:
             int dir = get_best_move(map_t, car_t);
             map_t->move_car(car_t->get_id(),dir);
         }
+    }
+
+    void move_car(Map *map_t, car* act_car){
+        int dir = get_best_move(map_t, act_car);
+        map_t->move_car(act_car->get_id(),dir);
     }
 private:
 };

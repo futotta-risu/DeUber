@@ -1,5 +1,5 @@
 //
-// Created by whiwho on 25/02/2020.
+// Created by erikberter on 25/02/2020.
 //
 
 #ifndef DEUBER_CONFIG_HANDLER_H

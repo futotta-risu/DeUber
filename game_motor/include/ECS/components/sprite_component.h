@@ -1,14 +1,18 @@
 //
-// Created by whiwho on 15/03/2020.
+// Created by erikberter on 15/03/2020.
 //
 
 #ifndef TEMPGAMEMOTOR_SPRITE_COMPONENT_H
 #define TEMPGAMEMOTOR_SPRITE_COMPONENT_H
 
 #include "transform_component.h"
-#include "SDL.h"
-#include "../../texture_manager.h"
-#include "../animation.h"
+
+#include <SDL.h>
+
+#include <texture_manager.h>
+#include <ECS/animation.h>
+#include <game_component.h>
+
 #include <map>
 
 class Sprite_component : public Component{
@@ -20,9 +24,10 @@ private:
     bool is_animated = false;
 
     int frames = 0;
-    int speed = 100;
+    int speed = 1;
 
     std::string sprite_name;
+    int x_desp = 0, y_desp = 0;
 
 public:
     int animation_id = 0;
@@ -31,33 +36,27 @@ public:
 
     Sprite_component() = default;
 
-    Sprite_component(const char* file_path, std::string sprite_name,  bool animated){
+    Sprite_component(const char* file_path, bool animated){
         is_animated = animated;
-        speed = 1;
-        animation_id = 0;
-
         set_tex(file_path);
     }
 
 
-    Sprite_component(std::string sprite_name,  bool animated){
+    Sprite_component(std::string& sprite_name, GameApp* gApp, bool animated){
         is_animated = animated;
 
         if(is_animated){
-            animations = visual_run_handler::ast_man.get_animation_map(sprite_name);
+            animations = gApp->ast_man.get_animation_map(sprite_name);
             play("stand");
         }
-
-        speed = 1;
-        animation_id = 0;
-        tex = visual_run_handler::ast_man.get_texture(sprite_name);
+        tex = gApp->ast_man.get_texture(sprite_name);
     }
 
     Sprite_component(const char* file_path){
         set_tex(file_path);
     }
 
-    ~Sprite_component(){
+    ~Sprite_component() override {
         SDL_DestroyTexture(tex);
     }
 
@@ -91,8 +90,8 @@ public:
         }else
             src.x =src.y = 0;
 
-        dest.x = static_cast<int>(transf->x());
-        dest.y = static_cast<int>(transf->y());
+        dest.x = static_cast<int>(transf->x())+x_desp;
+        dest.y = static_cast<int>(transf->y())+y_desp;
 
         dest.w = static_cast<int>(transf->width*transf->scale);
         dest.h = static_cast<int>(transf->height*transf->scale);
@@ -106,6 +105,11 @@ public:
         frames = animations[anim_name].frames;
         animation_id = animations[anim_name].index;
         speed = animations[anim_name].speed;
+    }
+
+    void set_place(int x, int y){
+        x_desp = x;
+        y_desp = y;
     }
 };
 

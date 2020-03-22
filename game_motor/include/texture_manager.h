@@ -1,12 +1,11 @@
 //
-// Created by whiwho on 18/03/2020.
+// Created by erikberter on 18/03/2020.
 //
 
 #ifndef DEUBER_TEXTURE_MANAGER_H
 #define DEUBER_TEXTURE_MANAGER_H
 
-#include "SDL.h"
-#include "SDL_image.h"
+#include <SDL.h>
 
 
 class TextureManager{

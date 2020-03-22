@@ -1,13 +1,13 @@
 //
-// Created by whiwho on 19/03/2020.
+// Created by erikberter on 19/03/2020.
 //
 
 #ifndef DEUBER_GOAL_COMPONENT_H
 #define DEUBER_GOAL_COMPONENT_H
 
-#include "../../../../include/maps/goal.h"
-#include "../ECS.h"
-#include "transform_component.h"
+#include "maps/goal.h"
+#include "ECS/ECS.h"
+#include "ECS/components/transform_component.h"
 
 class Goal_component : public Component {
 

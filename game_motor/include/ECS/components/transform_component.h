@@ -1,5 +1,5 @@
 //
-// Created by whiwho on 15/03/2020.
+// Created by erikberter on 15/03/2020.
 //
 
 #ifndef DEUBER_TRANSFORM_COMPONENT_H
@@ -53,11 +53,6 @@ public:
     void update() override{
         pos.x += vel.x*speed;
         pos.y += vel.y*speed;
-    }
-
-    void set_pos(int x, int y){
-        pos.x = x;
-        pos.y = y;
     }
 };
 

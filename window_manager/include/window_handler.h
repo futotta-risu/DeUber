@@ -1,5 +1,5 @@
 //
-// Created by whiwho on 20/03/2020.
+// Created by erikberter on 20/03/2020.
 //
 
 #ifndef WINDOWMANAGER_WINDOW_HANDLER_H
@@ -32,7 +32,7 @@ private:
 
     CPanel *window_panel;
 
-    void init_SDL(int SDL_flags);
+
 
     void run_window();
     void window_input();
@@ -43,16 +43,16 @@ public:
 
     WindowHandler();
     WindowHandler(std::string w_title_t, int w_height_t, int w_width_t);
+    ~WindowHandler();
 
     void set_defaults();
+    void init_SDL(int SDL_flags);
 
     SDL_Renderer* ren;
     void init_window();
-    void init_window(int SDL_flags);
 
     void set_layout(WindowLayout* layout);
     void add(WindowComponent* component);
-
 };
 
 #endif //WINDOWMANAGER_WINDOW_HANDLER_H

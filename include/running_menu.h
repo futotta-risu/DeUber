@@ -1,10 +1,9 @@
 //
-// Created by whiwho on 10/03/2020.
+// Created by erikberter on 10/03/2020.
 //
 
 #ifndef DEUBER_RUNNING_MENU_H
 #define DEUBER_RUNNING_MENU_H
-
 
 #include "algorithms/generic_algorithm.h"
 #include "maps/map.h"

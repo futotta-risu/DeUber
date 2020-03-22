@@ -5,8 +5,8 @@
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "../../../include/util/strings/strings_c.h"
-#include "../../../include/util/file/config_handler.h"
+#include "util/strings/strings_c.h"
+#include "util/file/config_handler.h"
 
 config_property* config_vals;
 int n_config;

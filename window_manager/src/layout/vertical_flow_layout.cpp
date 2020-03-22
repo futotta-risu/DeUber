@@ -1,5 +1,5 @@
 //
-// Created by whiwho on 21/03/2020.
+// Created by erikberter on 21/03/2020.
 //
 
 #include <iostream>
@@ -19,6 +19,7 @@ void VerticalFlowLayout::set_size(std::vector<WindowComponent*> component_list, 
     int act_width = 0;
     int act_height = 0;
     for(auto& c : component_list){
+        //std::cout << c->get_id() << std::endl;
         act_pos_y+=v_gap;
 
         c->get_dst()->x = act_pos_x;

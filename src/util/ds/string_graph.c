@@ -2,11 +2,12 @@
 // Created by erikberter on 2/17/2020.
 //
 
-#include "../../../include/util/ds/string_graph.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <assert.h>
 #include <string.h>
+
+#include "util/ds/string_graph.h"
 
 adj_list_node* create_adj_list_node(int vertex, char text[]){
     adj_list_node *temp_node = (adj_list_node *)malloc(sizeof(adj_list_node));
@@ -70,7 +71,7 @@ error_c add_edge(string_graph** g, int src, int dest, char text[]){
     temp_node->next = (*g)->adj_list_arr[src].head;
     (*g)->adj_list_arr[src].head = temp_node;
     (*g)->adj_list_arr[src].total_members++;
-
+    return E_SUCCESS;
 }
 
 /**

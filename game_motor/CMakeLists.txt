@@ -10,7 +10,7 @@ set(SDL2_LIBRARIES "${PARENT_DIR}/lib/libSDL2.dll.a;${PARENT_DIR}/lib/libSDL2_im
 
 string(STRIP "${SDL2_LIBRARIES}" SDL2_LIBRARIES)
 
-add_library(${PROJECT_NAME} src/texture_manager.cpp src/ECS/asset_manager.cpp src/ECS/ECS.cpp src/ECS/EntityManager.cpp)
+add_library(${PROJECT_NAME} src/texture_manager.cpp src/ECS/asset_manager.cpp src/ECS/ECS.cpp src/ECS/EntityManager.cpp src/game_component.cpp)
 
 add_library(sub::game_motor ALIAS ${PROJECT_NAME})
 

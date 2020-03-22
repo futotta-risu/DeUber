@@ -2,7 +2,7 @@
 // Created by erikberter on 10/03/2020.
 //
 
-#include "../include/running_menu.h"
+#include "running_menu.h"
 
 #include <iostream>
 #include <windows.h>

@@ -1,5 +1,5 @@
 //
-// Created by whiwho on 11/02/2020.
+// Created by erikberter on 11/02/2020.
 //
 
 #ifndef DEUBER_CAR_H
@@ -37,6 +37,7 @@ public:
         id = car_id++;
     }
     car(int coord_x, int coord_y) : coord_x{coord_x}, coord_y{coord_y}{
+        dir = 0;
         op = NONE;
         point_t = 0;
         id = car_id++;
@@ -82,8 +83,8 @@ public:
 
         return move_t;
     }
-    void add_move(int dir){
-        moves.push(dir);
+    void add_move(int dir_t){
+        moves.push(dir_t);
         op=WORKING;
     }
 

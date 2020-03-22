@@ -12,7 +12,7 @@ extern "C" {
 #define MAX_NODE_STR_LENGTH 128
 
 #include <string.h>
-#include "../../error_coding.h"
+#include <error_coding.h>
 
 typedef struct adj_list_node adj_list_node;
 typedef struct adj_list adj_list;

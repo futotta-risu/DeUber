@@ -1,9 +1,10 @@
 //
-// Created by whiwho on 16/03/2020.
+// Created by erikberter on 16/03/2020.
 //
-#include "../../include/maps/car.h"
+#include "maps/car.h"
 
 #include <fstream>
+
 int car::car_id = 0;
 std::vector<car> car::read_car_list_file(const char* file_path){
 
@@ -14,7 +15,7 @@ std::vector<car> car::read_car_list_file(const char* file_path){
     for(int i = 0; i < n_lines; i++){
         int x,y;
         f >> x >> y;
-        car_list.push_back(car(x,y));
+        car_list.emplace_back(car(x,y));
     }
     return car_list;
 }

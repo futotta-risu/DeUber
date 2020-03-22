@@ -1,12 +1,12 @@
 //
-// Created by whiwho on 17/03/2020.
+// Created by erikberter on 17/03/2020.
 //
 
 #ifndef TEMPGAMEMOTOR_RANDOM_MOVEMENT_COMPONENT_H
 #define TEMPGAMEMOTOR_RANDOM_MOVEMENT_COMPONENT_H
 
 #include <SDL.h>
-#include "../ECS.h"
+#include <ECS/ECS.h>
 #include "transform_component.h"
 
 class Random_component : public Component {
@@ -17,6 +17,7 @@ private:
 public:
     SDL_Rect coll;
     Random_component(){
+        transf = nullptr;
     }
 
     void init() override{
@@ -27,6 +28,7 @@ public:
     }
 
     void update() override{
+        // TODO improve randon quality
         transf->vel.x = (rand()%3)-1;
         transf->vel.y = (rand()%3)-1;
     }

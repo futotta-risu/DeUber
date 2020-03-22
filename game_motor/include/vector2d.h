@@ -1,5 +1,5 @@
 //
-// Created by whiwho on 18/03/2020.
+// Created by erikberter on 18/03/2020.
 //
 
 #ifndef DEUBER_VECTOR2D_H
@@ -17,7 +17,7 @@ public:
     }
     Vector2D(T x_t, T y_t){
         x = x_t;
-        y=y_t;
+        y = y_t;
     }
 
     template<class Q>

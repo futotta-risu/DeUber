@@ -1,5 +1,5 @@
 //
-// Created by whiwho on 16/03/2020.
+// Created by erikberter on 16/03/2020.
 //
 
 #ifndef DEUBER_BFS_ALGORITHM_H
@@ -86,7 +86,6 @@ public:
             back_coords.second += (2*(vals.second%2)-((vals.second*vals.second*vals.second)%4));
 
         }
-        std::cout << "PROBANDO" << std::endl;
         while(!move_list.empty()){
             car_t->add_move(((move_list.top()+2)%4==0) ? 4 : (move_list.top()+2)%4);
             move_list.pop();
@@ -109,6 +108,12 @@ public:
             car_t->dir = dir;
             map_t->move_car(car_t->get_id(),dir);
         }
+    }
+
+    void move_car(Map *map_t, car* act_car) override{
+        int dir = get_best_move(map_t, act_car);
+        act_car->dir = dir;
+        map_t->move_car(act_car->get_id(),dir);
     }
 private:
 };

@@ -1,14 +1,14 @@
 //
-// Created by whiwho on 11/02/2020.
+// Created by erikberter on 11/02/2020.
 //
-
 
 #include <cstring>
 #include <iostream>
 #include <fstream>
-#include "../../include/util/strings/strings_c.h"
-#include "../../include/maps/map.h"
-#include "../../include/maps/map_errors.h"
+
+#include "util/strings/strings_c.h"
+#include "maps/map.h"
+#include "maps/map_errors.h"
 using namespace std;
 
 Map::Map(){
@@ -23,7 +23,7 @@ Map::Map(int height, int width) {
     n_width = width;
     try{
         reshape(n_height,n_width);
-    }catch(std::exception e){
+    }catch(std::exception& e){
         map_values = nullptr;
     }
     car_list = {};
@@ -67,12 +67,13 @@ void Map::read_map(const char* file_name){
     FILE *fptr = fopen(full_file_name, "r");
 
     size_t line_s;
-    char * buffer = NULL;
+    char * buffer = nullptr;
 
     line_s = getline(&buffer, &line_s, fptr);
 
+    // TODO change to STRTOL
     int map_width  = atoi(trim(strtok(buffer, " ")));
-    int map_height = atoi(trim(strtok(NULL, " ")));
+    int map_height = atoi(trim(strtok(nullptr, " ")));
 
     reshape(map_width, map_height);
     int temp_height = 0;
@@ -177,8 +178,8 @@ int** Map::get_aval_map(){
     for(unsigned int i = 0; i < n_height; i++){
         map_copy[i] = new int[n_width];
         for(unsigned int j = 0; j < n_width; j++){
-            if(map_values[i][j].act_val==FLOOR) map_copy[i][j] = 0;
-            else if(map_values[i][j].act_val==CAR) map_copy[i][j] = 0;
+            if(map_values[i][j].act_val==FLOOR ||
+                map_values[i][j].act_val==CAR) map_copy[i][j] = 0;
             else if(map_values[i][j].act_val==BUILDING) map_copy[i][j] = 1;
             else map_copy[i][j] = 3;
         }

@@ -1,5 +1,5 @@
 //
-// Created by whiwho on 18/03/2020.
+// Created by erikberter on 18/03/2020.
 //
 
 #ifndef DEUBER_ANIMATION_H
@@ -12,7 +12,7 @@ public:
 
     int index, frames, speed;
 
-    Animation(){}
+    Animation() = default;
 
     Animation(int index_t, int frames_t, int speed_t){
         index = index_t;

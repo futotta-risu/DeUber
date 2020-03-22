@@ -5,10 +5,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <dirent.h>
-#include "../include/util/strings/strings_c.h"
-#include "../include/menu.h"
-#include "../include/util/file/config_handler.h"
-#include "../include/global.h"
+#include "util/strings/strings_c.h"
+#include "menu.h"
+#include "util/file/config_handler.h"
+#include "global.h"
 
 #include <errno.h>
 #include <limits.h>

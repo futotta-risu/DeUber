@@ -1,5 +1,5 @@
 //
-// Created by whiwho on 20/03/2020.
+// Created by erikberter on 20/03/2020.
 //
 
 #ifndef WINDOWMANAGER_COMPONENT_BUTTON_H
@@ -8,6 +8,7 @@
 
 #include "SDL_ttf.h"
 #include <functional>
+#include <iostream>
 
 class ComponentButton : public WindowComponent{
 private:
@@ -15,7 +16,7 @@ private:
     std::string button_text;
     int button_temp;
 
-    std::function<void(void)> action_listener;
+    std::function<void(void)> action_listener = [](void ){};
 
 public:
     ComponentButton() : WindowComponent(), button_text{""}, is_pressed{false}{};

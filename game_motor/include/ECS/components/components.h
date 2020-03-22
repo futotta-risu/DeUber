@@ -1,5 +1,5 @@
 //
-// Created by whiwho on 15/03/2020.
+// Created by erikberter on 15/03/2020.
 //
 
 #ifndef TEMPGAMEMOTOR_COMPONENTS_H
