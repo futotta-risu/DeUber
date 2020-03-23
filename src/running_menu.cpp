@@ -5,14 +5,23 @@
 #include "running_menu.h"
 
 #include <iostream>
-#include <windows.h>
+
 // TODO add also option to sleep in UNIX
 
 #ifdef _WIN32
+#include <windows.h>
 #define clrscr() system("cls");
+void Sleep_F(int a){
+    Sleep(a);
+}
 #else
 #include <stdio.h>
-#define clrscr() printf("\e[1;1H\e[2J")
+#include <chrono>
+#include <thread>
+#define clrscr() printf("\e[1;1H\e[2J");
+void Sleep_F(int a){
+    std::this_thread::sleep_for(std::chrono::milliseconds(a));
+}
 #endif
 
 
@@ -28,7 +37,7 @@ void print_logo(){
 }
 
 
-void running_menu_launch(map *mapa, generic_algorithm *algorithm){
+void running_menu_launch(Map *mapa, generic_algorithm *algorithm){
     running_menu_data act_dat;
     std::cout << "Se va a proceder a ejecutar el programa. Antes de ello, si lo desea, puede optar por cambiar "
                  "parte de la configuración de la misma." << std::endl;
@@ -62,7 +71,7 @@ void running_menu_launch(map *mapa, generic_algorithm *algorithm){
 
 }
 
-void run_program(map *mapa, generic_algorithm *algorithm, running_menu_data run_dat){
+void run_program(Map *mapa, generic_algorithm *algorithm, running_menu_data run_dat){
     std::cout << "\n STEP1 \n";
     mapa->print_map();
     bool is_running = true;
@@ -81,7 +90,7 @@ void run_program(map *mapa, generic_algorithm *algorithm, running_menu_data run_
             int temp;
             std::cin >> temp;
             if(temp == -1) is_running = false;
-        }else Sleep(static_cast<int>(1000/run_dat.animated_fps));
+        }else Sleep_F(static_cast<int>(1000/run_dat.animated_fps));
 
         // update
         algorithm->move_cars(mapa);

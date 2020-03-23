@@ -5,8 +5,8 @@
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <strings_c.h>
-#include "config_handler.h"
+#include "util/strings/strings_c.h"
+#include "util/file/config_handler.h"
 
 config_property* config_vals;
 int n_config;
@@ -32,7 +32,7 @@ void change_property(char* property_name, char* property_value){
 
 
 void read_config(const char* file_name){
-    // If it is alredy in memore, free it and re-read it
+    // If it is alredy in memory, free it and re-read it
     if(n_config>0){
         n_config = 0;
         free(config_vals);

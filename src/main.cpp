@@ -1,16 +1,29 @@
 
 #include <time.h>
 #include <cstdlib>
-#include <stdio.h>
-#include "software_launcher.h"
 
+#define SDL_MAIN_HANDLED
+#include "../include/run_handler.h"
 
-int main(int argc, char **argv){
+#include "window_handler.h"
+#include "component/component_button.h"
+
+#include <functional>
+
+int main(int argc, char* argv[]){
+    bool visual = true;
+    if(argc > 1){
+        char* visual_style = argv[1];
+        std::cout << static_cast<std::string>(visual_style) << std::endl;
+        if(static_cast<std::string>(visual_style) == "visual")
+            visual = true;
+    }
+
     srand(time(NULL));
-    printf("Hola1");
-    
-    software_launcher launcher;
-    launcher.main_launch();
 
-    return 0;
+    run_handler launcher(visual);
+    /*
+    WindowHandler win("Titulo de prueba", 600,800);
+    */
+    return EXIT_SUCCESS;
 }
