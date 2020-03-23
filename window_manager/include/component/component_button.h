@@ -7,6 +7,7 @@
 #include "window_component.h"
 
 #include "SDL_ttf.h"
+#include "SDL.h"
 #include <functional>
 #include <iostream>
 

@@ -29,7 +29,7 @@ void run_handler::non_visual_handler(){
 
 
 void run_handler::visual_handler(){
-    std::string map_name = "ej2.map";
+    std::string map_name = "ej3.map";
     visual_run_handler vrh(map_name,BFS);
 }
 

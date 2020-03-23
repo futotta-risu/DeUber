@@ -6,7 +6,7 @@
 #define DEUBER_CAR_H
 
 #include <queue>
-#include "../global.h"
+#include "global.h"
 
 enum operation{
     NONE = 0, WORKING = 1

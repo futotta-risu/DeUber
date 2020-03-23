@@ -32,7 +32,7 @@ void change_property(char* property_name, char* property_value){
 
 
 void read_config(const char* file_name){
-    // If it is alredy in memore, free it and re-read it
+    // If it is alredy in memory, free it and re-read it
     if(n_config>0){
         n_config = 0;
         free(config_vals);

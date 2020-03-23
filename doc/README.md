@@ -1,8 +1,13 @@
 # Project Documentation
 
+1. [Instalation](#instalation)
 1. [Map Files](#map-files)
     1. [Map Format](#map-format)
     2. [Map File Generation](#map-file-generation)
+
+##Instalation
+
+If we want to run the program, we will only need to execute the [DeUber.exe]()
 
 ## Map files
 

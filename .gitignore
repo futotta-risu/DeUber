@@ -14,7 +14,6 @@
 # Compiled Dynamic libraries
 *.so
 *.dylib
-*.dll
 
 # Fortran module files
 *.mod
@@ -23,20 +22,12 @@
 # Compiled Static libraries
 *.lai
 *.la
-*.a
 *.lib
 
 # Executables
 *.exe
 *.out
 *.app
-
-
-# CLion Files
-
-.idea/
-cmake-build-debug/
-
 
 # Other
 .vscode/
@@ -45,6 +36,11 @@ cmake-build-debug/
 .cproject
 .project
 
+# CLion Files
+.idea/
+
 # Special files from project
 !bin/*exe
 def*.map
+
+cmake-build-*/
