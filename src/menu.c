@@ -21,12 +21,11 @@
 #endif
 
 int call_function(const char *name, struct running_info* run_info){
-    for (int i = 0; i < (sizeof(function_map) / sizeof(function_map[0])); i++) {
+    for (int i = 0; i < (sizeof(function_map) / sizeof(function_map[0])); i++)
         if (!strcmp(function_map[i].name, name) && function_map[i].func) {
             function_map[i].func(run_info);
             return 0;
         }
-    }
     return -1;
 }
 
@@ -64,7 +63,6 @@ error_c load_menu_graph(const char* file_name){
     while ((line_s = getline(&buffer, &line_s, fptr)) != -1) {
         buffer = trim(buffer);
         line_s = strlen(buffer);
-        //printf("##La linea tiene tamanio %i y valor \"%s\".\n", line_s, buffer);
         // TODO Bug 1 : Empty lines bug
         // Comment on the file
         if(buffer[0] == '#' || line_s==0)

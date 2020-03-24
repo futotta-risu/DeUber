@@ -6,6 +6,13 @@ DeUber is a management software used to track and optimize car routes. It aims t
 
 Its main goal is to be able to be a highly customizable, easy to use software which a lot of built-in algorithms prepared for the user to solve the problem the way he wishes to. 
 
+1. [Installation](#installation)
+2. [Version Management](#version-management)
+
+## Installation
+
+If we want to run the program, we will the exe and dll of the bin folder. The dll's should always be in the same folder as the exe.
+
 ## Version Management
 
  The actual version is:
@@ -20,7 +27,3 @@ Its main goal is to be able to be a highly customizable, easy to use software wh
 - [x] Survive
 
 
-
-## Dependencies
-
-- Catch2
