@@ -10,15 +10,16 @@ extern "C" {
 #endif
 
 typedef enum  _error_codes {
-    E_SUCCESS                   = 0,
-    E_MENU_FILE_NOT_FOUND       = -1,
-    E_INVALID_NODE_NUMBER       = -2,
-    E_INVALID_EDGE_NUMBER       = -3,
-    E_BUFFER_OVERFLOW_ERROR     = -4,
-    E_INVALID_NODE_CONNECTION   = -5,
-    E_STRING_SIZE_ERROR         = -6,
-    E_INVALID_MENU_GRAPH_FILE   = -7,
-    E_TOO_LONG_NUMBER_GRAPH_FILE= -8
+    E_SUCCESS                       = 0,
+    E_MENU_FILE_NOT_FOUND           = -1,
+    E_INVALID_NODE_NUMBER           = -2,
+    E_INVALID_EDGE_NUMBER           = -3,
+    E_BUFFER_OVERFLOW_ERROR         = -4,
+    E_INVALID_NODE_CONNECTION       = -5,
+    E_STRING_SIZE_ERROR             = -6,
+    E_INVALID_MENU_GRAPH_FILE       = -7,
+    E_TOO_LONG_NUMBER_GRAPH_FILE    = -8,
+    E_UNREACHABLE_MAP_DIR           = -9
 } error_c;
 
 

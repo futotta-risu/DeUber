@@ -18,7 +18,7 @@ private:
     int counter = 0;
 public:
     EntityManager ent_man;
-    Asset_manager ast_man;
+    AssetManager ast_man;
     std::vector<Collision_component*> colliders;
 
     GameApp() : WindowComponent(){

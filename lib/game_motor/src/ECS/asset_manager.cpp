@@ -10,7 +10,7 @@
 
 
 
-void Asset_manager::load_default(){
+void AssetManager::load_default(){
 
     std::ifstream asset_list_f("../res/visual/asset_list");
     int n_asset;
@@ -25,14 +25,14 @@ void Asset_manager::load_default(){
 
 }
 
-void Asset_manager::add_texture(std::string& id, const char* path){
+void AssetManager::add_texture(std::string& id, const char* path){
     texture_map.emplace(id, TextureManager::LoadTexture(path));
 }
-SDL_Texture* Asset_manager::get_texture(std::string& id){
+SDL_Texture* AssetManager::get_texture(std::string& id){
     return texture_map[id];
 }
 
-void Asset_manager::add_animation(std::string& id, const char* path){
+void AssetManager::add_animation(std::string& id, const char* path){
     std::map<std::string, Animation> temp_a;
     std::ifstream asset_list_f(path);
 
@@ -47,6 +47,6 @@ void Asset_manager::add_animation(std::string& id, const char* path){
     texture_anim_map[id] = temp_a;
 }
 
-std::map<std::string, Animation> Asset_manager::get_animation_map(std::string& id){
+std::map<std::string, Animation> AssetManager::get_animation_map(std::string& id){
     return texture_anim_map[id];
 }

@@ -10,15 +10,15 @@
 #include <ECS/ECS.h>
 #include "animation.h"
 
-class Asset_manager{
+class AssetManager{
 private:
 
     std::map<std::string, SDL_Texture*> texture_map;
     std::map<std::string, std::map<std::string, Animation> > texture_anim_map;
 public:
 
-    Asset_manager() = default;
-    ~Asset_manager() = default;
+    AssetManager() = default;
+    ~AssetManager() = default;
 
     void load_default();
 

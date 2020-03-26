@@ -14,6 +14,7 @@ struct _error_info _error_val[] = {
         {E_STRING_SIZE_ERROR, "String Size Error","String exceeded maximum size"},
         {E_INVALID_MENU_GRAPH_FILE,"Invalid Menu Graph File", "The format in the Menu Graph file is invalid"},
         {E_TOO_LONG_NUMBER_GRAPH_FILE, "Too Long Number", "A number in the graph file is too long."},
+        {E_UNREACHABLE_MAP_DIR, "Unreachable Map Dir", "The map directory can't be reached"},
         };
 const int _error_n = sizeof(_error_val) / sizeof(struct _error_info);
 

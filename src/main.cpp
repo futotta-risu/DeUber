@@ -17,7 +17,11 @@ int main(int argc, char* argv[]){
         std::cout << static_cast<std::string>(visual_style) << std::endl;
         if(static_cast<std::string>(visual_style) == "visual")
             visual = true;
+        else if(static_cast<std::string>(visual_style) == "non_visual")
+            visual = false;
     }
+
+    std::cout << visual << std::endl;
 
     srand(time(NULL));
 

@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 project(SDL2)
 
-set(SDL2_INCLUDE_DIRS "${CMAKE_CURRENT_LIST_DIR}/include/SDL2")
+set(SDL2_INCLUDE_DIRS "include/SDL2")
 
 IF (WIN32)
     set(SDL2_LIBRARIES "${CMAKE_CURRENT_SOURCE_DIR}/lib/libSDL2.dll.a;${CMAKE_CURRENT_SOURCE_DIR}/lib/libSDL2_image.dll.a;${CMAKE_CURRENT_SOURCE_DIR}/lib/libSDL2main.a;${CMAKE_CURRENT_SOURCE_DIR}/lib/libSDL2_test.a;${CMAKE_CURRENT_SOURCE_DIR}/lib/libSDL2_ttf.dll.a")

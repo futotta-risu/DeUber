@@ -70,7 +70,6 @@ error_c load_menu_graph(const char* file_name){
 
         switch(phase){
             case 0:{
-
                 char *node_expected = trim(strtok(buffer, delim));
                 if(strcmp(node_expected,"Node")!=0) return E_INVALID_MENU_GRAPH_FILE;
 
@@ -79,7 +78,7 @@ error_c load_menu_graph(const char* file_name){
                 if(err_a == LONG_MAX || err_a == LONG_MIN )
                     return E_TOO_LONG_NUMBER_GRAPH_FILE;
                 else if(errno==EINVAL) return E_INVALID_MENU_GRAPH_FILE;
-                else node_number_i = node_number_t = err_a;
+                else node_number_i = node_number_t = (int) err_a;
 
                 if(node_number_i >= MAX_GRAPH_SIZE || node_number_i<0)
                     return E_INVALID_MENU_GRAPH_FILE;
@@ -98,7 +97,7 @@ error_c load_menu_graph(const char* file_name){
                 if(err_a == LONG_MAX || err_a == LONG_MIN )
                     return E_TOO_LONG_NUMBER_GRAPH_FILE;
                 else if(errno==EINVAL) return E_INVALID_MENU_GRAPH_FILE;
-                else node_act = err_a;
+                else node_act = (int) err_a;
 
                 if(node_act > node_number_t || node_act < 0)
                     return E_INVALID_NODE_NUMBER;
@@ -119,7 +118,7 @@ error_c load_menu_graph(const char* file_name){
                 if(err_a == LONG_MAX || err_a == LONG_MIN )
                     return E_TOO_LONG_NUMBER_GRAPH_FILE;
                 else if(errno==EINVAL) return E_INVALID_MENU_GRAPH_FILE;
-                else edge_number_i = err_a;
+                else edge_number_i = (int) err_a;
 
                 if(edge_number_i > node_number_t*(node_number_t-1) || edge_number_i<0)
                     return E_INVALID_EDGE_NUMBER;
@@ -136,14 +135,14 @@ error_c load_menu_graph(const char* file_name){
                 if(err_src == LONG_MAX || err_src == LONG_MIN  )
                     return E_TOO_LONG_NUMBER_GRAPH_FILE;
                 else if(errno==EINVAL) return E_INVALID_MENU_GRAPH_FILE;
-                else edge_src = err_src;
+                else edge_src = (int) err_src;
 
                 errno = 0;
                 long err_dest= strtol(trim(strtok(NULL, delim)), NULL, 10);
                 if(err_dest == LONG_MAX || err_dest == LONG_MIN )
                     return E_TOO_LONG_NUMBER_GRAPH_FILE;
                 else if(errno==EINVAL) return E_INVALID_MENU_GRAPH_FILE;
-                else edge_dst = err_dest;
+                else edge_dst = (int) err_dest;
 
                 if(edge_dst > node_number_t || edge_dst < 0 ||
                         edge_src > node_number_t ||  edge_src < 0) return E_INVALID_NODE_CONNECTION;
@@ -222,7 +221,7 @@ void map_menu( struct running_info* run_info){
         }
         closedir(d);
     }else{
-        // TODO Error
+        print_error(E_UNREACHABLE_MAP_DIR);
         return;
     }
     printf("Escriba algo:");
