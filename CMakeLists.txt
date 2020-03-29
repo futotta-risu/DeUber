@@ -12,7 +12,7 @@ list(FILTER DEUBER_SOURCES EXCLUDE REGEX "${CMAKE_CURRENT_LIST_DIR}/src/database
 
 add_executable(DeUber ${DEUBER_SOURCES})
 target_include_directories( ${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/include)
-target_link_libraries(${PROJECT_NAME} PUBLIC window_manager game_motor INTERFACE SDL2)
+target_link_libraries(${PROJECT_NAME} PUBLIC CWman TGMotor TGMApp INTERFACE SDL2)
 
 
 set(TEST_PROJECT_NAME DeUber_test)

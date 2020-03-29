@@ -5,6 +5,7 @@
 #include <cstring>
 #include <iostream>
 #include <fstream>
+#include <util/file/config_handler.h>
 
 #include "util/strings/strings_c.h"
 #include "maps/map.h"
@@ -15,7 +16,7 @@ Map::Map(){
     n_height = 0;
     n_width = 0;
     map_values = nullptr;
-    car_list = {};
+    car_list = new vector<car>();
 }
 
 Map::Map(int height, int width) {
@@ -26,7 +27,7 @@ Map::Map(int height, int width) {
     }catch(std::exception& e){
         map_values = nullptr;
     }
-    car_list = {};
+    car_list = new vector<car>();
 }
 
 void Map::reshape(int height, int width){
@@ -61,11 +62,10 @@ Map::~Map() {
 }
 
 void Map::read_map(const char* file_name){
-    char file_name_t[] = "../data/maps/";
-    char* full_file_name = strcat(file_name_t, file_name);
-
-    FILE *fptr = fopen(full_file_name, "r");
-
+    read_config("../data/config");
+    char* file_name_t = get_config_val("map_folder");
+    strcat(file_name_t, file_name);
+    FILE *fptr = fopen(file_name_t, "r");
     size_t line_s;
     char * buffer = nullptr;
 
@@ -86,6 +86,7 @@ void Map::read_map(const char* file_name){
                 car car_t(i,temp_height);
                 car_list->push_back(car_t);
             }else if(map_values[temp_height][i].act_val == GOAL)
+                add_goal(i,temp_height);
                 map_values[temp_height][i].def_val = FLOOR;
         }
 

@@ -25,6 +25,7 @@ extern config_property* config_vals;
 extern int n_config;
 
 void change_property(char* property_name, char* property_value);
+char* get_config_val(const char* key);
 
 void read_config(const char* file_name);
 void save_config();

@@ -1,0 +1,6 @@
+# Maps
+map_folder : ../data/maps/
+# Assets
+asset_folder : ../res/assets/
+asset_list : asset_list
+tile_folder : tiles

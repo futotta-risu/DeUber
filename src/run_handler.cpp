@@ -18,11 +18,9 @@ run_handler::run_handler(bool visual_t){
 void run_handler::non_visual_handler(){
     // First Step get the info menu to get the whole running_info data
     run_inf = run_menu(menu_file);
-
     // Load the data
     Map mapa;
     mapa.read_map(run_inf.map_name);
-
     mapa.add_car(1,0);
     running_menu_launch(&mapa, get_algorithm_by_type(run_inf.alg_name));
 }

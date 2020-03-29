@@ -27,19 +27,21 @@ struct running_info{
 
 extern string_graph *menu_tree;
 
-void map_menu( struct running_info* run_info);
-void algorithm_menu( struct running_info* run_info);
-void config_menu( struct running_info* run_info);
-void home_menu( struct running_info* run_info);
-void config_change(struct running_info* run_info);
-void config_print(struct running_info* run_info);
+int back_menu( struct running_info* run_info);
+int map_menu( struct running_info* run_info);
+int algorithm_menu( struct running_info* run_info);
+int config_menu( struct running_info* run_info);
+int home_menu( struct running_info* run_info);
+int config_change(struct running_info* run_info);
+int config_print(struct running_info* run_info);
 
 
 const static struct {
     const char *name;
-    void (*func)( struct running_info* run_info);
+    int (*func)( struct running_info* run_info);
 } function_map [] = {
-        {"home_menu", home_menu },
+        { "back_menu" , back_menu },
+        { "home_menu" , home_menu },
         { "map_menu", map_menu },
         { "algorithm_menu", algorithm_menu },
         { "config_menu", config_menu },

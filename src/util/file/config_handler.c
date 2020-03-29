@@ -68,10 +68,14 @@ void read_config(const char* file_name){
         line_s = strlen(buffer);
         // TODO Bug 1 : Empty lines bug
         // Comment on the file
-        if(buffer[0] == '#' || line_s==0)
+        if(buffer[0] == '#' || line_s==0){
+            temp_val--;
             continue;
+        }
+
         char *property_name  = strdup(trim(strtok(buffer, delim)));
         char *property_value = strdup(trim(strtok(NULL, delim)));
+        printf("%s,%s\n",property_name,property_value);
         config_property cp_temp = {property_name, property_value};
         config_vals[temp_val] = cp_temp;
         n_config++;
@@ -84,4 +88,11 @@ void print_config(){
     for(int temp_val = 0; temp_val < n_config; temp_val++)
         printf("\tValor %i) %s : %s\n", temp_val,
                config_vals[temp_val].property_name, config_vals[temp_val].property_value);
+}
+
+char* get_config_val(const char* key){
+    for(unsigned int i = 0; i < n_config; i++)
+        if(strcmp((config_vals +i)->property_name, key) == 0)
+            return (config_vals +i)->property_value;
+    return NULL;
 }

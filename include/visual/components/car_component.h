@@ -13,7 +13,7 @@ class Car_component : public Component {
 
 private:
 
-    Transform_component* transf;
+    TransformComponent* transf;
     generic_algorithm* alg;
     car* act_car;
     Map* mapa;
@@ -26,12 +26,12 @@ public:
     }
 
     void init() override{
-        if(!entity->has_component<Transform_component>())
-            entity->add_component<Transform_component>();
-        transf = &entity->get_component<Transform_component>();
-        transf->pos.x = 64*act_car->get_coord_x();
-        transf->pos.y = 64*act_car->get_coord_y();
-        transf->speed=4.4;
+        if(!entity->has_component<TransformComponent>())
+            entity->add_component<TransformComponent>();
+        transf = &entity->get_component<TransformComponent>();
+        transf->pos.x = 50*act_car->get_coord_x();
+        transf->pos.y = 50*act_car->get_coord_y();
+        transf->speed=3.5;
     }
 
     void update() override{

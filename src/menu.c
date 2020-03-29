@@ -22,10 +22,8 @@
 
 int call_function(const char *name, struct running_info* run_info){
     for (int i = 0; i < (sizeof(function_map) / sizeof(function_map[0])); i++)
-        if (!strcmp(function_map[i].name, name) && function_map[i].func) {
-            function_map[i].func(run_info);
-            return 0;
-        }
+        if (!strcmp(function_map[i].name, name) && function_map[i].func)
+            return function_map[i].func(run_info);
     return -1;
 }
 
@@ -163,12 +161,13 @@ error_c load_menu_graph(const char* file_name){
     return E_SUCCESS;
 }
 struct running_info run_menu(const char* file_name){
+    read_config("../data/config");
     struct running_info r_info = {"", BFS, E_SUCCESS};
     r_info.err = load_menu_graph(file_name);
 
     if(r_info.err != E_SUCCESS){
         print_error(r_info.err);
-        return  r_info;
+        return r_info;
     }
 
     int act_node = 0, temp_input_line;
@@ -177,8 +176,8 @@ struct running_info run_menu(const char* file_name){
     while(r_info.err == E_SUCCESS){
         clrscr();
         print_logo();
-        call_function(get_node_text(menu_tree,act_node),&r_info);
-
+        int res = call_function(get_node_text(menu_tree,act_node),&r_info);
+        if( res == -1) return r_info;
         unsigned short invalid_input = 0;
         do{
             if(invalid_input==0)
@@ -187,8 +186,7 @@ struct running_info run_menu(const char* file_name){
             scanf("%i",&temp_input_line);
             fflush(stdin);
             printf("\n");
-            if(temp_input_line == -1) return r_info;
-            else if(temp_input_line<0 || temp_input_line>= temp_list_size)
+            if(temp_input_line<0 || temp_input_line>= temp_list_size)
                 printf("\nError %i: Por favor, introduzca un numero de entre las opciones.\n",
                        ++invalid_input);
             else invalid_input=0;
@@ -200,18 +198,22 @@ struct running_info run_menu(const char* file_name){
     return r_info;
 }
 
+int back_menu( struct running_info* run_info){
+    return -1;
+}
 
-void home_menu( struct running_info* run_info){
+int home_menu( struct running_info* run_info){
     printf("Estamos en el Home Menu\n");
     printf("Estado del pack informativo \n");
     printf("\n\tRecuerda que para ejecutar el programa debes escribir -1.\n");
     printf("\n Map Name : %s \n Algorithm %i\n\n", run_info->map_name, run_info->alg_name);
+    return 0;
 }
-void map_menu( struct running_info* run_info){
+int map_menu( struct running_info* run_info){
 
     DIR *d;
     struct dirent *dir;
-    d = opendir("../data/maps");
+    d = opendir(get_config_val("map_folder"));
     if (d){
         printf("Escoja el mapa que quiera usar de ahora en adelante.\n");
         for(int i = 0 ;(dir = readdir(d)) != NULL; i++){
@@ -222,13 +224,13 @@ void map_menu( struct running_info* run_info){
         closedir(d);
     }else{
         print_error(E_UNREACHABLE_MAP_DIR);
-        return;
+        return 0;
     }
     printf("Escriba algo:");
     int i_v;
     scanf("%i", &i_v);
     fflush(stdin);
-    d = opendir("../data/maps");
+    d = opendir(get_config_val("map_folder"));
     for (int i = 0; (dir = readdir(d)) != NULL; i++){
         if(dir->d_name[0]=='.')
             continue;
@@ -238,14 +240,34 @@ void map_menu( struct running_info* run_info){
         }
     }
     closedir(d);
+    return 0;
 }
-void algorithm_menu( struct running_info* run_info){
-    printf("Estamos en el Menu de Algoritmos.\n");
+int algorithm_menu( struct running_info* run_info){
+    int invalid = 0;
+    while(invalid==0){
+        printf("Estamos en el Menu de Algoritmos.\n");
+        printf("Escoger el Algoritmos:\n\t 1) BFS\n\t 2) Random\n");
+        int option;
+        scanf("%i", &option);
+        switch(option){
+            case 1:
+                run_info->alg_name = BFS;
+                break;
+            case 2:
+                run_info->alg_name = RANDOM;
+                break;
+            default:
+                invalid = 1;
+                printf("Ha introducido un numero invalido.\n\n");
+        }
+    }
+    return 0;
 }
-void config_menu( struct running_info* run_info){
+int config_menu( struct running_info* run_info){
+    return 0;
 }
 
-void config_change(struct running_info* run_info){
+int config_change(struct running_info* run_info){
     read_config(config_file);
     char input_val[64];
     do{
@@ -260,22 +282,21 @@ void config_change(struct running_info* run_info){
             char input_property_value[64];
             printf("Introduzca el nombre de la propiedad.\n");
             scanf("%s", input_property_name);
-
             printf("Introduzca el valor de la propiedad.\n");
             scanf("%s", input_property_value);
-
 
             change_property(strdup(input_property_name), strdup(input_property_value));
         }
         printf("Ninguna eleccion \n");
-    }while(1==1);
-
+    }while(1);
+    return 0;
 
 }
-void config_print(struct running_info* run_info){
+int config_print(struct running_info* run_info){
     read_config(config_file);
     print_config();
     printf("Pulse una tecla para continuar....");
     int i = 0;
     scanf("%i", &i);
+    return 0;
 }

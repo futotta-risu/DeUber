@@ -38,7 +38,7 @@ public:
     Map(int height, int width);
     Map(cell_char** map_values, int height, int width) :
         map_values{map_values}, n_width{width}, n_height{height}{
-        car_list = {};
+        car_list = new std::vector<car>();
     };
     ~Map();
 

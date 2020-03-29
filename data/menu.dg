@@ -1,19 +1,25 @@
 # Node
-Node : 6
+Node : 7
 0 : home_menu
 1 : map_menu
 2 : algorithm_menu
 3 : config_menu
 4 : config_change
 5 : config_print
+6 : back_menu
 # Edges
-Edge : 9
+Edge : 14
+0 : 6 : Guardar y Salir
 0 : 3 : Menu de Configuracion
 0 : 2 : Menu de Algoritmos
 0 : 1 : Menu de Mapas
+1 : 6 : Guardar y Salir
 1 : 0 : Volver a Home
+2 : 6 : Guardar y Salir
 2 : 0 : Volver a Home
+3 : 6 : Guardar y Salir
 3 : 0 : Volver a Home
+5 : 6 : Guardar y Salir
 5 : 0 : Volver a Home
 3 : 4 : Cambiar Configuracion
 3 : 5 : Ver Configuracion

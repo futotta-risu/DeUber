@@ -16,7 +16,7 @@
 
 #include "running_info.h"
 
-#include "window_handler.h"
+#include "CWindow.h"
 
 class Collision_component;
 
@@ -24,7 +24,7 @@ const int WIDTH = 800, HEIGHT = 600;
 
 class visual_run_handler {
 private:
-    WindowHandler window;
+    CWindow* window;
 
 public:
     std::vector<car> car_list;
