@@ -23,13 +23,9 @@ private:
 public:
 
     GameMap() = default;
-    GameMap(int** map_t, int map_width_t, int map_height_t);
     GameMap(const char* map_sheet, Game *gApp);
 
     ~GameMap();
-
-
-    void load_default_assets();
 
     void load_map(const char* map_sheet, Game *gApp);
     void print_map();

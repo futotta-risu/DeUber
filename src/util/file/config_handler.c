@@ -75,7 +75,6 @@ void read_config(const char* file_name){
 
         char *property_name  = strdup(trim(strtok(buffer, delim)));
         char *property_value = strdup(trim(strtok(NULL, delim)));
-        printf("%s,%s\n",property_name,property_value);
         config_property cp_temp = {property_name, property_value};
         config_vals[temp_val] = cp_temp;
         n_config++;

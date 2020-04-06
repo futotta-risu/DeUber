@@ -38,6 +38,7 @@ void Map::reshape(int height, int width){
 
     n_width = width;
     n_height = height;
+    delete[] map_values;
     map_values = new cell_char*[height];
     for(unsigned int i = 0; i < height; i++)
         map_values[i] = new cell_char[width];

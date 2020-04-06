@@ -28,8 +28,8 @@ public:
     };
 
 
-    void input() override {
-    };
+    void input() override {};
+
     void update() override {
         g->e_man.update();
         counter++;

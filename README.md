@@ -27,3 +27,4 @@ If we want to run the program, we will the exe and dll of the bin folder. The dl
 - [x] Survive
 
 
+***Legal disclaimer**: This project has nothing to do with the company Uber.*

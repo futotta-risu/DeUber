@@ -19,7 +19,7 @@ visual_run_handler::visual_run_handler(std::string& map_file_name, algorithm_typ
     window->set_size(WIDTH, HEIGHT);
     window->init_SDL(0);
     auto gApp = new GameApp(window->get_render(), map_file_name.c_str());
-    auto but = new CButton("Otro boton guay");
+    auto but = new CButton("Mapa");
 
     but->set_action_listener(
             [](){

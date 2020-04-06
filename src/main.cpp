@@ -14,8 +14,6 @@ int main(int argc, char* argv[]){
         else if(static_cast<std::string>(visual_style) == "non_visual")
             visual = false;
     }
-
-
     srand(time(nullptr));
 
     run_handler launcher(visual);

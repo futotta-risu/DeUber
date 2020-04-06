@@ -3,7 +3,7 @@
 1. [Map Files](#map-files)
     1. [Map Format](#map-format)
     2. [Map File Generation](#map-file-generation)
-
+2. [Reinforcement Learning](#reinforcement-learning)
 
 ## Map files
 
@@ -32,3 +32,8 @@ To generate random map files, we made a simple Python script which can be found 
 | -f, --file| String| Defines the name under which it will be saved |
 |-md, --map_dims| Int Int| Defines the dimensions of the map we will be creating|
  
+## Reinforcement Learning
+
+> **Attention: Python3 is required to run the script**
+
+The reinforcement learning algorithms are located in the scripts folder under the folder _notebooks_. 

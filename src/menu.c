@@ -182,7 +182,7 @@ struct running_info run_menu(const char* file_name){
         do{
             if(invalid_input==0)
                 print_next_node_list(menu_tree, act_node, &temp_list_size);
-            printf("Introduzca la opcion que desea, recuerde que para salir debe escribir -1:");
+            printf("Introduzca la opcion que desea");
             scanf("%i",&temp_input_line);
             fflush(stdin);
             printf("\n");
@@ -205,7 +205,6 @@ int back_menu( struct running_info* run_info){
 int home_menu( struct running_info* run_info){
     printf("Estamos en el Home Menu\n");
     printf("Estado del pack informativo \n");
-    printf("\n\tRecuerda que para ejecutar el programa debes escribir -1.\n");
     printf("\n Map Name : %s \n Algorithm %i\n\n", run_info->map_name, run_info->alg_name);
     return 0;
 }
@@ -243,8 +242,8 @@ int map_menu( struct running_info* run_info){
     return 0;
 }
 int algorithm_menu( struct running_info* run_info){
-    int invalid = 0;
-    while(invalid==0){
+    int invalid = 1;
+    while(invalid!=0){
         printf("Estamos en el Menu de Algoritmos.\n");
         printf("Escoger el Algoritmos:\n\t 1) BFS\n\t 2) Random\n");
         int option;
@@ -257,7 +256,7 @@ int algorithm_menu( struct running_info* run_info){
                 run_info->alg_name = RANDOM;
                 break;
             default:
-                invalid = 1;
+                invalid = 0;
                 printf("Ha introducido un numero invalido.\n\n");
         }
     }
@@ -268,14 +267,14 @@ int config_menu( struct running_info* run_info){
 }
 
 int config_change(struct running_info* run_info){
+    // TODO corregir, error fflush
     read_config(config_file);
     char input_val[64];
     do{
+        fflush(stdin);
         printf("\n Si desea hacer algun cambio escriba \"cambio\", si desea salir escriba \"salir\".\n");
 
         scanf("%s",input_val);
-
-        printf("\n Si desea hacer algun cambio escriba \"cambio\", si desea salir escriba \"salir\".\n");
         if(strcmp(input_val,"salir")==0) break;
         if(strcmp(input_val,"cambio")==0){
             char input_property_name[64];
@@ -286,8 +285,7 @@ int config_change(struct running_info* run_info){
             scanf("%s", input_property_value);
 
             change_property(strdup(input_property_name), strdup(input_property_value));
-        }
-        printf("Ninguna eleccion \n");
+        }else printf("Ninguna eleccion \n");
     }while(1);
     return 0;
 
@@ -295,7 +293,7 @@ int config_change(struct running_info* run_info){
 int config_print(struct running_info* run_info){
     read_config(config_file);
     print_config();
-    printf("Pulse una tecla para continuar....");
+    printf("Escriba una tecla para continuar....");
     int i = 0;
     scanf("%i", &i);
     return 0;
