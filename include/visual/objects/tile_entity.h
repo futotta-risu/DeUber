@@ -19,9 +19,9 @@ class tile_entity{
 public:
     static void add_tile(std::string id, Game* gApp, int tile_type, int y, int x) {
         auto& player = gApp->e_man.man.add_entity();
-        player.add_component<TransformComponent>(x*64,y*64);
+        player.add_component<TransformComponent>(x*50,y*50);
         player.add_component<SpriteComponent>(tile_names[tile_type].c_str(),  gApp);
-        player.add_group(1);
+        player.add_group(G_TILES);
     }
 
 };

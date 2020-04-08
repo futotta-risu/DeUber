@@ -17,5 +17,6 @@ int main(int argc, char* argv[]){
     srand(time(nullptr));
 
     run_handler launcher(visual);
+    
     return EXIT_SUCCESS;
 }

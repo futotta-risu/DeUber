@@ -18,7 +18,7 @@ class car_entity{
 public:
     static void add_player(std::string id, Game* gApp,  car* act_car, generic_algorithm* alg_t, Map* mapa) {
         auto& player = gApp->e_man.man.add_entity();
-        player.add_component<TransformComponent>(64*act_car->get_coord_x(),64*act_car->get_coord_y());
+        player.add_component<TransformComponent>(50*act_car->get_coord_x(),50*act_car->get_coord_y());
         player.add_component<SpriteComponent>(id, gApp, true);
         // TODO arreglar el tema ID's
         player.add_component<CollisionComponent>(gApp);

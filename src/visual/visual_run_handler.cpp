@@ -18,7 +18,8 @@ visual_run_handler::visual_run_handler(std::string& map_file_name, algorithm_typ
     window = new CWindow("DeUber");
     window->set_size(WIDTH, HEIGHT);
     window->init_SDL(0);
-    auto gApp = new GameApp(window->get_render(), map_file_name.c_str());
+    auto gApp = new GameApp();
+    gApp->load(window->get_render(), map_file_name.c_str());
     auto but = new CButton("Mapa");
 
     but->set_action_listener(
@@ -33,15 +34,14 @@ visual_run_handler::visual_run_handler(std::string& map_file_name, algorithm_typ
     Map mapa;
     mapa.read_map(map_file_name.c_str());
     int **map_copy = mapa.get_aval_map();
-    for(int i = 0; i < mapa.get_height(); i++){
-        for(int j = 0; j < mapa.get_width(); j++){
-            if(map_copy[i][j]>1){
-                if(map_copy[i][j]==3)
-                    goal_entity::add_goal(mapa.add_goal(j,i),gApp->g, i, j);
-                map_copy[i][j]=0;
-            }
-
-        }
+    const short n_goals = 3;
+    for(int i = 0; i < n_goals; i++){
+        int x_r, y_r;
+        do{
+            x_r = rand()%mapa.get_width();
+            y_r = rand()%mapa.get_height();
+        }while(map_copy[y_r][x_r]!=0 || mapa.check_goal(x_r,y_r) || (x_r == y_r && x_r == 1));
+        goal_entity::add_goal(mapa.add_goal(x_r,y_r),gApp->g, y_r, x_r);
     }
     alg_type = alg_t;
     algorithm = get_algorithm_by_type(alg_type);

@@ -40,32 +40,23 @@ void GameMap::load_map(const char* map_sheet, Game *gApp){
     res_infile.close();
 
     // LOAD MAP FILE
-
+    std::cout << "---------" << std::endl;
     std::ifstream map_infile(file_name);
     map_infile >> map_height >> map_width;
     reshape_map();
-    int x = 0, y = 0, map_id = 0;
-    // Se puede cambiar x,y por i*50, j*50, pero no se que es mejor
-    int file, file_r;
+
+    std::string line;
     for(int i = 0; i < map_height; i++){
-        file_r = 0;
-        map_infile >> file;
-        while(file > 0){
-            file_r = 10*file_r + file%10;
-            file /=10;
-        }
-        file = file_r;
+        map_infile >> line;
         for(int j = 0; j < map_width; j++){
-            map[i][j] = file%10;
-            file/=10;
+            map[i][j] = line[j]-'0';
             if(map[i][j]==3) map[i][j] = 0;
-            {
-                // TODO Diferent goal position
-                auto& tile = gApp->e_man.man.add_entity();
-                tile.add_component<TransformComponent>(j*50,i*50,50,50,1);
-                tile.add_component<SpriteComponent>(tex_map[map[i][j]].c_str(),gApp);
-                tile.add_group(G_TILES);
-            }
+
+            auto& tile = gApp->e_man.man.add_entity();
+            tile.add_component<TransformComponent>(j*50,i*50,50,50,1);
+            tile.add_component<SpriteComponent>(tex_map[map[i][j]].c_str(),gApp);
+            tile.add_group(G_TILES);
+
         }
     }
     map_infile.close();

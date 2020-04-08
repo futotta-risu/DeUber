@@ -2,6 +2,8 @@ from enum import Enum
 from argparse import ArgumentParser
 from scripts import map_simulator as MS
 
+from random import randint, uniform
+
 Path_generated_data = "../data/generated/"
 Folder_map = "maps/"
 Suffix_map = ".map"
@@ -12,6 +14,7 @@ Default_map_name = "def"
 
 class GeneratorAlgorithms(Enum):
     RANDOM = 1
+    LSYSTEM = 2
 
 
 class MapGenerator:
@@ -35,10 +38,40 @@ class MapGenerator:
             for key, value in file_info_map.items():
                 fR.write(str(key) + ":" + str(value) + "\n")
 
+    def lsystem(self, n_iter = 10, alpha = 0.8, ran_val = 2):
+
+        l = [[self.map.width, self.map.width, 0, 0]]
+        l2 = []
+
+        for i in range(n_iter):
+            for j in l:
+                if j[0]<=2 or j[1]<=2:
+                    l2+=[j]
+                    continue
+                if uniform(0, 1) < alpha:
+                    if uniform(0, 1) < 0.5*(j[0]**ran_val/(j[0]**ran_val+j[1]**ran_val)):
+                        n_width = randint(1, j[0]-2)
+                        l2 += [[n_width, j[1], j[2], j[3]], [j[0]-n_width-1, j[1], j[2]+n_width+1, j[3]]]
+                    else:
+                        n_height = randint(1, j[1]-2)
+                        l2 += [[j[0], n_height, j[2], j[3]], [j[0], j[1]-n_height-1, j[2], j[3]+n_height+1]]
+                    continue
+                l2 += [j]
+                l = l2.copy()
+                l2 = []
+        mapa = [[0 for j in range(self.map.width)] for j in range(self.map.height)]
+
+        for j in l:
+            for a1 in range(j[2], j[2]+j[0]):
+                for a2 in range(j[3], j[3]+j[1]):
+                    mapa[a2][a1] = 1
+        self.map.map = mapa.copy()
+
     def generateMap(self, genAlg):
         if genAlg == GeneratorAlgorithms.RANDOM:
             self.map.randomMap()
-
+        elif genAlg == GeneratorAlgorithms.LSYSTEM:
+            self.lsystem()
 
 if __name__ == "__main__":
 

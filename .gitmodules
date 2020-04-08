@@ -1,3 +1,12 @@
-[submodule "src/external/Catch2"]
-	path = src/lib/Catch2
+[submodule "Catch2"]
+	path = lib/Catch2
 	url = https://github.com/catchorg/Catch2
+[submodule "lib/CWman"]
+	path = lib/CWman
+	url = https://github.com/erikberter/CWman
+[submodule "lib/SDL2"]
+	path = lib/SDL2
+	url = https://www.libsdl.org/download-2.0.php
+[submodule "lib/TGMotor"]
+	path = lib/TGMotor
+	url = https://github.com/erikberter/TGMotor

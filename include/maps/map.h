@@ -65,6 +65,7 @@ public:
     void add_car(car car_t);
 
     Goal* add_goal(int pos_x, int pos_y);
+    bool check_goal(int pos_x, int pos_y);
     void delete_goal(int pos_x, int pos_y);
     void move_car(int id, int dir);
 

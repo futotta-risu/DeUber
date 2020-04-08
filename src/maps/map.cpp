@@ -188,6 +188,16 @@ int** Map::get_aval_map(){
     }
     return map_copy;
 }
+
+bool Map::check_goal(int pos_x, int pos_y){
+    if(!check_coords(pos_x, pos_y))
+        throw invalid_coords(pos_x, pos_y, this);
+    if(goal_list.count(pos_y*n_height+pos_x))
+        return true;
+    return false;
+}
+
+
 bool Map::check_coords(int x, int y){
     if(x<0 || x>= this->n_width)
         throw invalid_coords(x,y,this);

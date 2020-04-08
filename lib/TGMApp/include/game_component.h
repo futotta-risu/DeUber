@@ -20,12 +20,16 @@ private:
 public:
     Game* g;
 
-    GameApp(SDL_Renderer** ren, const char* map_file_name) : CComponent(){
+    GameApp() : CComponent(){
         set_container();
-        g = new Game();
-        g->load_defs(ren, map_file_name);
+
 
     };
+
+    void load(SDL_Renderer** ren, const char* map_file_name){
+        g = new Game();
+        g->load_defs(ren, map_file_name);
+    }
 
 
     void input() override {};
