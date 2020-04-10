@@ -25,7 +25,6 @@ public:
     CPanel() : CComponent(){
         panel_layout = new VerticalFlowLayout();
         set_container();
-        component_list = {};
     };
 
     void set_size(int height, int width){
@@ -48,11 +47,6 @@ public:
 
     }
 
-    void update_layout() override{
-        updated = false;
-        panel_layout->set_size(component_list, this);
-    }
-
     void add(CComponent* component){
         component->set_parent(this);
         component_list.emplace_back(component);
@@ -64,7 +58,10 @@ public:
         update_layout();
     }
 
-
+    void update_layout() override{
+        updated = false;
+        panel_layout->set_size(component_list, this);
+    }
 
     CComponent* get_component_by_id(std::string id){
 

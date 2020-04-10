@@ -4,6 +4,4 @@ add_subdirectory(SDL2)
 add_subdirectory(TGMotor)
 add_subdirectory(CWman)
 
-add_subdirectory(TGMApp)
-
 add_subdirectory(Catch2)

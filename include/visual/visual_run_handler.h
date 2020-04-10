@@ -28,13 +28,14 @@ private:
 public:
     std::vector<car> car_list;
 
-    algorithm_type alg_type;
     generic_algorithm *algorithm;
 
     running_menu_data run_dat;
 
-    visual_run_handler(std::string& map_file_name, algorithm_type alg_t);
+    visual_run_handler();
     ~visual_run_handler() = default;
+
+    void load(const char* map_file_name, algorithm_type alg_t);
 
 };
 

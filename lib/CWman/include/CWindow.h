@@ -41,6 +41,7 @@ private:
     void window_render();
 
     void set_defaults();
+    void init_SDL(int SDL_flags);
 
 public:
     static int window_id;
@@ -49,13 +50,14 @@ public:
     CWindow(std::string w_title_t);
     ~CWindow();
 
+
     void set_size(int w,int h){
         w_width = w;
         w_height = h;
     }
 
     void init_window();
-    void init_SDL(int SDL_flags);
+
     void set_layout(WindowLayout* layout);
     void add(CComponent* component);
 
@@ -63,7 +65,9 @@ public:
         return window_panel->get_component_by_id(id);
     };
 
-    SDL_Renderer** get_render(){return &ren;}
+    SDL_Renderer** get_render(){
+        return &ren;
+    }
 };
 
 #endif //WINDOWMANAGER_WINDOW_HANDLER_H

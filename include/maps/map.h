@@ -51,6 +51,10 @@ public:
         return n_height;
     }
 
+    int get_cell(int x, int y){
+        return static_cast<int>(map_values[y][x].act_val);
+    }
+
     // Operators
 
     // Other Functions
@@ -78,15 +82,10 @@ public:
         return &(*car_list)[i];
     }
 
-    void set_car_list(std::vector<car> *car_list_t){
-        car_list = car_list_t;
-    }
+    void set_car_list(std::vector<car> *car_list_t);
 
     bool check_coords(int x, int y);
-    void clear_cell(int pos_x, int pos_y){
-        goal_list[pos_y*n_height+pos_x]->destroy();
-        map_values[pos_y][pos_x].act_val = FLOOR;
-    }
+    void clear_cell(int pos_x, int pos_y);
 
 };
 

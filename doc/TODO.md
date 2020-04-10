@@ -22,8 +22,10 @@
 
 ## CWman
 
-1. [ ] Implementar BorderLayout.
-2. [ ] Comprobar capacidad de multithreading.
+- [ ] Implementar BorderLayout.
+- [ ] Comprobar capacidad de multithreading.
+- [ ] Implementar set_title(const char* title_t) en CWindow
+- [ ] Implementar set_size(int width_t, int height_t) en CWindow 
 - [ ] Write documentation about the library
 ## TGMotor
 

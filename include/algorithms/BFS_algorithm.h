@@ -103,7 +103,6 @@ public:
     void move_cars(Map *map_t) override{
         for(int i = 0; i < map_t->get_car_list_size(); i++){
             car *car_t = map_t->get_car(i);
-            std::cout << std::endl << car_t->get_coord_x() << ":" << car_t->get_coord_y() << std::endl;
             int dir = get_best_move(map_t, car_t);
             car_t->dir = dir;
             map_t->move_car(car_t->get_id(),dir);

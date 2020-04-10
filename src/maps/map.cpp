@@ -5,11 +5,12 @@
 #include <cstring>
 #include <iostream>
 #include <fstream>
-#include <util/file/config_handler.h>
 
+#include "util/file/config_handler.h"
 #include "util/strings/strings_c.h"
 #include "maps/map.h"
 #include "maps/map_errors.h"
+
 using namespace std;
 
 Map::Map(){
@@ -206,3 +207,13 @@ bool Map::check_coords(int x, int y){
     return true;
 }
 
+void Map::set_car_list(std::vector<car> *car_list_t){
+    car_list->clear();
+    for(auto c : *car_list_t)
+        car_list->push_back(c);
+}
+
+void Map::clear_cell(int pos_x, int pos_y){
+    goal_list[pos_y*n_height+pos_x]->destroy();
+    map_values[pos_y][pos_x].act_val = FLOOR;
+}

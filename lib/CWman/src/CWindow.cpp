@@ -2,7 +2,7 @@
 // Created by erikberter on 20/03/2020.
 //
 
-#include <SDL_ttf.h>
+#include "SDL_ttf.h"
 #include "CWindow.h"
 #include "layout/absolute_layout.h"
 
@@ -12,10 +12,12 @@ int CWindow::window_id = 1;
 
 CWindow::CWindow(){
     set_defaults();
+    init_SDL(0);
 }
 CWindow::CWindow(std::string w_title_t){
     set_defaults();
     w_title = w_title_t;
+    init_SDL(0);
 }
 
 void CWindow::set_defaults(){
@@ -35,12 +37,15 @@ void CWindow::init_window(){
 
 
 void CWindow::init_SDL(int SDL_flags){
-    SDL_Init(0);
-    SDL_CreateWindowAndRenderer(w_width, w_height, SDL_flags, &win, &ren);
-    SDL_SetWindowTitle(win, w_title.c_str());
-    SDL_StartTextInput();
-    if(TTF_Init() < 0)
-        std::cout << "Error:" << TTF_GetError() << std::endl;
+    if(!SDL_WasInit(0)){
+        SDL_Init(0);
+        SDL_StartTextInput();
+        if(TTF_Init() < 0)
+            std::cout << "Error:" << TTF_GetError() << std::endl;
+    }
+
+    win = SDL_CreateWindow(w_title.c_str(),100,100,w_width,w_height,SDL_flags);
+    ren = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED);
 }
 CWindow::~CWindow(){
     window_panel->~CPanel();

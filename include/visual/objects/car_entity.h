@@ -6,7 +6,7 @@
 #define DEUBER_CAR_ENTITY_H
 
 #include "ECS/Components/collision_component.h"
-#include "game_component.h"
+#include "visual/game_component.h"
 #include "visual/components/car_component.h"
 #include "visual/visual_run_handler.h"
 

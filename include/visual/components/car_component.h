@@ -35,6 +35,7 @@ public:
     }
 
     void update() override{
+
         if(counter%15==0)
             alg->move_car(mapa, act_car);
 
