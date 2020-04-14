@@ -2,13 +2,14 @@
 #include <cstdlib>
 #include <string>
 
+
 #define SDL_MAIN_HANDLED
 
 #include "menu.h"
 #include "algorithms/algorithm_helper.h"
 #include "running_menu.h"
 #include "visual/visual_run_handler.h"
-
+#include <visual/map_selector.h>
 
 int main(int argc, char* argv[]) {
     bool visual = true;
@@ -24,10 +25,15 @@ int main(int argc, char* argv[]) {
         }
     }
     srand(time(nullptr));
-
     if (visual){
         visual_run_handler vrh;
-        vrh.load("ej3.map", BFS);
+        std::string map_name;
+        do{
+        MapSelector *t = new MapSelector(&map_name,"../data/maps/");
+        t->init_window();
+        t->~MapSelector();}while(map_name.empty());
+        std::cout << "Hemos salido con " << map_name << std::endl;
+        vrh.load(map_name.c_str(), BFS);
     }else{
         // First Step get the info menu to get the whole running_info data
         running_info run_inf = run_menu(menu_file);

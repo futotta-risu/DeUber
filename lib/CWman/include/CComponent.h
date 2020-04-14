@@ -65,6 +65,7 @@ public:
     Position get_pos(){return *component_CUI.get_coords();};
     void set_size(Dimension d){component_CUI.set_actual_size(d);};
     Dimension get_size(){return component_CUI.get_actual_size();};
+    void set_minimum_size(Dimension d){component_CUI.set_minimum_size(d);};
 
     void set_tex_CUI(SDL_Texture* tex){component_CUI.set_tex(tex);};
     void draw_CUI(SDL_Renderer* ren){component_CUI.draw(ren);};

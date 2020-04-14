@@ -5,15 +5,11 @@
 #include <component/CButton.h>
 
 #include "visual/visual_run_handler.h"
+#include "visual/game_component.h"
 
 #include "algorithms/algorithm_helper.h"
 
-#include "visual/game_component.h"
-#include "game_man.h"
-
-
-visual_run_handler::visual_run_handler(){}
-
+#define G_CAR 25
 
 void visual_run_handler::load(const char* map_file_name, algorithm_type alg_t){
 
@@ -28,8 +24,6 @@ void visual_run_handler::load(const char* map_file_name, algorithm_type alg_t){
     gApp->gm->set_algorith(alg_t);
 
     auto but = new CButton("Mapa");
-
-
     but->set_action_listener(
             [](CWindow *win){
                 CComponent *gAppC =  win->get_component_by_id("GAPP");
@@ -41,17 +35,18 @@ void visual_run_handler::load(const char* map_file_name, algorithm_type alg_t){
     but->set_window(window);
     window->add(but);
 
-    run_dat = {true, 20};
     algorithm = get_algorithm_by_type(alg_t);
 
     gApp->gm->read_car_list("../data/cars/car_list1.txt");
     gApp->gm->print_car_list();
-
     gApp->set_id("GAPP");
-    std::vector<std::size_t> order_t = {G_TILES, G_ENEMY,G_PLAYER,G_COLLIDER,25};
+
+
+    std::vector<std::size_t> order_t = {G_TILES, G_ENEMY,G_PLAYER,G_COLLIDER,G_CAR};
     gApp->gm->get_game()->e_man.add_to_order(order_t);
     window->add(gApp);
     window->init_window();
+    window->~CWindow();
 }
 
 void load_game(){

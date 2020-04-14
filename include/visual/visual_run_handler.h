@@ -32,7 +32,7 @@ public:
 
     running_menu_data run_dat;
 
-    visual_run_handler();
+    visual_run_handler() = default;
     ~visual_run_handler() = default;
 
     void load(const char* map_file_name, algorithm_type alg_t);

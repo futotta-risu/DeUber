@@ -37,8 +37,8 @@ void CWindow::init_window(){
 
 
 void CWindow::init_SDL(int SDL_flags){
-    if(!SDL_WasInit(0)){
-        SDL_Init(0);
+    if(!SDL_WasInit(SDL_INIT_VIDEO|SDL_INIT_EVENTS|SDL_flags)){
+        SDL_Init(SDL_INIT_VIDEO|SDL_INIT_EVENTS);
         SDL_StartTextInput();
         if(TTF_Init() < 0)
             std::cout << "Error:" << TTF_GetError() << std::endl;
@@ -51,6 +51,7 @@ CWindow::~CWindow(){
     window_panel->~CPanel();
     SDL_DestroyRenderer(ren);
     SDL_DestroyWindow(win);
+    SDL_QuitSubSystem(SDL_INIT_VIDEO|SDL_INIT_EVENTS);
     SDL_Quit();
 }
 
