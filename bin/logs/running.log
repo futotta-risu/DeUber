@@ -10,583 +10,81 @@
 2020-04-20 15:14:18.920 DEBUG [12388] [Game::load_defs@29] Loading Entities
 2020-04-20 15:14:18.921 DEBUG [12388] [Game::load_defs@31] Loading Stages
 2020-04-20 15:14:18.921 DEBUG [12388] [Game::load_defs@31] Loading Stages
-2020-04-20 15:14:18.921 INFO  [12388] [visual_run_handler::load@25] Game loaded
-2020-04-20 15:14:18.921 INFO  [12388] [visual_run_handler::load@25] Game loaded
-2020-04-20 15:14:18.925 INFO  [12388] [visual_run_handler::load@27] Map loaded
-2020-04-20 15:14:18.925 INFO  [12388] [visual_run_handler::load@27] Map loaded
-2020-04-20 15:14:18.925 INFO  [12388] [visual_run_handler::load@44] Starting game reading process
-2020-04-20 15:14:18.925 INFO  [12388] [visual_run_handler::load@44] Starting game reading process
-2020-04-20 15:14:18.925 INFO  [12388] [GameManager::read_car_list@63] Reading car list
-2020-04-20 15:14:18.925 INFO  [12388] [GameManager::read_car_list@63] Reading car list
-2020-04-20 15:14:45.150 INFO  [5752] [main@17] Starting Program
-2020-04-20 15:14:45.150 INFO  [5752] [main@33] Starting visual mode.
-2020-04-20 15:14:45.150 INFO  [5752] [main@37] Selecting a Map. 
-2020-04-20 15:14:48.922 INFO  [5752] [main@40] Selected map: ej3.map
-2020-04-20 15:14:50.307 INFO  [5752] [visual_run_handler::load@22] CWindow initialized
-2020-04-20 15:14:50.307 DEBUG [5752] [Game::load_defs@27] Loading Assets
-2020-04-20 15:14:50.307 DEBUG [5752] [Game::load_defs@27] Loading Assets
-2020-04-20 15:14:50.338 DEBUG [5752] [Game::load_defs@29] Loading Entities
-2020-04-20 15:14:50.338 DEBUG [5752] [Game::load_defs@29] Loading Entities
-2020-04-20 15:14:50.339 DEBUG [5752] [Game::load_defs@31] Loading Stages
-2020-04-20 15:14:50.339 DEBUG [5752] [Game::load_defs@31] Loading Stages
-2020-04-20 15:14:50.339 INFO  [5752] [visual_run_handler::load@25] Game loaded
-2020-04-20 15:14:50.339 INFO  [5752] [visual_run_handler::load@25] Game loaded
-2020-04-20 15:14:50.343 INFO  [5752] [visual_run_handler::load@27] Map loaded
-2020-04-20 15:14:50.343 INFO  [5752] [visual_run_handler::load@27] Map loaded
-2020-04-20 15:14:50.343 INFO  [5752] [visual_run_handler::load@44] Starting game reading process
-2020-04-20 15:14:50.343 INFO  [5752] [visual_run_handler::load@44] Starting game reading process
-2020-04-20 15:14:50.343 INFO  [5752] [GameManager::read_car_list@63] Reading car list
-2020-04-20 15:14:50.343 INFO  [5752] [GameManager::read_car_list@63] Reading car list
-2020-04-20 15:15:38.627 INFO  [7532] [main@17] Starting Program
-2020-04-20 15:15:38.627 INFO  [7532] [main@33] Starting visual mode.
-2020-04-20 15:15:38.627 INFO  [7532] [main@37] Selecting a Map. 
-2020-04-20 15:15:41.096 INFO  [7532] [main@40] Selected map: ej3.map
-2020-04-20 15:15:42.474 INFO  [7532] [visual_run_handler::load@22] CWindow initialized
-2020-04-20 15:15:42.474 DEBUG [7532] [Game::load_defs@27] Loading Assets
-2020-04-20 15:15:42.474 DEBUG [7532] [Game::load_defs@27] Loading Assets
-2020-04-20 15:15:42.506 DEBUG [7532] [Game::load_defs@29] Loading Entities
-2020-04-20 15:15:42.506 DEBUG [7532] [Game::load_defs@29] Loading Entities
-2020-04-20 15:15:42.507 DEBUG [7532] [Game::load_defs@31] Loading Stages
-2020-04-20 15:15:42.507 DEBUG [7532] [Game::load_defs@31] Loading Stages
-2020-04-20 15:15:42.507 INFO  [7532] [visual_run_handler::load@25] Game loaded
-2020-04-20 15:15:42.507 INFO  [7532] [visual_run_handler::load@25] Game loaded
-2020-04-20 15:15:42.511 INFO  [7532] [visual_run_handler::load@27] Map loaded
-2020-04-20 15:15:42.511 INFO  [7532] [visual_run_handler::load@27] Map loaded
-2020-04-20 15:15:42.511 INFO  [7532] [visual_run_handler::load@44] Starting game reading process
-2020-04-20 15:15:42.511 INFO  [7532] [visual_run_handler::load@44] Starting game reading process
-2020-04-20 15:15:42.511 INFO  [7532] [GameManager::read_car_list@63] Reading car list
-2020-04-20 15:15:42.511 INFO  [7532] [GameManager::read_car_list@63] Reading car list
-2020-04-20 15:16:38.285 INFO  [15624] [main@17] Starting Program
-2020-04-20 15:16:38.285 INFO  [15624] [main@33] Starting visual mode.
-2020-04-20 15:16:38.285 INFO  [15624] [main@37] Selecting a Map. 
-2020-04-20 15:16:41.675 INFO  [15624] [main@40] Selected map: ej3.map
-2020-04-20 15:16:43.274 INFO  [15624] [visual_run_handler::load@22] CWindow initialized
-2020-04-20 15:16:43.274 DEBUG [15624] [Game::load_defs@27] Loading Assets
-2020-04-20 15:16:43.274 DEBUG [15624] [Game::load_defs@27] Loading Assets
-2020-04-20 15:16:43.308 DEBUG [15624] [Game::load_defs@29] Loading Entities
-2020-04-20 15:16:43.308 DEBUG [15624] [Game::load_defs@29] Loading Entities
-2020-04-20 15:16:43.309 DEBUG [15624] [Game::load_defs@31] Loading Stages
-2020-04-20 15:16:43.309 DEBUG [15624] [Game::load_defs@31] Loading Stages
-2020-04-20 15:16:43.309 INFO  [15624] [visual_run_handler::load@25] Game loaded
-2020-04-20 15:16:43.309 INFO  [15624] [visual_run_handler::load@25] Game loaded
-2020-04-20 15:16:43.313 INFO  [15624] [visual_run_handler::load@27] Map loaded
-2020-04-20 15:16:43.313 INFO  [15624] [visual_run_handler::load@27] Map loaded
-2020-04-20 15:16:43.313 INFO  [15624] [visual_run_handler::load@44] Starting game reading process
-2020-04-20 15:16:43.313 INFO  [15624] [visual_run_handler::load@44] Starting game reading process
-2020-04-20 15:16:43.313 INFO  [15624] [GameManager::read_car_list@63] Reading car list
-2020-04-20 15:16:43.313 INFO  [15624] [GameManager::read_car_list@63] Reading car list
-2020-04-20 15:19:16.073 INFO  [16380] [main@17] Starting Program
-2020-04-20 15:19:16.073 INFO  [16380] [main@33] Starting visual mode.
-2020-04-20 15:19:16.073 INFO  [16380] [main@37] Selecting a Map. 
-2020-04-20 15:19:19.064 INFO  [16380] [main@40] Selected map: ej3.map
-2020-04-20 15:19:20.514 INFO  [16380] [visual_run_handler::load@22] CWindow initialized
-2020-04-20 15:19:20.514 DEBUG [16380] [Game::load_defs@27] Loading Assets
-2020-04-20 15:19:20.514 DEBUG [16380] [Game::load_defs@27] Loading Assets
-2020-04-20 15:19:20.547 DEBUG [16380] [Game::load_defs@29] Loading Entities
-2020-04-20 15:19:20.547 DEBUG [16380] [Game::load_defs@29] Loading Entities
-2020-04-20 15:19:20.548 DEBUG [16380] [Game::load_defs@31] Loading Stages
-2020-04-20 15:19:20.548 DEBUG [16380] [Game::load_defs@31] Loading Stages
-2020-04-20 15:19:20.548 INFO  [16380] [visual_run_handler::load@25] Game loaded
-2020-04-20 15:19:20.548 INFO  [16380] [visual_run_handler::load@25] Game loaded
-2020-04-20 15:19:29.434 INFO  [16380] [visual_run_handler::load@27] Map loaded
-2020-04-20 15:19:29.434 INFO  [16380] [visual_run_handler::load@27] Map loaded
-2020-04-20 15:19:29.435 INFO  [16380] [visual_run_handler::load@44] Starting game reading process
-2020-04-20 15:19:29.435 INFO  [16380] [visual_run_handler::load@44] Starting game reading process
-2020-04-20 15:19:29.435 INFO  [16380] [GameManager::read_car_list@63] Reading car list
-2020-04-20 15:19:29.435 INFO  [16380] [GameManager::read_car_list@63] Reading car list
-2020-04-20 15:21:43.733 INFO  [8852] [main@17] Starting Program
-2020-04-20 15:21:43.733 INFO  [8852] [main@33] Starting visual mode.
-2020-04-20 15:21:43.734 INFO  [8852] [main@37] Selecting a Map. 
-2020-04-20 15:21:46.842 INFO  [8852] [main@40] Selected map: ej3.map
-2020-04-20 15:21:47.947 INFO  [8852] [visual_run_handler::load@22] CWindow initialized
-2020-04-20 15:21:47.947 DEBUG [8852] [Game::load_defs@27] Loading Assets
-2020-04-20 15:21:47.947 DEBUG [8852] [Game::load_defs@27] Loading Assets
-2020-04-20 15:21:47.949 DEBUG [8852] [Game::load_defs@29] Loading Entities
-2020-04-20 15:21:47.949 DEBUG [8852] [Game::load_defs@29] Loading Entities
-2020-04-20 15:21:47.950 DEBUG [8852] [Game::load_defs@31] Loading Stages
-2020-04-20 15:21:47.950 DEBUG [8852] [Game::load_defs@31] Loading Stages
-2020-04-20 15:21:47.950 INFO  [8852] [visual_run_handler::load@25] Game loaded
-2020-04-20 15:21:47.950 INFO  [8852] [visual_run_handler::load@25] Game loaded
-2020-04-20 15:21:47.955 INFO  [8852] [visual_run_handler::load@27] Map loaded
-2020-04-20 15:21:47.955 INFO  [8852] [visual_run_handler::load@27] Map loaded
-2020-04-20 15:21:47.955 INFO  [8852] [visual_run_handler::load@44] Starting game reading process
-2020-04-20 15:21:47.955 INFO  [8852] [visual_run_handler::load@44] Starting game reading process
-2020-04-20 15:21:47.955 INFO  [8852] [GameManager::read_car_list@63] Reading car list
-2020-04-20 15:21:47.955 INFO  [8852] [GameManager::read_car_list@63] Reading car list
-2020-04-20 15:22:18.772 INFO  [16036] [main@17] Starting Program
-2020-04-20 15:22:18.772 INFO  [16036] [main@33] Starting visual mode.
-2020-04-20 15:22:18.772 INFO  [16036] [main@37] Selecting a Map. 
-2020-04-20 15:22:21.129 INFO  [16036] [main@40] Selected map: ej3.map
-2020-04-20 15:22:22.220 INFO  [16036] [visual_run_handler::load@22] CWindow initialized
-2020-04-20 15:22:22.220 DEBUG [16036] [Game::load_defs@27] Loading Assets
-2020-04-20 15:22:22.220 DEBUG [16036] [Game::load_defs@27] Loading Assets
-2020-04-20 15:22:22.223 DEBUG [16036] [Game::load_defs@29] Loading Entities
-2020-04-20 15:22:22.223 DEBUG [16036] [Game::load_defs@29] Loading Entities
-2020-04-20 15:22:22.223 DEBUG [16036] [Game::load_defs@31] Loading Stages
-2020-04-20 15:22:22.223 DEBUG [16036] [Game::load_defs@31] Loading Stages
-2020-04-20 15:22:22.223 INFO  [16036] [visual_run_handler::load@25] Game loaded
-2020-04-20 15:22:22.223 INFO  [16036] [visual_run_handler::load@25] Game loaded
-2020-04-20 15:22:22.229 INFO  [16036] [visual_run_handler::load@27] Map loaded
-2020-04-20 15:22:22.229 INFO  [16036] [visual_run_handler::load@27] Map loaded
-2020-04-20 15:22:22.229 INFO  [16036] [visual_run_handler::load@44] Starting game reading process
-2020-04-20 15:22:22.229 INFO  [16036] [visual_run_handler::load@44] Starting game reading process
-2020-04-20 15:22:22.229 INFO  [16036] [GameManager::read_car_list@63] Reading car list
-2020-04-20 15:22:22.229 INFO  [16036] [GameManager::read_car_list@63] Reading car list
-2020-04-20 15:26:07.987 INFO  [264] [main@17] Starting Program
-2020-04-20 15:26:07.987 INFO  [264] [main@33] Starting visual mode.
-2020-04-20 15:26:07.988 INFO  [264] [main@37] Selecting a Map. 
-2020-04-20 15:26:10.453 INFO  [264] [main@40] Selected map: ej3.map
-2020-04-20 15:26:11.551 INFO  [264] [visual_run_handler::load@22] CWindow initialized
-2020-04-20 15:26:11.551 DEBUG [264] [Game::load_defs@27] Loading Assets
-2020-04-20 15:26:11.551 DEBUG [264] [Game::load_defs@27] Loading Assets
-2020-04-20 15:26:11.554 DEBUG [264] [Game::load_defs@29] Loading Entities
-2020-04-20 15:26:11.554 DEBUG [264] [Game::load_defs@29] Loading Entities
-2020-04-20 15:26:11.559 DEBUG [264] [Game::load_defs@31] Loading Stages
-2020-04-20 15:26:11.559 DEBUG [264] [Game::load_defs@31] Loading Stages
-2020-04-20 15:26:11.560 INFO  [264] [visual_run_handler::load@25] Game loaded
-2020-04-20 15:26:11.560 INFO  [264] [visual_run_handler::load@25] Game loaded
-2020-04-20 15:26:11.573 INFO  [264] [visual_run_handler::load@27] Map loaded
-2020-04-20 15:26:11.573 INFO  [264] [visual_run_handler::load@27] Map loaded
-2020-04-20 15:26:11.573 INFO  [264] [visual_run_handler::load@44] Starting game reading process
-2020-04-20 15:26:11.573 INFO  [264] [visual_run_handler::load@44] Starting game reading process
-2020-04-20 15:26:11.573 INFO  [264] [GameManager::read_car_list@63] Reading car list
-2020-04-20 15:26:11.573 INFO  [264] [GameManager::read_car_list@63] Reading car list
-2020-04-20 15:26:11.577 INFO  [264] [visual_run_handler::load@46] Car list read
-2020-04-20 15:26:11.577 INFO  [264] [visual_run_handler::load@46] Car list read
-2020-04-20 15:26:11.578 INFO  [264] [visual_run_handler::load@54] Starting window
-2020-04-20 15:26:11.578 INFO  [264] [visual_run_handler::load@54] Starting window
-2020-04-20 15:26:19.319 INFO  [8276] [main@17] Starting Program
-2020-04-20 15:26:19.319 INFO  [8276] [main@33] Starting visual mode.
-2020-04-20 15:26:19.319 INFO  [8276] [main@37] Selecting a Map. 
-2020-04-20 15:26:21.569 INFO  [8276] [main@40] Selected map: ej3.map
-2020-04-20 15:26:22.655 INFO  [8276] [visual_run_handler::load@22] CWindow initialized
-2020-04-20 15:26:22.655 DEBUG [8276] [Game::load_defs@27] Loading Assets
-2020-04-20 15:26:22.655 DEBUG [8276] [Game::load_defs@27] Loading Assets
-2020-04-20 15:26:22.657 DEBUG [8276] [Game::load_defs@29] Loading Entities
-2020-04-20 15:26:22.657 DEBUG [8276] [Game::load_defs@29] Loading Entities
-2020-04-20 15:26:22.663 DEBUG [8276] [Game::load_defs@31] Loading Stages
-2020-04-20 15:26:22.663 DEBUG [8276] [Game::load_defs@31] Loading Stages
-2020-04-20 15:26:22.663 INFO  [8276] [visual_run_handler::load@25] Game loaded
-2020-04-20 15:26:22.663 INFO  [8276] [visual_run_handler::load@25] Game loaded
-2020-04-20 15:26:22.676 INFO  [8276] [visual_run_handler::load@27] Map loaded
-2020-04-20 15:26:22.676 INFO  [8276] [visual_run_handler::load@27] Map loaded
-2020-04-20 15:26:22.677 INFO  [8276] [visual_run_handler::load@44] Starting game reading process
-2020-04-20 15:26:22.677 INFO  [8276] [visual_run_handler::load@44] Starting game reading process
-2020-04-20 15:26:22.677 INFO  [8276] [GameManager::read_car_list@63] Reading car list
-2020-04-20 15:26:22.677 INFO  [8276] [GameManager::read_car_list@63] Reading car list
-2020-04-20 15:26:22.680 INFO  [8276] [visual_run_handler::load@46] Car list read
-2020-04-20 15:26:22.680 INFO  [8276] [visual_run_handler::load@46] Car list read
-2020-04-20 15:26:22.681 INFO  [8276] [visual_run_handler::load@54] Starting window
-2020-04-20 15:26:22.681 INFO  [8276] [visual_run_handler::load@54] Starting window
-2020-04-20 15:54:53.479 INFO  [11432] [main@17] Starting Program
-2020-04-20 15:54:53.479 INFO  [11432] [main@33] Starting visual mode.
-2020-04-20 15:54:53.479 INFO  [11432] [main@37] Selecting a Map. 
-2020-04-20 15:54:55.773 INFO  [11432] [main@40] Selected map: ej3.map
-2020-04-20 15:54:56.880 INFO  [11432] [visual_run_handler::load@22] CWindow initialized
-2020-04-20 15:54:56.880 DEBUG [11432] [Game::load_defs@27] Loading Assets
-2020-04-20 15:54:56.880 DEBUG [11432] [Game::load_defs@27] Loading Assets
-2020-04-20 15:54:56.882 DEBUG [11432] [Game::load_defs@29] Loading Entities
-2020-04-20 15:54:56.882 DEBUG [11432] [Game::load_defs@29] Loading Entities
-2020-04-20 15:54:56.889 DEBUG [11432] [Game::load_defs@31] Loading Stages
-2020-04-20 15:54:56.889 DEBUG [11432] [Game::load_defs@31] Loading Stages
-2020-04-20 15:54:56.889 INFO  [11432] [visual_run_handler::load@25] Game loaded
-2020-04-20 15:54:56.889 INFO  [11432] [visual_run_handler::load@25] Game loaded
-2020-04-20 15:54:56.905 INFO  [11432] [visual_run_handler::load@27] Map loaded
-2020-04-20 15:54:56.905 INFO  [11432] [visual_run_handler::load@27] Map loaded
-2020-04-20 15:54:56.905 INFO  [11432] [visual_run_handler::load@44] Starting game reading process
-2020-04-20 15:54:56.905 INFO  [11432] [visual_run_handler::load@44] Starting game reading process
-2020-04-20 15:54:56.905 INFO  [11432] [GameManager::read_car_list@63] Reading car list
-2020-04-20 15:54:56.905 INFO  [11432] [GameManager::read_car_list@63] Reading car list
-2020-04-20 15:54:56.910 INFO  [11432] [visual_run_handler::load@46] Car list read
-2020-04-20 15:54:56.910 INFO  [11432] [visual_run_handler::load@46] Car list read
-2020-04-20 15:54:56.910 INFO  [11432] [visual_run_handler::load@54] Starting window
-2020-04-20 15:54:56.910 INFO  [11432] [visual_run_handler::load@54] Starting window
-2020-04-20 17:28:20.188 INFO  [2176] [main@17] Starting Program
-2020-04-20 17:28:20.188 INFO  [2176] [main@33] Starting visual mode.
-2020-04-20 17:28:20.188 INFO  [2176] [main@37] Selecting a Map. 
-2020-04-20 17:28:23.164 INFO  [2176] [main@40] Selected map: ej3.map
-2020-04-20 17:28:24.268 INFO  [2176] [visual_run_handler::load@22] CWindow initialized
-2020-04-20 17:28:24.268 DEBUG [2176] [Game::load_defs@27] Loading Assets
-2020-04-20 17:28:24.268 DEBUG [2176] [Game::load_defs@27] Loading Assets
-2020-04-20 17:28:24.289 DEBUG [2176] [Game::load_defs@29] Loading Entities
-2020-04-20 17:28:24.289 DEBUG [2176] [Game::load_defs@29] Loading Entities
-2020-04-20 17:28:24.308 DEBUG [2176] [Game::load_defs@31] Loading Stages
-2020-04-20 17:28:24.308 DEBUG [2176] [Game::load_defs@31] Loading Stages
-2020-04-20 17:28:24.308 INFO  [2176] [visual_run_handler::load@25] Game loaded
-2020-04-20 17:28:24.308 INFO  [2176] [visual_run_handler::load@25] Game loaded
-2020-04-20 17:28:24.368 INFO  [2176] [visual_run_handler::load@27] Map loaded
-2020-04-20 17:28:24.368 INFO  [2176] [visual_run_handler::load@27] Map loaded
-2020-04-20 17:28:24.368 INFO  [2176] [visual_run_handler::load@44] Starting game reading process
-2020-04-20 17:28:24.368 INFO  [2176] [visual_run_handler::load@44] Starting game reading process
-2020-04-20 17:28:24.368 INFO  [2176] [GameManager::read_car_list@72] Reading car list
-2020-04-20 17:28:24.368 INFO  [2176] [GameManager::read_car_list@72] Reading car list
-2020-04-20 17:28:24.373 INFO  [2176] [visual_run_handler::load@46] Car list read
-2020-04-20 17:28:24.373 INFO  [2176] [visual_run_handler::load@46] Car list read
-2020-04-20 17:28:24.374 INFO  [2176] [visual_run_handler::load@54] Starting window
-2020-04-20 17:28:24.374 INFO  [2176] [visual_run_handler::load@54] Starting window
-2020-04-20 17:31:50.238 INFO  [15880] [main@17] Starting Program
-2020-04-20 17:31:50.238 INFO  [15880] [main@33] Starting visual mode.
-2020-04-20 17:31:50.238 INFO  [15880] [main@37] Selecting a Map. 
-2020-04-20 17:31:53.329 INFO  [15880] [main@40] Selected map: ej3.map
-2020-04-20 17:31:54.428 INFO  [15880] [visual_run_handler::load@22] CWindow initialized
-2020-04-20 17:31:54.428 DEBUG [15880] [Game::load_defs@27] Loading Assets
-2020-04-20 17:31:54.428 DEBUG [15880] [Game::load_defs@27] Loading Assets
-2020-04-20 17:31:54.432 DEBUG [15880] [Game::load_defs@29] Loading Entities
-2020-04-20 17:31:54.432 DEBUG [15880] [Game::load_defs@29] Loading Entities
-2020-04-20 17:31:54.445 DEBUG [15880] [Game::load_defs@31] Loading Stages
-2020-04-20 17:31:54.445 DEBUG [15880] [Game::load_defs@31] Loading Stages
-2020-04-20 17:31:54.445 INFO  [15880] [visual_run_handler::load@25] Game loaded
-2020-04-20 17:31:54.445 INFO  [15880] [visual_run_handler::load@25] Game loaded
-2020-04-20 17:31:54.499 INFO  [15880] [visual_run_handler::load@27] Map loaded
-2020-04-20 17:31:54.499 INFO  [15880] [visual_run_handler::load@27] Map loaded
-2020-04-20 17:31:54.499 INFO  [15880] [visual_run_handler::load@44] Starting game reading process
-2020-04-20 17:31:54.499 INFO  [15880] [visual_run_handler::load@44] Starting game reading process
-2020-04-20 17:31:54.500 INFO  [15880] [GameManager::read_car_list@72] Reading car list
-2020-04-20 17:31:54.500 INFO  [15880] [GameManager::read_car_list@72] Reading car list
-2020-04-20 17:31:54.501 INFO  [15880] [visual_run_handler::load@46] Car list read
-2020-04-20 17:31:54.501 INFO  [15880] [visual_run_handler::load@46] Car list read
-2020-04-20 17:31:54.502 INFO  [15880] [visual_run_handler::load@54] Starting window
-2020-04-20 17:31:54.502 INFO  [15880] [visual_run_handler::load@54] Starting window
-2020-04-20 17:36:10.573 INFO  [11904] [main@17] Starting Program
-2020-04-20 17:36:10.573 INFO  [11904] [main@33] Starting visual mode.
-2020-04-20 17:36:10.573 INFO  [11904] [main@37] Selecting a Map. 
-2020-04-20 17:36:12.753 INFO  [11904] [main@40] Selected map: ej3.map
-2020-04-20 17:36:13.847 INFO  [11904] [visual_run_handler::load@22] CWindow initialized
-2020-04-20 17:36:13.847 DEBUG [11904] [Game::load_defs@27] Loading Assets
-2020-04-20 17:36:13.847 DEBUG [11904] [Game::load_defs@27] Loading Assets
-2020-04-20 17:36:13.850 DEBUG [11904] [Game::load_defs@29] Loading Entities
-2020-04-20 17:36:13.850 DEBUG [11904] [Game::load_defs@29] Loading Entities
-2020-04-20 17:36:13.863 DEBUG [11904] [Game::load_defs@31] Loading Stages
-2020-04-20 17:36:13.863 DEBUG [11904] [Game::load_defs@31] Loading Stages
-2020-04-20 17:36:13.863 INFO  [11904] [visual_run_handler::load@25] Game loaded
-2020-04-20 17:36:13.863 INFO  [11904] [visual_run_handler::load@25] Game loaded
-2020-04-20 17:36:13.914 INFO  [11904] [visual_run_handler::load@27] Map loaded
-2020-04-20 17:36:13.914 INFO  [11904] [visual_run_handler::load@27] Map loaded
-2020-04-20 17:36:13.915 INFO  [11904] [visual_run_handler::load@44] Starting game reading process
-2020-04-20 17:36:13.915 INFO  [11904] [visual_run_handler::load@44] Starting game reading process
-2020-04-20 17:36:13.915 INFO  [11904] [GameManager::read_car_list@72] Reading car list
-2020-04-20 17:36:13.915 INFO  [11904] [GameManager::read_car_list@72] Reading car list
-2020-04-20 17:36:13.916 INFO  [11904] [visual_run_handler::load@46] Car list read
-2020-04-20 17:36:13.916 INFO  [11904] [visual_run_handler::load@46] Car list read
-2020-04-20 17:36:13.917 INFO  [11904] [visual_run_handler::load@54] Starting window
-2020-04-20 17:36:13.917 INFO  [11904] [visual_run_handler::load@54] Starting window
-2020-04-20 17:36:55.328 INFO  [13216] [main@17] Starting Program
-2020-04-20 17:36:55.328 INFO  [13216] [main@33] Starting visual mode.
-2020-04-20 17:36:55.329 INFO  [13216] [main@37] Selecting a Map. 
-2020-04-20 17:36:57.710 INFO  [13216] [main@40] Selected map: ej3.map
-2020-04-20 17:36:58.807 INFO  [13216] [visual_run_handler::load@22] CWindow initialized
-2020-04-20 17:36:58.807 DEBUG [13216] [Game::load_defs@27] Loading Assets
-2020-04-20 17:36:58.807 DEBUG [13216] [Game::load_defs@27] Loading Assets
-2020-04-20 17:36:58.810 DEBUG [13216] [Game::load_defs@29] Loading Entities
-2020-04-20 17:36:58.810 DEBUG [13216] [Game::load_defs@29] Loading Entities
-2020-04-20 17:36:58.822 DEBUG [13216] [Game::load_defs@31] Loading Stages
-2020-04-20 17:36:58.822 DEBUG [13216] [Game::load_defs@31] Loading Stages
-2020-04-20 17:36:58.823 INFO  [13216] [visual_run_handler::load@25] Game loaded
-2020-04-20 17:36:58.823 INFO  [13216] [visual_run_handler::load@25] Game loaded
-2020-04-20 17:36:58.875 INFO  [13216] [visual_run_handler::load@27] Map loaded
-2020-04-20 17:36:58.875 INFO  [13216] [visual_run_handler::load@27] Map loaded
-2020-04-20 17:36:58.875 INFO  [13216] [visual_run_handler::load@44] Starting game reading process
-2020-04-20 17:36:58.875 INFO  [13216] [visual_run_handler::load@44] Starting game reading process
-2020-04-20 17:36:58.875 INFO  [13216] [GameManager::read_car_list@72] Reading car list
-2020-04-20 17:36:58.875 INFO  [13216] [GameManager::read_car_list@72] Reading car list
-2020-04-20 17:36:58.878 INFO  [13216] [visual_run_handler::load@46] Car list read
-2020-04-20 17:36:58.878 INFO  [13216] [visual_run_handler::load@46] Car list read
-2020-04-20 17:36:58.878 INFO  [13216] [visual_run_handler::load@54] Starting window
-2020-04-20 17:36:58.878 INFO  [13216] [visual_run_handler::load@54] Starting window
-2020-04-20 17:40:27.846 INFO  [3620] [main@17] Starting Program
-2020-04-20 17:40:27.846 INFO  [3620] [main@33] Starting visual mode.
-2020-04-20 17:40:27.846 INFO  [3620] [main@37] Selecting a Map. 
-2020-04-20 17:40:30.793 INFO  [3620] [main@40] Selected map: ej3.map
-2020-04-20 17:40:31.892 INFO  [3620] [visual_run_handler::load@22] CWindow initialized
-2020-04-20 17:40:31.892 DEBUG [3620] [Game::load_defs@27] Loading Assets
-2020-04-20 17:40:31.892 DEBUG [3620] [Game::load_defs@27] Loading Assets
-2020-04-20 17:40:31.894 DEBUG [3620] [Game::load_defs@29] Loading Entities
-2020-04-20 17:40:31.894 DEBUG [3620] [Game::load_defs@29] Loading Entities
-2020-04-20 17:40:31.905 DEBUG [3620] [Game::load_defs@31] Loading Stages
-2020-04-20 17:40:31.905 DEBUG [3620] [Game::load_defs@31] Loading Stages
-2020-04-20 17:40:31.906 INFO  [3620] [visual_run_handler::load@25] Game loaded
-2020-04-20 17:40:31.906 INFO  [3620] [visual_run_handler::load@25] Game loaded
-2020-04-20 17:40:31.956 INFO  [3620] [visual_run_handler::load@27] Map loaded
-2020-04-20 17:40:31.956 INFO  [3620] [visual_run_handler::load@27] Map loaded
-2020-04-20 17:40:31.956 INFO  [3620] [visual_run_handler::load@44] Starting game reading process
-2020-04-20 17:40:31.956 INFO  [3620] [visual_run_handler::load@44] Starting game reading process
-2020-04-20 17:40:31.957 INFO  [3620] [GameManager::read_car_list@72] Reading car list
-2020-04-20 17:40:31.957 INFO  [3620] [GameManager::read_car_list@72] Reading car list
-2020-04-20 17:40:31.959 INFO  [3620] [visual_run_handler::load@46] Car list read
-2020-04-20 17:40:31.959 INFO  [3620] [visual_run_handler::load@46] Car list read
-2020-04-20 17:40:31.959 INFO  [3620] [visual_run_handler::load@54] Starting window
-2020-04-20 17:40:31.959 INFO  [3620] [visual_run_handler::load@54] Starting window
-2020-04-20 17:43:06.148 INFO  [16172] [main@17] Starting Program
-2020-04-20 17:43:06.148 INFO  [16172] [main@33] Starting visual mode.
-2020-04-20 17:43:06.148 INFO  [16172] [main@37] Selecting a Map. 
-2020-04-20 17:43:08.863 INFO  [16172] [main@40] Selected map: ej3.map
-2020-04-20 17:43:09.965 INFO  [16172] [visual_run_handler::load@22] CWindow initialized
-2020-04-20 17:43:09.965 DEBUG [16172] [Game::load_defs@27] Loading Assets
-2020-04-20 17:43:09.965 DEBUG [16172] [Game::load_defs@27] Loading Assets
-2020-04-20 17:43:09.968 DEBUG [16172] [Game::load_defs@29] Loading Entities
-2020-04-20 17:43:09.968 DEBUG [16172] [Game::load_defs@29] Loading Entities
-2020-04-20 17:43:09.968 DEBUG [16172] [Game::load_defs@31] Loading Stages
-2020-04-20 17:43:09.968 DEBUG [16172] [Game::load_defs@31] Loading Stages
-2020-04-20 17:43:09.969 INFO  [16172] [visual_run_handler::load@25] Game loaded
-2020-04-20 17:43:09.969 INFO  [16172] [visual_run_handler::load@25] Game loaded
-2020-04-20 17:43:10.019 INFO  [16172] [visual_run_handler::load@27] Map loaded
-2020-04-20 17:43:10.019 INFO  [16172] [visual_run_handler::load@27] Map loaded
-2020-04-20 17:43:10.019 INFO  [16172] [visual_run_handler::load@44] Starting game reading process
-2020-04-20 17:43:10.019 INFO  [16172] [visual_run_handler::load@44] Starting game reading process
-2020-04-20 17:43:10.019 INFO  [16172] [GameManager::read_car_list@71] Reading car list
-2020-04-20 17:43:10.019 INFO  [16172] [GameManager::read_car_list@71] Reading car list
-2020-04-20 17:43:10.022 INFO  [16172] [visual_run_handler::load@46] Car list read
-2020-04-20 17:43:10.022 INFO  [16172] [visual_run_handler::load@46] Car list read
-2020-04-20 17:43:10.022 INFO  [16172] [visual_run_handler::load@54] Starting window
-2020-04-20 17:43:10.022 INFO  [16172] [visual_run_handler::load@54] Starting window
-2020-04-20 17:44:24.475 INFO  [16436] [main@17] Starting Program
-2020-04-20 17:44:24.475 INFO  [16436] [main@33] Starting visual mode.
-2020-04-20 17:44:24.475 INFO  [16436] [main@37] Selecting a Map. 
-2020-04-20 17:44:27.156 INFO  [16436] [main@40] Selected map: ej3.map
-2020-04-20 17:44:28.247 INFO  [16436] [visual_run_handler::load@22] CWindow initialized
-2020-04-20 17:44:28.248 DEBUG [16436] [Game::load_defs@27] Loading Assets
-2020-04-20 17:44:28.248 DEBUG [16436] [Game::load_defs@27] Loading Assets
-2020-04-20 17:44:28.251 DEBUG [16436] [Game::load_defs@29] Loading Entities
-2020-04-20 17:44:28.251 DEBUG [16436] [Game::load_defs@29] Loading Entities
-2020-04-20 17:44:28.251 DEBUG [16436] [Game::load_defs@31] Loading Stages
-2020-04-20 17:44:28.251 DEBUG [16436] [Game::load_defs@31] Loading Stages
-2020-04-20 17:44:28.252 INFO  [16436] [visual_run_handler::load@25] Game loaded
-2020-04-20 17:44:28.252 INFO  [16436] [visual_run_handler::load@25] Game loaded
-2020-04-20 17:44:28.253 INFO  [16436] [visual_run_handler::load@27] Map loaded
-2020-04-20 17:44:28.253 INFO  [16436] [visual_run_handler::load@27] Map loaded
-2020-04-20 17:44:28.253 INFO  [16436] [visual_run_handler::load@44] Starting game reading process
-2020-04-20 17:44:28.253 INFO  [16436] [visual_run_handler::load@44] Starting game reading process
-2020-04-20 17:44:28.253 INFO  [16436] [GameManager::read_car_list@71] Reading car list
-2020-04-20 17:44:28.253 INFO  [16436] [GameManager::read_car_list@71] Reading car list
-2020-04-20 17:44:28.253 INFO  [16436] [visual_run_handler::load@46] Car list read
-2020-04-20 17:44:28.253 INFO  [16436] [visual_run_handler::load@46] Car list read
-2020-04-20 17:44:28.254 INFO  [16436] [visual_run_handler::load@54] Starting window
-2020-04-20 17:44:28.254 INFO  [16436] [visual_run_handler::load@54] Starting window
-2020-04-20 17:54:58.092 INFO  [2352] [main@17] Starting Program
-2020-04-20 17:54:58.092 INFO  [2352] [main@33] Starting visual mode.
-2020-04-20 17:54:58.092 INFO  [2352] [main@37] Selecting a Map. 
-2020-04-20 17:55:01.160 INFO  [2352] [main@40] Selected map: ej3.map
-2020-04-20 17:55:02.263 INFO  [2352] [visual_run_handler::load@22] CWindow initialized
-2020-04-20 17:55:02.263 DEBUG [2352] [Game::load_defs@27] Loading Assets
-2020-04-20 17:55:02.263 DEBUG [2352] [Game::load_defs@27] Loading Assets
-2020-04-20 17:55:02.266 DEBUG [2352] [Game::load_defs@29] Loading Entities
-2020-04-20 17:55:02.266 DEBUG [2352] [Game::load_defs@29] Loading Entities
-2020-04-20 17:55:02.267 DEBUG [2352] [Game::load_defs@31] Loading Stages
-2020-04-20 17:55:02.267 DEBUG [2352] [Game::load_defs@31] Loading Stages
-2020-04-20 17:55:02.267 INFO  [2352] [visual_run_handler::load@25] Game loaded
-2020-04-20 17:55:02.267 INFO  [2352] [visual_run_handler::load@25] Game loaded
-2020-04-20 17:55:02.268 INFO  [2352] [visual_run_handler::load@27] Map loaded
-2020-04-20 17:55:02.268 INFO  [2352] [visual_run_handler::load@27] Map loaded
-2020-04-20 17:55:02.268 INFO  [2352] [visual_run_handler::load@44] Starting game reading process
-2020-04-20 17:55:02.268 INFO  [2352] [visual_run_handler::load@44] Starting game reading process
-2020-04-20 17:55:02.268 INFO  [2352] [GameManager::read_car_list@71] Reading car list
-2020-04-20 17:55:02.268 INFO  [2352] [GameManager::read_car_list@71] Reading car list
-2020-04-20 17:55:02.268 INFO  [2352] [visual_run_handler::load@46] Car list read
-2020-04-20 17:55:02.268 INFO  [2352] [visual_run_handler::load@46] Car list read
-2020-04-20 17:55:02.269 INFO  [2352] [visual_run_handler::load@54] Starting window
-2020-04-20 17:55:02.269 INFO  [2352] [visual_run_handler::load@54] Starting window
-2020-04-20 17:55:31.279 INFO  [9556] [main@17] Starting Program
-2020-04-20 17:55:31.280 INFO  [9556] [main@33] Starting visual mode.
-2020-04-20 17:55:31.280 INFO  [9556] [main@37] Selecting a Map. 
-2020-04-20 17:55:33.451 INFO  [9556] [main@40] Selected map: ej3.map
-2020-04-20 17:55:34.540 INFO  [9556] [visual_run_handler::load@22] CWindow initialized
-2020-04-20 17:55:34.540 DEBUG [9556] [Game::load_defs@27] Loading Assets
-2020-04-20 17:55:34.540 DEBUG [9556] [Game::load_defs@27] Loading Assets
-2020-04-20 17:55:34.543 DEBUG [9556] [Game::load_defs@29] Loading Entities
-2020-04-20 17:55:34.543 DEBUG [9556] [Game::load_defs@29] Loading Entities
-2020-04-20 17:55:34.544 DEBUG [9556] [Game::load_defs@31] Loading Stages
-2020-04-20 17:55:34.544 DEBUG [9556] [Game::load_defs@31] Loading Stages
-2020-04-20 17:55:34.544 INFO  [9556] [visual_run_handler::load@25] Game loaded
-2020-04-20 17:55:34.544 INFO  [9556] [visual_run_handler::load@25] Game loaded
-2020-04-20 17:55:34.545 INFO  [9556] [visual_run_handler::load@27] Map loaded
-2020-04-20 17:55:34.545 INFO  [9556] [visual_run_handler::load@27] Map loaded
-2020-04-20 17:55:34.545 INFO  [9556] [visual_run_handler::load@44] Starting game reading process
-2020-04-20 17:55:34.545 INFO  [9556] [visual_run_handler::load@44] Starting game reading process
-2020-04-20 17:55:34.545 INFO  [9556] [GameManager::read_car_list@71] Reading car list
-2020-04-20 17:55:34.545 INFO  [9556] [GameManager::read_car_list@71] Reading car list
-2020-04-20 17:55:34.545 INFO  [9556] [visual_run_handler::load@46] Car list read
-2020-04-20 17:55:34.545 INFO  [9556] [visual_run_handler::load@46] Car list read
-2020-04-20 17:55:34.546 INFO  [9556] [visual_run_handler::load@54] Starting window
-2020-04-20 17:55:34.546 INFO  [9556] [visual_run_handler::load@54] Starting window
-2020-04-20 18:11:56.208 INFO  [1888] [main@17] Starting Program
-2020-04-20 18:11:56.209 INFO  [1888] [main@33] Starting visual mode.
-2020-04-20 18:11:56.209 INFO  [1888] [main@37] Selecting a Map. 
-2020-04-20 18:11:58.863 INFO  [1888] [main@40] Selected map: ej3.map
-2020-04-20 18:11:59.968 INFO  [1888] [visual_run_handler::load@26] CWindow initialized
-2020-04-20 18:11:59.968 DEBUG [1888] [Game::load_defs@27] Loading Assets
-2020-04-20 18:11:59.968 DEBUG [1888] [Game::load_defs@27] Loading Assets
-2020-04-20 18:11:59.971 DEBUG [1888] [Game::load_defs@29] Loading Entities
-2020-04-20 18:11:59.971 DEBUG [1888] [Game::load_defs@29] Loading Entities
-2020-04-20 18:11:59.972 DEBUG [1888] [Game::load_defs@31] Loading Stages
-2020-04-20 18:11:59.972 DEBUG [1888] [Game::load_defs@31] Loading Stages
-2020-04-20 18:11:59.972 INFO  [1888] [visual_run_handler::load@34] Game loaded
-2020-04-20 18:11:59.972 INFO  [1888] [visual_run_handler::load@34] Game loaded
-2020-04-20 18:11:59.973 INFO  [1888] [visual_run_handler::load@36] Map loaded
-2020-04-20 18:11:59.973 INFO  [1888] [visual_run_handler::load@36] Map loaded
-2020-04-20 18:11:59.974 INFO  [1888] [visual_run_handler::load@53] Starting game reading process
-2020-04-20 18:11:59.974 INFO  [1888] [visual_run_handler::load@53] Starting game reading process
-2020-04-20 18:11:59.974 INFO  [1888] [GameManager::read_car_list@73] Reading car list
-2020-04-20 18:11:59.974 INFO  [1888] [GameManager::read_car_list@73] Reading car list
-2020-04-20 18:12:05.957 INFO  [13256] [main@17] Starting Program
-2020-04-20 18:12:05.958 INFO  [13256] [main@33] Starting visual mode.
-2020-04-20 18:12:05.958 INFO  [13256] [main@37] Selecting a Map. 
-2020-04-20 18:12:09.432 INFO  [13256] [main@40] Selected map: ej3.map
-2020-04-20 18:12:10.887 INFO  [13256] [visual_run_handler::load@26] CWindow initialized
-2020-04-20 18:12:10.887 DEBUG [13256] [Game::load_defs@27] Loading Assets
-2020-04-20 18:12:10.887 DEBUG [13256] [Game::load_defs@27] Loading Assets
-2020-04-20 18:12:10.924 DEBUG [13256] [Game::load_defs@29] Loading Entities
-2020-04-20 18:12:10.924 DEBUG [13256] [Game::load_defs@29] Loading Entities
-2020-04-20 18:12:10.926 DEBUG [13256] [Game::load_defs@31] Loading Stages
-2020-04-20 18:12:10.926 DEBUG [13256] [Game::load_defs@31] Loading Stages
-2020-04-20 18:12:10.926 INFO  [13256] [visual_run_handler::load@34] Game loaded
-2020-04-20 18:12:10.926 INFO  [13256] [visual_run_handler::load@34] Game loaded
-2020-04-20 18:12:10.930 INFO  [13256] [visual_run_handler::load@36] Map loaded
-2020-04-20 18:12:10.930 INFO  [13256] [visual_run_handler::load@36] Map loaded
-2020-04-20 18:12:10.930 INFO  [13256] [visual_run_handler::load@53] Starting game reading process
-2020-04-20 18:12:10.930 INFO  [13256] [visual_run_handler::load@53] Starting game reading process
-2020-04-20 18:12:10.930 INFO  [13256] [GameManager::read_car_list@73] Reading car list
-2020-04-20 18:12:10.930 INFO  [13256] [GameManager::read_car_list@73] Reading car list
-2020-04-20 18:13:32.387 INFO  [12084] [main@17] Starting Program
-2020-04-20 18:13:32.387 INFO  [12084] [main@33] Starting visual mode.
-2020-04-20 18:13:32.387 INFO  [12084] [main@37] Selecting a Map. 
-2020-04-20 18:13:35.985 INFO  [12084] [main@40] Selected map: ej3.map
-2020-04-20 18:13:37.089 INFO  [12084] [visual_run_handler::load@26] CWindow initialized
-2020-04-20 18:13:37.089 DEBUG [12084] [Game::load_defs@27] Loading Assets
-2020-04-20 18:13:37.089 DEBUG [12084] [Game::load_defs@27] Loading Assets
-2020-04-20 18:13:37.092 DEBUG [12084] [Game::load_defs@29] Loading Entities
-2020-04-20 18:13:37.092 DEBUG [12084] [Game::load_defs@29] Loading Entities
-2020-04-20 18:13:37.093 DEBUG [12084] [Game::load_defs@31] Loading Stages
-2020-04-20 18:13:37.093 DEBUG [12084] [Game::load_defs@31] Loading Stages
-2020-04-20 18:13:37.093 INFO  [12084] [visual_run_handler::load@34] Game loaded
-2020-04-20 18:13:37.093 INFO  [12084] [visual_run_handler::load@34] Game loaded
-2020-04-20 18:13:37.094 INFO  [12084] [visual_run_handler::load@36] Map loaded
-2020-04-20 18:13:37.094 INFO  [12084] [visual_run_handler::load@36] Map loaded
-2020-04-20 18:13:37.094 INFO  [12084] [visual_run_handler::load@53] Starting game reading process
-2020-04-20 18:13:37.094 INFO  [12084] [visual_run_handler::load@53] Starting game reading process
-2020-04-20 18:13:37.094 INFO  [12084] [GameManager::read_car_list@73] Reading car list
-2020-04-20 18:13:37.094 INFO  [12084] [GameManager::read_car_list@73] Reading car list
-2020-04-20 18:13:37.094 INFO  [12084] [visual_run_handler::load@55] Car list read
-2020-04-20 18:13:37.094 INFO  [12084] [visual_run_handler::load@55] Car list read
-2020-04-20 18:13:37.096 INFO  [12084] [visual_run_handler::load@63] Starting window
-2020-04-20 18:13:37.096 INFO  [12084] [visual_run_handler::load@63] Starting window
-2020-04-20 18:13:56.993 INFO  [16700] [main@17] Starting Program
-2020-04-20 18:13:56.994 INFO  [16700] [main@33] Starting visual mode.
-2020-04-20 18:13:56.994 INFO  [16700] [main@37] Selecting a Map. 
-2020-04-20 18:13:59.472 INFO  [16700] [main@40] Selected map: ej3.map
-2020-04-20 18:14:00.564 INFO  [16700] [visual_run_handler::load@26] CWindow initialized
-2020-04-20 18:14:00.564 DEBUG [16700] [Game::load_defs@27] Loading Assets
-2020-04-20 18:14:00.564 DEBUG [16700] [Game::load_defs@27] Loading Assets
-2020-04-20 18:14:00.567 DEBUG [16700] [Game::load_defs@29] Loading Entities
-2020-04-20 18:14:00.567 DEBUG [16700] [Game::load_defs@29] Loading Entities
-2020-04-20 18:14:00.568 DEBUG [16700] [Game::load_defs@31] Loading Stages
-2020-04-20 18:14:00.568 DEBUG [16700] [Game::load_defs@31] Loading Stages
-2020-04-20 18:14:00.568 INFO  [16700] [visual_run_handler::load@34] Game loaded
-2020-04-20 18:14:00.568 INFO  [16700] [visual_run_handler::load@34] Game loaded
-2020-04-20 18:14:00.569 INFO  [16700] [visual_run_handler::load@36] Map loaded
-2020-04-20 18:14:00.569 INFO  [16700] [visual_run_handler::load@36] Map loaded
-2020-04-20 18:14:00.569 INFO  [16700] [visual_run_handler::load@53] Starting game reading process
-2020-04-20 18:14:00.569 INFO  [16700] [visual_run_handler::load@53] Starting game reading process
-2020-04-20 18:14:00.569 INFO  [16700] [GameManager::read_car_list@73] Reading car list
-2020-04-20 18:14:00.569 INFO  [16700] [GameManager::read_car_list@73] Reading car list
-2020-04-20 18:14:00.569 INFO  [16700] [visual_run_handler::load@55] Car list read
-2020-04-20 18:14:00.569 INFO  [16700] [visual_run_handler::load@55] Car list read
-2020-04-20 18:14:00.570 INFO  [16700] [visual_run_handler::load@63] Starting window
-2020-04-20 18:14:00.570 INFO  [16700] [visual_run_handler::load@63] Starting window
-2020-04-20 18:17:19.124 INFO  [12152] [main@17] Starting Program
-2020-04-20 18:17:19.124 INFO  [12152] [main@33] Starting visual mode.
-2020-04-20 18:17:19.124 INFO  [12152] [main@37] Selecting a Map. 
-2020-04-20 18:17:22.277 INFO  [12152] [main@40] Selected map: ej3.map
-2020-04-20 18:17:23.376 INFO  [12152] [visual_run_handler::load@26] CWindow initialized
-2020-04-20 18:17:23.376 DEBUG [12152] [Game::load_defs@27] Loading Assets
-2020-04-20 18:17:23.376 DEBUG [12152] [Game::load_defs@27] Loading Assets
-2020-04-20 18:17:23.379 DEBUG [12152] [Game::load_defs@29] Loading Entities
-2020-04-20 18:17:23.379 DEBUG [12152] [Game::load_defs@29] Loading Entities
-2020-04-20 18:17:23.380 DEBUG [12152] [Game::load_defs@31] Loading Stages
-2020-04-20 18:17:23.380 DEBUG [12152] [Game::load_defs@31] Loading Stages
-2020-04-20 18:17:23.380 INFO  [12152] [visual_run_handler::load@34] Game loaded
-2020-04-20 18:17:23.380 INFO  [12152] [visual_run_handler::load@34] Game loaded
-2020-04-20 18:17:23.381 INFO  [12152] [visual_run_handler::load@36] Map loaded
-2020-04-20 18:17:23.381 INFO  [12152] [visual_run_handler::load@36] Map loaded
-2020-04-20 18:17:23.381 INFO  [12152] [visual_run_handler::load@53] Starting game reading process
-2020-04-20 18:17:23.381 INFO  [12152] [visual_run_handler::load@53] Starting game reading process
-2020-04-20 18:17:23.381 INFO  [12152] [GameManager::read_car_list@73] Reading car list
-2020-04-20 18:17:23.381 INFO  [12152] [GameManager::read_car_list@73] Reading car list
-2020-04-20 18:17:23.381 INFO  [12152] [visual_run_handler::load@55] Car list read
-2020-04-20 18:17:23.381 INFO  [12152] [visual_run_handler::load@55] Car list read
-2020-04-20 18:17:23.382 INFO  [12152] [visual_run_handler::load@63] Starting window
-2020-04-20 18:17:23.382 INFO  [12152] [visual_run_handler::load@63] Starting window
-2020-04-20 18:52:14.781 INFO  [11180] [main@17] Starting Program
-2020-04-20 18:52:14.781 INFO  [11180] [main@33] Starting visual mode.
-2020-04-20 18:52:14.781 INFO  [11180] [main@37] Selecting a Map. 
-2020-04-20 18:52:17.540 INFO  [11180] [main@40] Selected map: ej3.map
-2020-04-20 18:52:18.648 INFO  [11180] [visual_run_handler::load@26] CWindow initialized
-2020-04-20 18:52:18.648 DEBUG [11180] [Game::load_defs@27] Loading Assets
-2020-04-20 18:52:18.648 DEBUG [11180] [Game::load_defs@27] Loading Assets
-2020-04-20 18:52:18.651 DEBUG [11180] [Game::load_defs@29] Loading Entities
-2020-04-20 18:52:18.651 DEBUG [11180] [Game::load_defs@29] Loading Entities
-2020-04-20 18:52:18.652 DEBUG [11180] [Game::load_defs@31] Loading Stages
-2020-04-20 18:52:18.652 DEBUG [11180] [Game::load_defs@31] Loading Stages
-2020-04-20 18:52:18.652 INFO  [11180] [visual_run_handler::load@34] Game loaded
-2020-04-20 18:52:18.652 INFO  [11180] [visual_run_handler::load@34] Game loaded
-2020-04-20 18:52:18.653 INFO  [11180] [visual_run_handler::load@36] Map loaded
-2020-04-20 18:52:18.653 INFO  [11180] [visual_run_handler::load@36] Map loaded
-2020-04-20 18:52:18.653 INFO  [11180] [visual_run_handler::load@53] Starting game reading process
-2020-04-20 18:52:18.653 INFO  [11180] [visual_run_handler::load@53] Starting game reading process
-2020-04-20 18:52:18.653 INFO  [11180] [GameManager::read_car_list@73] Reading car list
-2020-04-20 18:52:18.653 INFO  [11180] [GameManager::read_car_list@73] Reading car list
-2020-04-20 18:52:18.653 INFO  [11180] [visual_run_handler::load@55] Car list read
-2020-04-20 18:52:18.653 INFO  [11180] [visual_run_handler::load@55] Car list read
-2020-04-20 18:52:18.654 INFO  [11180] [visual_run_handler::load@63] Starting window
-2020-04-20 18:52:18.654 INFO  [11180] [visual_run_handler::load@63] Starting window
-2020-04-20 18:57:12.346 INFO  [14472] [main@17] Starting Program
-2020-04-20 18:57:12.346 INFO  [14472] [main@33] Starting visual mode.
-2020-04-20 18:57:12.346 INFO  [14472] [main@37] Selecting a Map. 
-2020-04-20 18:57:20.464 INFO  [14472] [main@40] Selected map: 
-2020-04-20 18:57:21.465 INFO  [14472] [main@37] Selecting a Map. 
-2020-04-20 18:57:22.752 INFO  [14472] [main@40] Selected map: 
-2020-04-20 18:57:56.845 INFO  [7608] [main@17] Starting Program
-2020-04-20 18:57:56.845 INFO  [7608] [main@33] Starting visual mode.
-2020-04-20 18:57:56.845 INFO  [7608] [main@37] Selecting a Map. 
-2020-04-20 18:58:07.661 INFO  [7608] [main@40] Selected map: ej3.map
-2020-04-20 18:58:08.749 INFO  [7608] [visual_run_handler::load@26] CWindow initialized
-2020-04-20 18:58:08.749 DEBUG [7608] [Game::load_defs@27] Loading Assets
-2020-04-20 18:58:08.749 DEBUG [7608] [Game::load_defs@27] Loading Assets
-2020-04-20 18:58:08.752 DEBUG [7608] [Game::load_defs@29] Loading Entities
-2020-04-20 18:58:08.752 DEBUG [7608] [Game::load_defs@29] Loading Entities
-2020-04-20 18:58:08.753 DEBUG [7608] [Game::load_defs@31] Loading Stages
-2020-04-20 18:58:08.753 DEBUG [7608] [Game::load_defs@31] Loading Stages
-2020-04-20 18:58:08.753 INFO  [7608] [visual_run_handler::load@34] Game loaded
-2020-04-20 18:58:08.753 INFO  [7608] [visual_run_handler::load@34] Game loaded
-2020-04-20 18:58:08.754 INFO  [7608] [visual_run_handler::load@36] Map loaded
-2020-04-20 18:58:08.754 INFO  [7608] [visual_run_handler::load@36] Map loaded
-2020-04-20 18:58:08.754 INFO  [7608] [visual_run_handler::load@53] Starting game reading process
-2020-04-20 18:58:08.754 INFO  [7608] [visual_run_handler::load@53] Starting game reading process
-2020-04-20 18:58:08.754 INFO  [7608] [GameManager::read_car_list@73] Reading car list
-2020-04-20 18:58:08.754 INFO  [7608] [GameManager::read_car_list@73] Reading car list
-2020-04-20 18:58:08.754 INFO  [7608] [visual_run_handler::load@55] Car list read
-2020-04-20 18:58:08.754 INFO  [7608] [visual_run_handler::load@55] Car list read
-2020-04-20 18:58:08.755 INFO  [7608] [visual_run_handler::load@63] Starting window
-2020-04-20 18:58:08.755 INFO  [7608] [visual_run_handler::load@63] Starting window
-2020-04-20 18:59:22.460 INFO  [9632] [main@17] Starting Program
-2020-04-20 18:59:22.461 INFO  [9632] [main@33] Starting visual mode.
-2020-04-20 18:59:22.461 INFO  [9632] [main@37] Selecting a Map. 
-2020-04-20 18:59:26.539 INFO  [9632] [main@40] Selected map: ej3.map
-2020-04-20 18:59:27.634 INFO  [9632] [visual_run_handler::load@26] CWindow initialized
-2020-04-20 18:59:27.634 DEBUG [9632] [Game::load_defs@27] Loading Assets
-2020-04-20 18:59:27.634 DEBUG [9632] [Game::load_defs@27] Loading Assets
-2020-04-20 18:59:27.637 DEBUG [9632] [Game::load_defs@29] Loading Entities
-2020-04-20 18:59:27.637 DEBUG [9632] [Game::load_defs@29] Loading Entities
-2020-04-20 18:59:27.638 DEBUG [9632] [Game::load_defs@31] Loading Stages
-2020-04-20 18:59:27.638 DEBUG [9632] [Game::load_defs@31] Loading Stages
-2020-04-20 18:59:27.638 INFO  [9632] [visual_run_handler::load@34] Game loaded
-2020-04-20 18:59:27.638 INFO  [9632] [visual_run_handler::load@34] Game loaded
-2020-04-20 18:59:27.639 INFO  [9632] [visual_run_handler::load@36] Map loaded
-2020-04-20 18:59:27.639 INFO  [9632] [visual_run_handler::load@36] Map loaded
-2020-04-20 18:59:27.639 INFO  [9632] [visual_run_handler::load@53] Starting game reading process
-2020-04-20 18:59:27.639 INFO  [9632] [visual_run_handler::load@53] Starting game reading process
-2020-04-20 18:59:27.639 INFO  [9632] [GameManager::read_car_list@73] Reading car list
-2020-04-20 18:59:27.639 INFO  [9632] [GameManager::read_car_list@73] Reading car list
-2020-04-20 18:59:27.639 INFO  [9632] [visual_run_handler::load@55] Car list read
-2020-04-20 18:59:27.639 INFO  [9632] [visual_run_handler::load@55] Car list read
-2020-04-20 18:59:27.640 INFO  [9632] [visual_run_handler::load@63] Starting window
-2020-04-20 18:59:27.640 INFO  [9632] [visual_run_handler::load@63] Starting window
+2020-04-20 15:14:18.921 INFO  [12388] [visual_run_handler::load@25] Game loaded2020-04-21 00:47:41.850 INFO  [1420] [start_visual_interface@28] Selected map: ej3.map
+2020-04-21 00:47:41.976 DEBUG [1420] [Game::load_defs@27] Loading Assets
+2020-04-21 00:47:41.976 DEBUG [1420] [Game::load_defs@27] Loading Assets
+2020-04-21 00:47:41.979 DEBUG [1420] [Game::load_defs@29] Loading Entities
+2020-04-21 00:47:41.979 DEBUG [1420] [Game::load_defs@29] Loading Entities
+2020-04-21 00:47:41.980 DEBUG [1420] [Game::load_defs@31] Loading Stages
+2020-04-21 00:47:41.980 DEBUG [1420] [Game::load_defs@31] Loading Stages
+2020-04-21 00:47:41.980 INFO  [1420] [GameApp::load@38] Game loaded
+2020-04-21 00:47:41.980 INFO  [1420] [GameApp::load@38] Game loaded
+2020-04-21 00:47:41.981 INFO  [1420] [GameManager::load_map@54] Map loaded
+2020-04-21 00:47:41.981 INFO  [1420] [GameManager::load_map@54] Map loaded
+2020-04-21 00:47:41.981 INFO  [1420] [GameManager::read_car_list@84] Car list read
+2020-04-21 00:47:41.981 INFO  [1420] [GameManager::read_car_list@84] Car list read
+2020-04-21 00:58:52.839 INFO  [11528] [start_visual_interface@28] Selected map: ej3.map
+2020-04-21 00:58:52.945 DEBUG [11528] [Game::load_defs@27] Loading Assets
+2020-04-21 00:58:52.945 DEBUG [11528] [Game::load_defs@27] Loading Assets
+2020-04-21 00:58:52.948 DEBUG [11528] [Game::load_defs@29] Loading Entities
+2020-04-21 00:58:52.948 DEBUG [11528] [Game::load_defs@29] Loading Entities
+2020-04-21 00:58:52.949 DEBUG [11528] [Game::load_defs@31] Loading Stages
+2020-04-21 00:58:52.949 DEBUG [11528] [Game::load_defs@31] Loading Stages
+2020-04-21 00:58:52.949 INFO  [11528] [GameApp::load@38] Game loaded
+2020-04-21 00:58:52.949 INFO  [11528] [GameApp::load@38] Game loaded
+2020-04-21 00:58:52.950 INFO  [11528] [GameManager::load_map@54] Map loaded
+2020-04-21 00:58:52.950 INFO  [11528] [GameManager::load_map@54] Map loaded
+2020-04-21 00:58:52.950 INFO  [11528] [GameManager::read_car_list@84] Car list read
+2020-04-21 00:58:52.950 INFO  [11528] [GameManager::read_car_list@84] Car list read
+2020-04-21 01:00:11.238 INFO  [272] [start_visual_interface@28] Selected map: ej3.map
+2020-04-21 01:00:11.340 DEBUG [272] [Game::load_defs@27] Loading Assets
+2020-04-21 01:00:11.340 DEBUG [272] [Game::load_defs@27] Loading Assets
+2020-04-21 01:00:11.343 DEBUG [272] [Game::load_defs@29] Loading Entities
+2020-04-21 01:00:11.343 DEBUG [272] [Game::load_defs@29] Loading Entities
+2020-04-21 01:00:11.343 DEBUG [272] [Game::load_defs@31] Loading Stages
+2020-04-21 01:00:11.343 DEBUG [272] [Game::load_defs@31] Loading Stages
+2020-04-21 01:00:11.343 INFO  [272] [GameApp::load@38] Game loaded
+2020-04-21 01:00:11.343 INFO  [272] [GameApp::load@38] Game loaded
+2020-04-21 01:00:11.345 INFO  [272] [GameManager::load_map@54] Map loaded
+2020-04-21 01:00:11.345 INFO  [272] [GameManager::load_map@54] Map loaded
+2020-04-21 01:00:11.345 INFO  [272] [GameManager::read_car_list@84] Car list read
+2020-04-21 01:00:11.345 INFO  [272] [GameManager::read_car_list@84] Car list read
+2020-04-21 01:00:39.262 INFO  [17064] [start_visual_interface@28] Selected map: ej3.map
+2020-04-21 01:00:39.363 DEBUG [17064] [Game::load_defs@27] Loading Assets
+2020-04-21 01:00:39.363 DEBUG [17064] [Game::load_defs@27] Loading Assets
+2020-04-21 01:00:39.366 DEBUG [17064] [Game::load_defs@29] Loading Entities
+2020-04-21 01:00:39.366 DEBUG [17064] [Game::load_defs@29] Loading Entities
+2020-04-21 01:00:39.367 DEBUG [17064] [Game::load_defs@31] Loading Stages
+2020-04-21 01:00:39.367 DEBUG [17064] [Game::load_defs@31] Loading Stages
+2020-04-21 01:00:39.367 INFO  [17064] [GameApp::load@38] Game loaded
+2020-04-21 01:00:39.367 INFO  [17064] [GameApp::load@38] Game loaded
+2020-04-21 01:00:39.368 INFO  [17064] [GameManager::load_map@54] Map loaded
+2020-04-21 01:00:39.368 INFO  [17064] [GameManager::load_map@54] Map loaded
+2020-04-21 01:00:39.368 INFO  [17064] [GameManager::read_car_list@84] Car list read
+2020-04-21 01:00:39.368 INFO  [17064] [GameManager::read_car_list@84] Car list read
+2020-04-21 01:07:23.782 INFO  [16916] [start_visual_interface@28] Selected map: ej3.map
+2020-04-21 01:07:23.912 DEBUG [16916] [Game::load_defs@27] Loading Assets
+2020-04-21 01:07:23.912 DEBUG [16916] [Game::load_defs@27] Loading Assets
+2020-04-21 01:07:23.915 DEBUG [16916] [Game::load_defs@29] Loading Entities
+2020-04-21 01:07:23.915 DEBUG [16916] [Game::load_defs@29] Loading Entities
+2020-04-21 01:07:23.916 DEBUG [16916] [Game::load_defs@31] Loading Stages
+2020-04-21 01:07:23.916 DEBUG [16916] [Game::load_defs@31] Loading Stages
+2020-04-21 01:07:23.916 INFO  [16916] [GameApp::load@38] Game loaded
+2020-04-21 01:07:23.916 INFO  [16916] [GameApp::load@38] Game loaded
+2020-04-21 01:07:23.917 INFO  [16916] [GameManager::load_map@54] Map loaded
+2020-04-21 01:07:23.917 INFO  [16916] [GameManager::load_map@54] Map loaded
+2020-04-21 01:07:23.917 INFO  [16916] [GameManager::read_car_list@84] Car list read
+2020-04-21 01:07:23.917 INFO  [16916] [GameManager::read_car_list@84] Car list read
+2020-04-21 01:07:31.518 INFO  [388] [start_visual_interface@28] Selected map: ej3.map
+2020-04-21 01:07:31.629 DEBUG [388] [Game::load_defs@27] Loading Assets
+2020-04-21 01:07:31.629 DEBUG [388] [Game::load_defs@27] Loading Assets
+2020-04-21 01:07:31.631 DEBUG [388] [Game::load_defs@29] Loading Entities
+2020-04-21 01:07:31.631 DEBUG [388] [Game::load_defs@29] Loading Entities
+2020-04-21 01:07:31.632 DEBUG [388] [Game::load_defs@31] Loading Stages
+2020-04-21 01:07:31.632 DEBUG [388] [Game::load_defs@31] Loading Stages
+2020-04-21 01:07:31.632 INFO  [388] [GameApp::load@38] Game loaded
+2020-04-21 01:07:31.632 INFO  [388] [GameApp::load@38] Game loaded
+2020-04-21 01:07:31.633 INFO  [388] [GameManager::load_map@54] Map loaded
+2020-04-21 01:07:31.633 INFO  [388] [GameManager::load_map@54] Map loaded
+2020-04-21 01:07:31.633 INFO  [388] [GameManager::read_car_list@84] Car list read
+2020-04-21 01:07:31.633 INFO  [388] [GameManager::read_car_list@84] Car list read
