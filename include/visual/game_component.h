@@ -14,8 +14,6 @@
 #include "game_man.h"
 #include "CComponent.h"
 
-
-
 class Collision_component;
 
 class GameApp : public CComponent{
@@ -32,11 +30,11 @@ public:
         gm = new GameManager();
     };
 
-    void load(SDL_Renderer** ren, const char* map_file_name){
-        g = new Game();
-        g->load_defs(ren, map_file_name);
-        gm->set_game(g);
+    void load(){
+        g = new Game("");
 
+        g->load_defs({});
+        gm->set_game(g);
     }
 
     void input() override {};
@@ -53,8 +51,6 @@ public:
         g->e_man.set_place(get_dst()->x, get_dst()->y);
     };
 
-
-
     Entity& add_entity(){
         return g->e_man.man.add_entity();
     };
@@ -62,8 +58,6 @@ public:
     void set_paused(){
         paused = !paused;
     }
-
-
 };
 
 #endif //DEUBER_GAME_COMPONENT_H

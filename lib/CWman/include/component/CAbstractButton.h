@@ -7,13 +7,13 @@
 
 #include "CComponent.h"
 #include "SDL.h"
+#include "CWindow.h"
 
 #include <functional>
 #include <algorithm>
 #include <utils/colors.h>
 #include <utils/collision.h>
 
-class CWindow;
 class CAbstractButton : public CComponent{
 private:
 
@@ -22,10 +22,9 @@ private:
 
     // Component vals
     std::function<void(CWindow*)> action_listener = nullptr;
+    CWindow *win = nullptr;
 
     // Component Render
-
-    CWindow* win;
 
 public:
     bool pressed = false;
@@ -36,8 +35,6 @@ public:
 
     ~CAbstractButton() = default;
 
-    void set_window(CWindow *win_t){ win = win_t;}
-
     void input() override{
         SDL_PumpEvents();
         int x,y;
@@ -45,6 +42,8 @@ public:
             if (is_inside_rect(get_dst(), x, y)) set_pressed(true);
         }else if(pressed){
                 set_pressed(false);
+                if(action_listener== nullptr || win == nullptr)
+                    return;
                 action_listener(win);
             }
     };
@@ -58,7 +57,9 @@ public:
     void set_action_listener(std::function<void(CWindow*)> function_t ){
         action_listener = function_t;
     };
-    
+
+    void set_window(CWindow *win_t){win = win_t;};
+
     void set_pressed(bool pressed_t){
         if(pressed_t==pressed) return;
 

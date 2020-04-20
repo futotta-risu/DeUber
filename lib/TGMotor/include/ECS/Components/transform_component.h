@@ -8,8 +8,10 @@
 #include "ECS/ECS.h"
 #include "vector2d.h"
 
+namespace ComponentHelper {
+    extern ComponentHelper::ComponentType TRANSFORM;
+}
 class TransformComponent : public Component{
-
 public:
     Vector2D<float> pos;
     Vector2D<float> vel;
@@ -37,6 +39,29 @@ public:
         width = w;
         scale = scale_t;
         vel.Zero();
+    }
+
+    void set_data(json *data) override{
+        if(data->contains("pos")){
+            if((*data)["pos"].contains("x") && (*data)["pos"].contains("y"))
+                pos = {(*data)["pos"]["x"], (*data)["pos"]["y"]};
+            else pos.Zero();
+        }else pos.Zero();
+
+        if(data->contains("dims")){
+            if((*data)["dims"].contains("h") && (*data)["dims"].contains("w")){
+                height = (*data)["dims"]["h"];width = (*data)["dims"]["w"];
+            }else height = width = 32;
+        }else height = width = 32;
+
+        if(data->contains("scale")) scale = (*data)["scale"];
+        else scale = 1;
+
+        if(data->contains("vel")){
+            if((*data)["vel"].contains("x") && (*data)["vel"].contains("y"))
+                vel = {(*data)["vel"]["x"],(*data)["vel"]["y"]};
+            else vel.Zero();
+        }else vel.Zero();
     }
 
     float x(){return pos.x;}

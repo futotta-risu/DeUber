@@ -7,29 +7,44 @@
 
 #include <iostream>
 #include <vector>
-#include <visual/GameVisualizator.h>
 
 #include "SDL.h"
-#include "SDL_Image.h"
+#include "SDL_image.h"
+
+#include "stage.h"
 #include "ECS/ECS.h"
 #include "ECS/entity_manager.h"
 #include "ECS/asset_manager.h"
+#include "ECS/entity_gen.h"
 
-class CollisionComponent;
+#include <functional>
+
+
+using json = nlohmann::json;
 
 class Game{
 private:
+    // Game Metadata
+    bool running;
 
-    GameVisualizator *gV;
-    bool is_running;
     int count;
 
-    int frame_count, timer_fps,last_frame;
+    // Game Value
+    unsigned int frame_count, timer_fps,last_frame;
+
+    SDL_Event event{};
+
+    void load_stages(const std::string& path);
+    void load_g_entities(const std::string& path);
 public:
-    Game();
+    // TODO Move to private
+    std::map<std::string, G_Entity> g_entities;
+    std::map<std::string, json> stages;
+    explicit Game(const std::string& config_file_path);
     ~Game();
 
-    void load_defs(SDL_Renderer** ren_t, const char* map_file_name);
+    // TODO Maybe improve with templates
+    void load_defs(std::vector<std::string> *files);
 
     void main_loop();
 
@@ -37,17 +52,10 @@ public:
     void update();
     void render();
 
-    void set_game_visualizator(GameVisualizator* gV_t){
-        gV = gV_t;
-        ren = gV_t->get_renderer();
-    }
+    void read_config(const std::string& config_file_path);
 
-    SDL_Renderer **ren;
+    void set_stage(const std::string& stage_t);
 
-    static SDL_Event event;
-    std::vector<CollisionComponent*> colliders;
-
-    AssetManager ast_man;
     EntityManager e_man;
 
 };

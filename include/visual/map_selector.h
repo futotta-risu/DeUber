@@ -9,6 +9,7 @@
 #include <CWindow.h>
 #include <component/CButton.h>
 #include <dirent.h>
+#include <component/CScrollPanel.h>
 
 const unsigned int WIDTH_MS     =   600;
 const unsigned int HEIGHT_MS    =   800;
@@ -19,18 +20,20 @@ private:
     static std::string *map_file;
 public:
 
-    MapSelector(std::string* map_file_t, std::string path) : CWindow("Map Selector"){
+    MapSelector(std::string* map_file_t, const std::string& path) : CWindow("Map Selector"){
         set_size(WIDTH_MS, HEIGHT_MS);
         set_layout(new VerticalFlowLayout());
-
+        auto *pann = new CScrollPanel;
+        pann->set_size({400,500});
+        auto *g_pan = new CPanel;
         std::string map_file_c_t;
 
         DIR *dir;
         struct dirent *ent;
-        if ((dir = opendir(path.c_str())) != NULL) {
-            while ((ent = readdir (dir)) != NULL) {
+        if ((dir = opendir(path.c_str())) != nullptr) {
+            while ((ent = readdir (dir)) != nullptr) {
                 if(ent->d_name[0]=='.') continue;
-                CButton* but = new CButton(ent->d_name);
+                auto* but = new CButton(ent->d_name);
                 but->set_minimum_size({200,50});
                 but->set_size({200,50});
                 map_file_c_t = ent->d_name;
@@ -38,14 +41,16 @@ public:
                     *map_file_t = map_file_c_t;
                 });
                 but->set_window(this);
-                this->add(but);
+                g_pan->add(but);
             }
             closedir (dir);
         } else {
             /* could not open directory */
             perror ("No se ha podido abrir");
         }
-
+        pann->set_panel(g_pan);
+        this->add(pann);
+        this->init_window();
     };
     ~MapSelector() = default;
 

@@ -17,5 +17,6 @@ std::vector<car> car::read_car_list_file(const char* file_path){
         f >> x >> y;
         car_list.emplace_back(car(x,y));
     }
+    f.close();
     return car_list;
 }

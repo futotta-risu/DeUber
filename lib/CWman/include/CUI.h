@@ -69,7 +69,7 @@ public:
     void set_background_color(CColor bg_color_t){bg_color = get_color(bg_color_t);};
     SDL_Color get_background_color(){return bg_color;};
 
-    void set_tex(SDL_Texture* tex_t){tex = tex_t;tex_loaded = true;};
+    void set_tex(SDL_Texture* tex_t){SDL_DestroyTexture(tex);tex = tex_t;tex_loaded = true;};
 
     void draw(SDL_Renderer* ren){
         //load_dst();

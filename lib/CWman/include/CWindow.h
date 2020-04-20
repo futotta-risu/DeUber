@@ -13,6 +13,8 @@
 #include "component/CPanel.h"
 #include <string>
 
+#include "layout/border_layout.h"
+
 const unsigned short WINDOW_FPS = 60;
 constexpr unsigned short WINDOW_FPS_DELAY = 1000/WINDOW_FPS;
 
@@ -60,6 +62,7 @@ public:
 
     void set_layout(WindowLayout* layout);
     void add(CComponent* component);
+    void add(CComponent* component, BorderLayout::BLPosition p);
 
     CComponent* get_component_by_id(std::string id){
         return window_panel->get_component_by_id(id);

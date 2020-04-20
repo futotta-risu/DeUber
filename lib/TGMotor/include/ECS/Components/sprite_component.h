@@ -12,13 +12,13 @@
 
 #include <map>
 #include <iostream>
+#include <renderer.h>
 
+namespace ComponentHelper {
+    extern ComponentHelper::ComponentType SPRITE;
+}
 class SpriteComponent : public Component{
 private:
-
-    // Component Metadata
-
-    // Component Values
 
     bool animated = false;
     int animation_id = 0;
@@ -28,54 +28,47 @@ private:
     // Component Render
     int x_desp = 0, y_desp = 0;
 
-    TransformComponent *transf;
-    SDL_Texture *tex;
-    SDL_Rect src,dest;
-    Game* gApp;
-
-public:
+    TransformComponent *transf = nullptr;
+    SDL_Texture *tex = nullptr;
+    SDL_Rect src = {0,0,32,32},dest={0,0,32,32};
 
     std::map<std::string, Animation> animations;
+public:
+
 
     SpriteComponent() = default;
 
-    SpriteComponent(const char* file_path, Game* gApp_t){
-        gApp = gApp_t;
-        set_tex(file_path);
-    }
-
-    SpriteComponent(std::string& sprite_name, Game* gApp_t, bool animated){
-        gApp = gApp_t;
-        animated = animated;
-
-        if(animated){
-            animations = gApp->ast_man.get_animation_map(sprite_name);
-            play("stand");
-        }
-        tex = gApp->ast_man.get_texture(sprite_name);
-    }
-
-    ~SpriteComponent(){
+    ~SpriteComponent() override{
         SDL_DestroyTexture(tex);
     }
 
-    void set_tex(const char* file_path){
-        tex = TextureManager::LoadTexture(gApp->ren, file_path);
+
+    void set_data(json *data) override{
+        if(data->contains("animated")) animated = (*data)["animated"];
+        else animated = false;
+        std::string sprite_name = (*data)["sprite_name"];
+        tex = GameRender::ast_man.get_texture(sprite_name);
+
+        if(animated){
+            animations = GameRender::ast_man.get_animation_map(sprite_name);
+            play("stand");
+        }
     }
 
     void init() override{
-        if(!entity->has_component<TransformComponent>())
-            entity->add_component<TransformComponent>();
-        transf = &entity->get_component<TransformComponent>();
+        if(!entity->has_component(ComponentHelper::TRANSFORM))
+            entity->add_component(ComponentHelper::TRANSFORM);
+        Component* cmp = entity->get_component(ComponentHelper::TRANSFORM);
 
+        transf = dynamic_cast<TransformComponent*>(cmp);
         transf->scale = 1;
 
         src.x = src.y = 0;
         src.w = transf->width;
         src.h = transf->height;
 
-        dest.x = x_desp+static_cast<int>(transf->x());
-        dest.y = y_desp+static_cast<int>(transf->y());
+        dest.x = static_cast<int>(transf->x());
+        dest.y = static_cast<int>(transf->y());
         dest.w = dest.h = 50;
     }
 
@@ -93,7 +86,7 @@ public:
     }
 
     void draw() override{
-        TextureManager::draw(gApp->ren, tex, src,dest);
+        TextureManager::draw(GameRender::ren, tex, src,dest);
     }
 
     void play(const char* anim_name){

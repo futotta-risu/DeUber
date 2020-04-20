@@ -10,8 +10,11 @@
 #include "running_menu.h"
 #include "visual/visual_run_handler.h"
 #include <visual/map_selector.h>
+#include <plog/Log.h>
 
 int main(int argc, char* argv[]) {
+    plog::init(plog::debug, "logs/running.log");
+    PLOG_INFO << "Starting Program";
     bool visual = true;
     if (argc > 1) {
         char *visual_style = argv[1];
@@ -20,21 +23,25 @@ int main(int argc, char* argv[]) {
         else if (static_cast<std::string>(visual_style) == "non_visual")
             visual = false;
         else{
+            PLOG_ERROR << "Invalid command line argument introduced";
             std::cout << "Error: El argumento introducido no es valido. Introduzca o bien 'visual' o 'non_visual" << std::endl;
             return EXIT_SUCCESS;
         }
     }
     srand(time(nullptr));
     if (visual){
+        PLOG_INFO << "Starting visual mode.";
         visual_run_handler vrh;
         std::string map_name;
         do{
-        MapSelector *t = new MapSelector(&map_name,"../data/maps/");
-        t->init_window();
-        t->~MapSelector();}while(map_name.empty());
-        std::cout << "Hemos salido con " << map_name << std::endl;
+            PLOG_INFO << "Selecting a Map. ";
+            auto *t = new MapSelector(&map_name,"../data/maps/");
+            t->~MapSelector();
+            PLOG_INFO << "Selected map: " << map_name;
+        }while(map_name.empty());
         vrh.load(map_name.c_str(), BFS);
     }else{
+        PLOG_INFO << "Starting non visual mode.";
         // First Step get the info menu to get the whole running_info data
         running_info run_inf = run_menu(menu_file);
         // Load the data

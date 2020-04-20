@@ -10,9 +10,9 @@ file(GLOB_RECURSE DEUBER_SOURCES ${CMAKE_CURRENT_LIST_DIR}/src/*)
 # Hold the following line while the SQL library isn't correctly implemented
 list(FILTER DEUBER_SOURCES EXCLUDE REGEX "${CMAKE_CURRENT_LIST_DIR}/src/database/*")
 
-add_executable(DeUber ${DEUBER_SOURCES})
+add_executable(DeUber ${DEUBER_SOURCES} src/visual/components/car_component.cpp src/visual/components/goal_component.cpp)
 target_include_directories( ${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/include)
-target_link_libraries(${PROJECT_NAME} PUBLIC CWman TGMotor INTERFACE SDL2)
+target_link_libraries(${PROJECT_NAME} PUBLIC CWman TGMotor INTERFACE SDL2 PLOG JSON)
 
 
 #set(TEST_PROJECT_NAME DeUber_test)

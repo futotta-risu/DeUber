@@ -7,6 +7,7 @@
 
 #include <vector>
 #include <iostream>
+#include <layout/border_layout.h>
 #include "CComponent.h"
 #include "layout/window_layout.h"
 #include "layout/absolute_layout.h"
@@ -53,6 +54,13 @@ public:
         update_layout();
     }
 
+    void add(CComponent* component, BorderLayout::BLPosition p){
+        if(get_layout_type() != WindowLayout::LayoutType::BORDER)
+            return;
+        dynamic_cast<BorderLayout*>(panel_layout)->set_comp(component,p);
+        add(component);
+    }
+
     void set_layout(WindowLayout* layout_t){
         panel_layout = layout_t;
         update_layout();
@@ -61,6 +69,10 @@ public:
     void update_layout() override{
         updated = false;
         panel_layout->set_size(component_list, this);
+    }
+
+    WindowLayout::LayoutType get_layout_type(){
+        return panel_layout->get_layout_type();
     }
 
     CComponent* get_component_by_id(std::string id){

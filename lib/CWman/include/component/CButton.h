@@ -47,7 +47,6 @@ public:
         }
         draw_CUI(ren);
     }
-
     std::string get_text(){return button_text;};
     void set_text(std::string button_text_t){button_text = button_text_t;set_drawed(false);}
 

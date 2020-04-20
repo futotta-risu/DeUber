@@ -5,11 +5,13 @@
 #ifndef TEMPGAMEMOTOR_COLLISION_COMPONENT_H
 #define TEMPGAMEMOTOR_COLLISION_COMPONENT_H
 
-#include "game.h"
 #include "SDL.h"
 #include "ECS/ECS.h"
 #include "transform_component.h"
 
+namespace ComponentHelper{
+    extern ComponentHelper::ComponentType COLLISION;
+}
 
 class CollisionComponent : public Component {
 
@@ -17,16 +19,18 @@ private:
     TransformComponent* transf;
 public:
     SDL_Rect coll;
-    CollisionComponent(Game* gApp){
-        gApp->colliders.push_back(this);
+    CollisionComponent(){
+        //gApp->colliders.push_back(this);
     };
 
+    void set_data(json *data) override{
+        return;
+    }
+
     void init() override{
-        if(!entity->has_component<TransformComponent>())
-            entity->add_component<TransformComponent>();
-        transf = &entity->get_component<TransformComponent>();
-
-
+        if(!entity->has_component(ComponentHelper::TRANSFORM))
+            entity->add_component(ComponentHelper::TRANSFORM);
+        transf = dynamic_cast<TransformComponent*>(entity->get_component(ComponentHelper::TRANSFORM));
     }
 
     void update() override{
@@ -35,7 +39,6 @@ public:
         coll.w = transf->width*transf->scale;
         coll.h = transf->height*transf->scale;
     }
-
 
 };
 

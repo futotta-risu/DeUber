@@ -9,17 +9,16 @@
 #include "ECS/ECS.h"
 #include "ECS/components/transform_component.h"
 
+namespace ComponentHelper{
+    extern ComponentHelper::ComponentType GOAL;
+}
 class Goal_component : public Component {
 
 private:
 
     Goal* act_goal;
 public:
-    Goal_component(Goal* act_goal_t){
-
-        act_goal = act_goal_t;
-
-    }
+    Goal_component(){}
 
     void init() override{
     }
@@ -32,6 +31,9 @@ public:
 
     }
 
+    void set_case(Goal* act_goal_t){
+        act_goal = act_goal_t;
+    }
 
 };
 

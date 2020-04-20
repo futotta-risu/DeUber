@@ -3,11 +3,17 @@
 //
 
 #include <component/CButton.h>
+#include <renderer.h>
 
 #include "visual/visual_run_handler.h"
 #include "visual/game_component.h"
 
 #include "algorithms/algorithm_helper.h"
+
+#include <plog/Log.h>
+#include <visual/components/car_component.h>
+#include <ECS/Components/component_helper_t.h>
+#include <visual/components/goal_component.h>
 
 #define G_CAR 25
 
@@ -16,14 +22,21 @@ void visual_run_handler::load(const char* map_file_name, algorithm_type alg_t){
 
     window = new CWindow("DeUber");
     window->set_size(WIDTH, HEIGHT);
+    GameRender::ren = *window->get_render();
+    PLOG_INFO << "CWindow initialized";
+    add_new_component_meta(ComponentHelper::CARC,
+                           "carc", []() -> Car_component* {return new Car_component;});
+    add_new_component_meta(ComponentHelper::GOAL,
+                           "goal", []() -> Goal_component* {return new Goal_component;});
+    auto *gApp = new GameApp();
+    gApp->load();
 
-    GameApp *gApp = new GameApp();
-    gApp->load(window->get_render(), map_file_name);
-
+    PLOG_INFO << "Game loaded";
     gApp->gm->load_map(map_file_name);
+    PLOG_INFO << "Map loaded";
     gApp->gm->set_algorith(alg_t);
 
-    auto but = new CButton("Mapa");
+    auto but = new CButton("Pause");
     but->set_action_listener(
             [](CWindow *win){
                 CComponent *gAppC =  win->get_component_by_id("GAPP");
@@ -37,7 +50,9 @@ void visual_run_handler::load(const char* map_file_name, algorithm_type alg_t){
 
     algorithm = get_algorithm_by_type(alg_t);
 
+    PLOG_INFO << "Starting game reading process";
     gApp->gm->read_car_list("../data/cars/car_list1.txt");
+    PLOG_INFO << "Car list read";
     gApp->gm->print_car_list();
     gApp->set_id("GAPP");
 
@@ -45,6 +60,7 @@ void visual_run_handler::load(const char* map_file_name, algorithm_type alg_t){
     std::vector<std::size_t> order_t = {G_TILES, G_ENEMY,G_PLAYER,G_COLLIDER,G_CAR};
     gApp->gm->get_game()->e_man.add_to_order(order_t);
     window->add(gApp);
+    PLOG_INFO << "Starting window";
     window->init_window();
     window->~CWindow();
 }

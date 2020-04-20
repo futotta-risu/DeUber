@@ -9,6 +9,7 @@
 VerticalFlowLayout::VerticalFlowLayout(){
     v_gap = 10;
     h_margin = 10;
+    change_layout(WindowLayout::LayoutType::VERTICAL_FLOW);
 }
 
 void VerticalFlowLayout::set_size(std::vector<CComponent*> component_list, CComponent* parent_panel){

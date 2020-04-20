@@ -2,10 +2,13 @@
 // Created by whiwho on 14/03/2020.
 //
 
-#include "texture_manager.h"
 #include <fstream>
+#include <iostream>
+#include <SDL_image.h>
 
-SDL_Texture* TextureManager::LoadTexture(SDL_Renderer** ren, const char* file_name){
+#include "texture_manager.h"
+
+SDL_Texture* TextureManager::LoadTexture(SDL_Renderer* ren, const char* file_name){
     std::ifstream f(file_name);
 
     if(!f){
@@ -15,10 +18,10 @@ SDL_Texture* TextureManager::LoadTexture(SDL_Renderer** ren, const char* file_na
     }
 
     SDL_Surface* surf = IMG_Load(file_name);
-    SDL_Texture* tex = SDL_CreateTextureFromSurface(*ren,surf);
+    SDL_Texture* tex = SDL_CreateTextureFromSurface(ren,surf);
     SDL_FreeSurface(surf);
     return tex;
 }
-void TextureManager::draw(SDL_Renderer** ren, SDL_Texture* tex, SDL_Rect src, SDL_Rect dest){
-    SDL_RenderCopy(*ren, tex,&src,&dest);
+void TextureManager::draw(SDL_Renderer* ren, SDL_Texture* tex, SDL_Rect src, SDL_Rect dest){
+    SDL_RenderCopy(ren, tex,&src,&dest);
 }

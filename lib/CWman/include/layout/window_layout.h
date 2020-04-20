@@ -12,6 +12,16 @@
 class WindowLayout{
 private:
 public:
+    enum LayoutType{
+        NONE, BORDER, ABSOLUTE, VERTICAL_FLOW, SCROLLBAR
+    };
+    LayoutType layout_type = NONE;
+    void change_layout(LayoutType layout_type_t){
+        layout_type = layout_type_t;
+    }
+    LayoutType get_layout_type(){
+        return layout_type;
+    }
     virtual void set_size(std::vector<CComponent*> component_list, CComponent* parent_panel) = 0;
 };
 
