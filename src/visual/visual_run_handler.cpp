@@ -17,55 +17,54 @@
 
 #define G_CAR 25
 
-CWindow& create_window(){
-    auto window = new CWindow("DeUber");
-    window->set_size(WIDTH, HEIGHT);
-    return *window;
-}
+void visual_run_handler::load(const char* map_file_name, algorithm_type alg_t){
 
-void load_game_components(){
+
+    window = new CWindow("DeUber");
+    window->set_size(WIDTH, HEIGHT);
+    GameRender::ren = *window->get_render();
+    PLOG_INFO << "CWindow initialized";
     add_new_component_meta(ComponentHelper::CARC,
                            "carc", []() -> Car_component* {return new Car_component;});
     add_new_component_meta(ComponentHelper::GOAL,
-                           "goal", []() -> goal_component* {return new goal_component;});
-}
-
-void load_GameApp(GameApp* gApp, const std::string& map_file_name){
+                           "goal", []() -> Goal_component* {return new Goal_component;});
+    auto *gApp = new GameApp();
     gApp->load();
 
-    gApp->gm->load_map(map_file_name.c_str());
-    gApp->gm->set_algorithm(algorithm_type::BFS);
-    gApp->gm->read_car_list("../data/cars/car_list1.txt");
-    gApp->gm->get_game()->e_man.add_to_order(G_CAR);
-    gApp->set_id("GAPP");
+    PLOG_INFO << "Game loaded";
+    gApp->gm->load_map(map_file_name);
+    PLOG_INFO << "Map loaded";
+    gApp->gm->set_algorith(alg_t);
 
-}
-
-void load_pause_button(CWindow& win){
     auto but = new CButton("Pause");
     but->set_action_listener(
             [](CWindow *win){
                 CComponent *gAppC =  win->get_component_by_id("GAPP");
-                if(gAppC== nullptr) PLOG_ERROR << "No se ha encontrado el componente GameApp.";
-                else dynamic_cast<GameApp*>(gAppC)->set_paused();
+
+                if(gAppC== nullptr) std::cout << "No se ha encontrado" << std::endl;
+                dynamic_cast<GameApp*>(gAppC)->set_paused();
             }
     );
+    but->set_window(window);
+    window->add(but);
 
-    but->set_window(&win);
-    win.add(but);
+    algorithm = get_algorithm_by_type(alg_t);
+
+    PLOG_INFO << "Starting game reading process";
+    gApp->gm->read_car_list("../data/cars/car_list1.txt");
+    PLOG_INFO << "Car list read";
+    gApp->gm->print_car_list();
+    gApp->set_id("GAPP");
+
+
+    std::vector<std::size_t> order_t = {G_TILES, G_ENEMY,G_PLAYER,G_COLLIDER,G_CAR};
+    gApp->gm->get_game()->e_man.add_to_order(order_t);
+    window->add(gApp);
+    PLOG_INFO << "Starting window";
+    window->init_window();
+    window->~CWindow();
 }
 
-void start_visual_interface(const std::string& map_file_name){
-    auto& window = create_window();
-    GameRender::ren = *window.get_render();
+void load_game(){
 
-    load_game_components();
-    auto gApp = new GameApp();
-
-    load_pause_button(window);
-    load_GameApp(gApp,  map_file_name);
-    window.add(gApp);
-
-    window.init_window();
-    window.~CWindow();
 }

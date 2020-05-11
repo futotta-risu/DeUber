@@ -32,6 +32,8 @@ Map::Map(int height, int width) {
 }
 
 void Map::reshape(int height, int width){
+    // TODO Mejorar los errores
+
     if(width < 0 || width > MAX_MAP_WIDTH || height < 0 || height > MAX_MAP_HEIGHT)
         throw map_out_of_bounds(width, height);
 
@@ -50,6 +52,7 @@ void Map::print_map(){
             if(map_values[i_height][i_width].act_val == 0) printf("%c" , ' ');
             else printf("%i",map_values[i_height][i_width].act_val);
         }
+
         printf("\n");
     }
 }
@@ -190,7 +193,9 @@ int** Map::get_aval_map(){
 bool Map::check_goal(int pos_x, int pos_y){
     if(!check_coords(pos_x, pos_y))
         throw invalid_coords(pos_x, pos_y, this);
-    return goal_list.count(pos_y * n_height + pos_x) != 0;
+    if(goal_list.count(pos_y*n_height+pos_x))
+        return true;
+    return false;
 }
 
 
@@ -204,7 +209,7 @@ bool Map::check_coords(int x, int y){
 
 void Map::set_car_list(std::vector<car> *car_list_t){
     car_list->clear();
-    for(const auto& c : *car_list_t)
+    for(auto c : *car_list_t)
         car_list->push_back(c);
 }
 

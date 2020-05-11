@@ -17,16 +17,27 @@
 #include "running_info.h"
 
 #include "CWindow.h"
-#include "game_component.h"
 
 
 const int WIDTH = 800, HEIGHT = 600;
 
-CWindow& create_window();
-void load_game_components();
-void load_GameApp(GameApp* gApp, const std::string& map_file_name);
-void load_pause_button(CWindow& win);
+class visual_run_handler {
+private:
+    CWindow* window;
 
-void start_visual_interface(const std::string& map_file_name);
+public:
+    std::vector<car> car_list;
+
+    generic_algorithm *algorithm;
+
+    running_menu_data run_dat;
+
+    visual_run_handler() = default;
+    ~visual_run_handler() = default;
+
+    void load(const char* map_file_name, algorithm_type alg_t);
+
+};
+
 
 #endif //DEUBER_VISUAL_RUN_HANDLER_H
