@@ -31,7 +31,7 @@ public:
     void set_place(int x, int y);
 
     // TODO Change way to add order
-    void add_to_order(std::vector<std::size_t> order_t){loading_order = std::move(order_t);}
+    void add_to_order(const std::size_t& order_t){loading_order.push_back(order_t);}
 };
 
 

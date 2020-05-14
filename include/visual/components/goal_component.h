@@ -7,28 +7,20 @@
 
 #include "maps/goal.h"
 #include "ECS/ECS.h"
-#include "ECS/components/transform_component.h"
 
 namespace ComponentHelper{
     extern ComponentHelper::ComponentType GOAL;
 }
-class Goal_component : public Component {
-
+class goal_component : public Component {
 private:
-
-    Goal* act_goal;
+    Goal* act_goal = nullptr;
 public:
-    Goal_component(){}
+    goal_component() = default;
 
-    void init() override{
-    }
-
+    void init() override{}
     void update() override{
-
-       if(!act_goal->active){
+       if(!act_goal->active)
            entity->destroy();
-       }
-
     }
 
     void set_case(Goal* act_goal_t){

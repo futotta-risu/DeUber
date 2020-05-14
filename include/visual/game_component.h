@@ -35,6 +35,7 @@ public:
 
         g->load_defs({});
         gm->set_game(g);
+        PLOG_INFO << "Game loaded";
     }
 
     void input() override {};

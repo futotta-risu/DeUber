@@ -18,20 +18,18 @@
 class GameManager{
 private:
 
-    // Manager Metadata
-
     bool map_loaded;
-
-    // Manager Values
     Map *mapa;
     generic_algorithm *alg;
-
     Game *gM;
 
 public:
     GameManager(){
         mapa = nullptr;
     };
+    ~GameManager(){
+        delete mapa;
+    }
 
     void set_game(Game *g){
         gM = g;
@@ -39,11 +37,11 @@ public:
     Game* get_game(){
         return gM;
     }
-    void set_algorith(algorithm_type alg_t){
+    void set_algorithm(algorithm_type alg_t){
         alg = get_algorithm_by_type(alg_t);
     }
 
-    void load_map( const char* map_file_name){
+    void load_map(const std::string& map_file_name){
         if(map_loaded)
             delete mapa;
         mapa = new Map();
@@ -51,7 +49,16 @@ public:
         if(mapa!= nullptr) map_loaded = true;
         else return;
 
-        mapa->read_map(map_file_name);
+        mapa->read_map(map_file_name.c_str());
+        seed_map_entities();
+        PLOG_INFO << "Map loaded";
+    }
+    void seed_map_entities(){
+        seed_map_tile_entities();
+        seed_map_goals_entities(3);
+    }
+
+    void seed_map_tile_entities(){
         int **map_c = mapa->get_aval_map();
         for(int t(0); t < mapa->get_height(); t++){
             for(int r(0); r < mapa->get_width(); r++){
@@ -62,26 +69,25 @@ public:
                 dynamic_cast<TransformComponent*>(temp_tile->get_component(ComponentHelper::TRANSFORM))->set_pos(32*r,32*t);
             }
         }
-        // TODO Set different goal system
-        const short n_goals = 3;
-        for(int i = 0; i < n_goals; i++)
-            add_random_goal();
-
     }
 
-    void  read_car_list(const char* car_list_file){
-        PLOG_INFO << "Reading car list";
+    void seed_map_goals_entities(const short n_goals){
+        for(int i = 0; i < n_goals; i++)
+            add_random_goal();
+    }
+
+    void read_car_list(const char* car_list_file){
         std::vector<car> car_list = car::read_car_list_file(car_list_file);
         mapa->set_car_list(&car_list);
         for(int i = 0; i < mapa->get_car_list_size(); i++)
             add_car(mapa->get_car(i));
+        PLOG_INFO << "Car list read";
     }
 
     void add_car(car* c){
         auto& new_car = create_entity("taxi");
         new_car.add_component(ComponentHelper::CARC);
-        Car_component* c_p = dynamic_cast<Car_component*>(new_car.get_component(ComponentHelper::CARC));
-        c_p->set_case(c, this->alg, this->mapa);
+        dynamic_cast<Car_component*>(new_car.get_component(ComponentHelper::CARC))->set_case(c, this->alg, this->mapa);
     }
 
     void print_car_list(){
@@ -105,7 +111,7 @@ public:
             return;
         }
         new_goal->add_component(ComponentHelper::GOAL);
-        dynamic_cast<Goal_component*>(new_goal->get_component(ComponentHelper::GOAL))->set_case(mapa->add_goal(x_r,y_r));
+        dynamic_cast<goal_component*>(new_goal->get_component(ComponentHelper::GOAL))->set_case(mapa->add_goal(x_r, y_r));
         dynamic_cast<TransformComponent*>(new_goal->get_component(ComponentHelper::TRANSFORM))->set_pos(x_r*32, y_r*32);
     }
 
