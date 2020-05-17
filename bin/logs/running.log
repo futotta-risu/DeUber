@@ -90,3 +90,106 @@
 2020-04-21 01:07:31.633 INFO  [388] [GameManager::read_car_list@84] Car list read
 2020-05-17 17:31:39.523 INFO  [14588] [start_visual_interface@28] Selected map: 
 2020-05-17 17:31:40.753 INFO  [14588] [start_visual_interface@28] Selected map: 
+2020-05-17 17:41:58.870 INFO  [11312] [start_visual_interface@30] Selected map: 
+2020-05-17 17:42:00.028 INFO  [11312] [start_visual_interface@30] Selected map: 
+2020-05-17 17:42:01.699 INFO  [11312] [start_visual_interface@30] Selected map: ej3.res
+2020-05-17 17:42:01.799 DEBUG [11312] [Game::load_defs@27] Loading Assets
+2020-05-17 17:42:01.799 DEBUG [11312] [Game::load_defs@27] Loading Assets
+2020-05-17 17:42:01.834 DEBUG [11312] [Game::load_defs@29] Loading Entities
+2020-05-17 17:42:01.834 DEBUG [11312] [Game::load_defs@29] Loading Entities
+2020-05-17 17:42:01.846 DEBUG [11312] [Game::load_defs@31] Loading Stages
+2020-05-17 17:42:01.846 DEBUG [11312] [Game::load_defs@31] Loading Stages
+2020-05-17 17:42:01.846 INFO  [11312] [GameApp::load@38] Game loaded
+2020-05-17 17:42:01.846 INFO  [11312] [GameApp::load@38] Game loaded
+2020-05-17 17:43:36.595 INFO  [1492] [start_visual_interface@30] Selected map: 
+2020-05-17 17:43:39.267 INFO  [1492] [start_visual_interface@30] Selected map: ej3.map
+2020-05-17 17:43:39.384 DEBUG [1492] [Game::load_defs@27] Loading Assets
+2020-05-17 17:43:39.384 DEBUG [1492] [Game::load_defs@27] Loading Assets
+2020-05-17 17:43:39.387 DEBUG [1492] [Game::load_defs@29] Loading Entities
+2020-05-17 17:43:39.387 DEBUG [1492] [Game::load_defs@29] Loading Entities
+2020-05-17 17:43:39.388 DEBUG [1492] [Game::load_defs@31] Loading Stages
+2020-05-17 17:43:39.388 DEBUG [1492] [Game::load_defs@31] Loading Stages
+2020-05-17 17:43:39.388 INFO  [1492] [GameApp::load@38] Game loaded
+2020-05-17 17:43:39.388 INFO  [1492] [GameApp::load@38] Game loaded
+2020-05-17 17:43:39.392 INFO  [1492] [GameManager::load_map@54] Map loaded
+2020-05-17 17:43:39.392 INFO  [1492] [GameManager::load_map@54] Map loaded
+2020-05-17 17:43:39.392 INFO  [1492] [GameManager::read_car_list@84] Car list read
+2020-05-17 17:43:39.392 INFO  [1492] [GameManager::read_car_list@84] Car list read
+2020-05-17 18:00:32.973 INFO  [15968] [start_visual_interface@28] Selected map: ej2.map
+2020-05-17 18:00:33.101 DEBUG [15968] [Game::load_defs@27] Loading Assets
+2020-05-17 18:00:33.101 DEBUG [15968] [Game::load_defs@27] Loading Assets
+2020-05-17 18:00:33.104 DEBUG [15968] [Game::load_defs@29] Loading Entities
+2020-05-17 18:00:33.104 DEBUG [15968] [Game::load_defs@29] Loading Entities
+2020-05-17 18:00:33.104 DEBUG [15968] [Game::load_defs@31] Loading Stages
+2020-05-17 18:00:33.104 DEBUG [15968] [Game::load_defs@31] Loading Stages
+2020-05-17 18:00:33.105 INFO  [15968] [GameApp::load@38] Game loaded
+2020-05-17 18:00:33.105 INFO  [15968] [GameApp::load@38] Game loaded
+2020-05-17 18:00:33.108 INFO  [15968] [GameManager::load_map@54] Map loaded
+2020-05-17 18:00:33.108 INFO  [15968] [GameManager::load_map@54] Map loaded
+2020-05-17 18:00:33.109 INFO  [15968] [GameManager::read_car_list@84] Car list read
+2020-05-17 18:00:33.109 INFO  [15968] [GameManager::read_car_list@84] Car list read
+2020-05-17 18:01:32.852 INFO  [14312] [start_visual_interface@28] Selected map: ej1.map
+2020-05-17 18:01:33.013 DEBUG [14312] [Game::load_defs@27] Loading Assets
+2020-05-17 18:01:33.013 DEBUG [14312] [Game::load_defs@27] Loading Assets
+2020-05-17 18:01:33.016 DEBUG [14312] [Game::load_defs@29] Loading Entities
+2020-05-17 18:01:33.016 DEBUG [14312] [Game::load_defs@29] Loading Entities
+2020-05-17 18:01:33.016 DEBUG [14312] [Game::load_defs@31] Loading Stages
+2020-05-17 18:01:33.016 DEBUG [14312] [Game::load_defs@31] Loading Stages
+2020-05-17 18:01:33.016 INFO  [14312] [GameApp::load@38] Game loaded
+2020-05-17 18:01:33.016 INFO  [14312] [GameApp::load@38] Game loaded
+2020-05-17 18:01:33.020 INFO  [14312] [GameManager::load_map@54] Map loaded
+2020-05-17 18:01:33.020 INFO  [14312] [GameManager::load_map@54] Map loaded
+2020-05-17 18:01:33.020 INFO  [14312] [GameManager::read_car_list@84] Car list read
+2020-05-17 18:01:33.020 INFO  [14312] [GameManager::read_car_list@84] Car list read
+2020-05-17 18:02:08.237 INFO  [12608] [start_visual_interface@28] Selected map: ej2.map
+2020-05-17 18:02:08.358 DEBUG [12608] [Game::load_defs@27] Loading Assets
+2020-05-17 18:02:08.358 DEBUG [12608] [Game::load_defs@27] Loading Assets
+2020-05-17 18:02:08.361 DEBUG [12608] [Game::load_defs@29] Loading Entities
+2020-05-17 18:02:08.361 DEBUG [12608] [Game::load_defs@29] Loading Entities
+2020-05-17 18:02:08.362 DEBUG [12608] [Game::load_defs@31] Loading Stages
+2020-05-17 18:02:08.362 DEBUG [12608] [Game::load_defs@31] Loading Stages
+2020-05-17 18:02:08.362 INFO  [12608] [GameApp::load@38] Game loaded
+2020-05-17 18:02:08.362 INFO  [12608] [GameApp::load@38] Game loaded
+2020-05-17 18:02:08.363 INFO  [12608] [GameManager::load_map@54] Map loaded
+2020-05-17 18:02:08.363 INFO  [12608] [GameManager::load_map@54] Map loaded
+2020-05-17 18:02:08.363 INFO  [12608] [GameManager::read_car_list@84] Car list read
+2020-05-17 18:02:08.363 INFO  [12608] [GameManager::read_car_list@84] Car list read
+2020-05-17 18:03:00.518 INFO  [6340] [start_visual_interface@28] Selected map: map_prueba.map
+2020-05-17 18:03:00.667 DEBUG [6340] [Game::load_defs@27] Loading Assets
+2020-05-17 18:03:00.667 DEBUG [6340] [Game::load_defs@27] Loading Assets
+2020-05-17 18:03:00.670 DEBUG [6340] [Game::load_defs@29] Loading Entities
+2020-05-17 18:03:00.670 DEBUG [6340] [Game::load_defs@29] Loading Entities
+2020-05-17 18:03:00.671 DEBUG [6340] [Game::load_defs@31] Loading Stages
+2020-05-17 18:03:00.671 DEBUG [6340] [Game::load_defs@31] Loading Stages
+2020-05-17 18:03:00.671 INFO  [6340] [GameApp::load@38] Game loaded
+2020-05-17 18:03:00.671 INFO  [6340] [GameApp::load@38] Game loaded
+2020-05-17 18:03:00.675 INFO  [6340] [GameManager::load_map@54] Map loaded
+2020-05-17 18:03:00.675 INFO  [6340] [GameManager::load_map@54] Map loaded
+2020-05-17 18:03:00.675 INFO  [6340] [GameManager::read_car_list@84] Car list read
+2020-05-17 18:03:00.675 INFO  [6340] [GameManager::read_car_list@84] Car list read
+2020-05-17 18:04:45.350 INFO  [892] [start_visual_interface@28] Selected map: mapaWrite.map
+2020-05-17 18:04:45.486 DEBUG [892] [Game::load_defs@27] Loading Assets
+2020-05-17 18:04:45.486 DEBUG [892] [Game::load_defs@27] Loading Assets
+2020-05-17 18:04:45.489 DEBUG [892] [Game::load_defs@29] Loading Entities
+2020-05-17 18:04:45.489 DEBUG [892] [Game::load_defs@29] Loading Entities
+2020-05-17 18:04:45.490 DEBUG [892] [Game::load_defs@31] Loading Stages
+2020-05-17 18:04:45.490 DEBUG [892] [Game::load_defs@31] Loading Stages
+2020-05-17 18:04:45.490 INFO  [892] [GameApp::load@38] Game loaded
+2020-05-17 18:04:45.490 INFO  [892] [GameApp::load@38] Game loaded
+2020-05-17 18:04:45.494 INFO  [892] [GameManager::load_map@54] Map loaded
+2020-05-17 18:04:45.494 INFO  [892] [GameManager::load_map@54] Map loaded
+2020-05-17 18:04:45.494 INFO  [892] [GameManager::read_car_list@84] Car list read
+2020-05-17 18:04:45.494 INFO  [892] [GameManager::read_car_list@84] Car list read
+2020-05-17 18:06:31.677 INFO  [17340] [start_visual_interface@31] Selected map: ej3.map
+2020-05-17 18:06:31.783 DEBUG [17340] [Game::load_defs@27] Loading Assets
+2020-05-17 18:06:31.783 DEBUG [17340] [Game::load_defs@27] Loading Assets
+2020-05-17 18:06:31.786 DEBUG [17340] [Game::load_defs@29] Loading Entities
+2020-05-17 18:06:31.786 DEBUG [17340] [Game::load_defs@29] Loading Entities
+2020-05-17 18:06:31.787 DEBUG [17340] [Game::load_defs@31] Loading Stages
+2020-05-17 18:06:31.787 DEBUG [17340] [Game::load_defs@31] Loading Stages
+2020-05-17 18:06:31.787 INFO  [17340] [GameApp::load@38] Game loaded
+2020-05-17 18:06:31.787 INFO  [17340] [GameApp::load@38] Game loaded
+2020-05-17 18:06:31.788 INFO  [17340] [GameManager::load_map@54] Map loaded
+2020-05-17 18:06:31.788 INFO  [17340] [GameManager::load_map@54] Map loaded
+2020-05-17 18:06:31.788 INFO  [17340] [GameManager::read_car_list@84] Car list read
+2020-05-17 18:06:31.788 INFO  [17340] [GameManager::read_car_list@84] Car list read

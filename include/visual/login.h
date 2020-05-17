@@ -62,7 +62,6 @@ public:
         login_panel->add(password);
         login_panel->add(btnLogIn);
         login_panel->add(btnregister);
-
         this->add(login_panel);
 
     }

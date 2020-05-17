@@ -29,7 +29,7 @@ public:
         bar_back = {219,219,219};
         max_height = 50;
         act_height = max_height/2;
-        set_drawed(false);
+        set_drawn(false);
     }
     void input() override {
         SDL_PumpEvents();
@@ -38,12 +38,12 @@ public:
             if (is_inside_rect(get_dst(), x, y)){
                 act_height = std::min(std::max(get_dst()->y+max_height/2, y),
                         get_dst()->y+get_dst()->h-max_height/2);
-                set_drawed(false);}
+                set_drawn(false);}
     }
     void update() override {};
     void draw(SDL_Renderer *ren) override{
         draw_CUI(ren);
-        if(!is_drawed()){
+        if(!is_drawn()){
             SDL_Texture *bar_tex = SDL_CreateTexture(ren, SDL_PIXELFORMAT_RGBA8888,
                                                        SDL_TEXTUREACCESS_TARGET, get_dst()->w, get_dst()->h);
             SDL_SetRenderTarget(ren, bar_tex);
@@ -58,7 +58,7 @@ public:
 
             SDL_SetRenderTarget(ren, NULL);
             set_tex_CUI(bar_tex);
-            set_drawed(true);
+            set_drawn(true);
         }
 
     }

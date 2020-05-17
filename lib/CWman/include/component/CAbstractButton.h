@@ -1,31 +1,23 @@
-//
-// Created by whiwho on 24/03/2020.
-//
-
 #ifndef WINDOW_MANAGER_CABSTRACTBUTTON_H
 #define WINDOW_MANAGER_CABSTRACTBUTTON_H
 
 #include "CComponent.h"
 #include "SDL.h"
-#include "CWindow.h"
 
 #include <functional>
 #include <algorithm>
 #include <utils/colors.h>
 #include <utils/collision.h>
+#include <CMouse.h>
+
+class CWindow;
 
 class CAbstractButton : public CComponent{
 private:
-
-    // Component Metadata
     int button_temp = 0;
 
-    // Component vals
     std::function<void(CWindow*)> action_listener = nullptr;
     CWindow *win = nullptr;
-
-    // Component Render
-
 public:
     bool pressed = false;
 
@@ -37,9 +29,9 @@ public:
 
     void input() override{
         SDL_PumpEvents();
-        int x,y;
-        if(SDL_GetMouseState(&x,&y) & SDL_BUTTON(SDL_BUTTON_LEFT)) {
-            if (is_inside_rect(get_dst(), x, y)) set_pressed(true);
+        if(CMouse::isClickLeft()) {
+            if(is_inside_rect(get_dst(), CMouse::mouse_x, CMouse::mouse_y))
+                set_pressed(true);
         }else if(pressed){
                 set_pressed(false);
                 if(action_listener== nullptr || win == nullptr)
@@ -54,7 +46,7 @@ public:
 
     void update_layout() override{};
 
-    void set_action_listener(std::function<void(CWindow*)> function_t ){
+    void set_action_listener(const std::function<void(CWindow*)>& function_t ){
         action_listener = function_t;
     };
 

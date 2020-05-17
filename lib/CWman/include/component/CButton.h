@@ -35,7 +35,7 @@ public:
         set_size({100,40});
     }
     void draw(SDL_Renderer *ren) override{
-        if(!is_drawed()){
+        if(!is_drawn()){
             TTF_Font* font_r = TTF_OpenFont(font.get_font().c_str(), 128);
 
             SDL_Surface* surfaceMessage = TTF_RenderText_Blended(font_r, button_text.c_str(), font.get_color());
@@ -43,12 +43,12 @@ public:
             SDL_FreeSurface(surfaceMessage);
             TTF_CloseFont(font_r);
             //SDL_QueryTexture(Message, NULL, NULL, &(get_dst()->w), &(get_dst()->h));
-            set_drawed(true);
+            set_drawn(true);
         }
         draw_CUI(ren);
     }
     std::string get_text(){return button_text;};
-    void set_text(std::string button_text_t){button_text = button_text_t;set_drawed(false);}
+    void set_text(std::string button_text_t){button_text = button_text_t;set_drawn(false);}
 
 };
 

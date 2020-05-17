@@ -1,7 +1,3 @@
-//
-// Created by whiwho on 25/03/2020.
-//
-
 #ifndef WINDOW_MANAGER_CTEXTBOX_H
 #define WINDOW_MANAGER_CTEXTBOX_H
 
@@ -11,14 +7,13 @@
 #include <locale>
 #include <cstring>
 #include <utils/collision.h>
+#include <CMouse.h>
 
-const char* key_map = "abcdefghijklmnopqrstuvwxyz";
 
 class CTextBox : public CComponent{
 private:
 
-    // Component Metadata
-    bool focused;
+    bool focused = false;
     CFont font;
 
     int key_board_tick = 0;
@@ -29,8 +24,8 @@ private:
     std::string text_value;
 
     // Component Renders
-    SDL_Texture *tex;
-    SDL_Rect pos;
+    SDL_Texture *tex =  nullptr;
+    SDL_Rect pos = {0,0};
 public:
     CTextBox() = default;
     ~CTextBox() = default;
@@ -40,18 +35,16 @@ public:
 
     // Runtime Handlers
     void input() override {
-        int x, y;
-        // Check if inside
-        if(SDL_GetMouseState(&x, &y) & SDL_BUTTON(SDL_BUTTON_LEFT))
-            set_focused(is_inside_rect(get_dst(), x, y));
+        if(CMouse::isClickLeft())
+            set_focused(is_inside_rect(get_dst(), CMouse::mouse_x, CMouse::mouse_y));
 
         if(focused){
             if(key_board_tick>0){
                 key_board_tick--;
                 return;
             }
-            const Uint8 *keys = SDL_GetKeyboardState(NULL);
-            SDL_Scancode key_code = static_cast<SDL_Scancode>(0);
+            const Uint8 *keys = SDL_GetKeyboardState(nullptr);
+            auto key_code = static_cast<SDL_Scancode>(0);
             for(auto p : keyboard_printable_chars)
                 for(int i = p.first; i < p.second; i++)
                     if(keys[i]) key_code = static_cast<SDL_Scancode>(i);
@@ -61,7 +54,7 @@ public:
 
 
             if(key_code>0){
-                set_drawed(false);
+                set_drawn(false);
                 key_board_tick = 5;
             }
         }
@@ -69,7 +62,7 @@ public:
     };
     void update() override {};
     void draw(SDL_Renderer* ren) override {
-        if(!is_drawed()){
+        if(!is_drawn()){
             TTF_Font* font_r = TTF_OpenFont(font.get_font().c_str(), std::max(get_size().h-15,20));
             int w,h;
             SDL_Surface* surfaceMessage = TTF_RenderText_Blended(font_r, text_value.c_str(), font.get_color());
@@ -81,12 +74,12 @@ public:
             pos.w = std::min(w, get_size().w);
             pos.h = std::min(h, get_size().h);
 
-            set_drawed(true);
+            set_drawn(true);
         }
         draw_CUI(ren);
         pos.x = get_pos().x;
         pos.y = get_pos().y;
-        SDL_RenderCopy(ren,tex,NULL,&pos);
+        SDL_RenderCopy(ren,tex,nullptr,&pos);
     };
 
     void set_focused(bool focused_t){
@@ -97,7 +90,7 @@ public:
     }
 
     std::string get_text(){return text_value;};
-    void set_text(std::string text_value_t){text_value = text_value_t;};
+    void set_text(const std::string& text_value_t){text_value = text_value_t;};
 
     void update_layout() override{};
 };

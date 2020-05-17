@@ -1,7 +1,3 @@
-//
-// Created by whiwho on 13/04/2020.
-//
-
 #ifndef DEUBER_MAP_SELECTOR_H
 #define DEUBER_MAP_SELECTOR_H
 
@@ -43,10 +39,10 @@ public:
     }
 
     void load_components(){
-        map_files_scroll_pane = new CScrollPanel;
+        map_files_scroll_pane = new CScrollPanel();
         map_files_scroll_pane->set_size({400,500});
 
-        map_files_panel = new CPanel;
+        map_files_panel = new CPanel();
         map_files_scroll_pane->set_panel(map_files_panel);
         this->add(map_files_scroll_pane);
     }
@@ -55,7 +51,7 @@ public:
         auto but = new CButton(file_name);
 
         but->set_minimum_size({200,50});
-        but->set_size({200,50});
+        but->set_size({200,100});
 
         const std::string& map_file_c_t = file_name;
         but->set_action_listener([&, map_file_c_t](CWindow *win){

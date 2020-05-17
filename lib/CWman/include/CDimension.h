@@ -1,7 +1,3 @@
-//
-// Created by whiwho on 24/03/2020.
-//
-
 #ifndef WINDOW_MANAGER_CDIMENSION_H
 #define WINDOW_MANAGER_CDIMENSION_H
 

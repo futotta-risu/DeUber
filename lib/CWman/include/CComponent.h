@@ -1,7 +1,3 @@
-//
-// Created by erikberter on 20/03/2020.
-//
-
 #ifndef WINDOWMANAGER_WINDOW_COMPONENT_H
 #define WINDOWMANAGER_WINDOW_COMPONENT_H
 
@@ -18,17 +14,13 @@ const unsigned int DEFAULT_HEIGHT    =   40u;
 class CComponent{
 private:
     CUI component_CUI;
-
     CComponent* parent;
 
     bool container = false;
-    bool drawed = false;
+    bool drawn= false;
     bool resizable = true;
 
     std::string component_id;
-
-
-
 public:
     static int id;
     bool visible = true;
@@ -44,14 +36,14 @@ public:
 
     SDL_Rect* get_dst(){return component_CUI.get_dst();}
 
-    void set_id(std::string component_id_t){component_id = component_id_t;}
+    void set_id(const std::string& component_id_t){component_id = component_id_t;}
     std::string get_id(){return component_id;}
 
     void set_container(){container = true;}
     bool is_container(){return container;}
 
-    void set_drawed(bool drawed_t){drawed = drawed_t;}
-    bool is_drawed(){return drawed;}
+    void set_drawn(bool drawn_t){drawn = drawn_t;}
+    bool is_drawn(){return drawn;}
 
     SDL_Color get_background_color(){return component_CUI.get_background_color();};
     void set_background(SDL_Color bg_color){component_CUI.set_background_color(bg_color);}

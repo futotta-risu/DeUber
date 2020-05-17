@@ -1,7 +1,3 @@
-//
-// Created by whiwho on 24/03/2020.
-//
-
 #ifndef WINDOW_MANAGER_CUI_H
 #define WINDOW_MANAGER_CUI_H
 
@@ -35,7 +31,6 @@ public:
 
     void set_minimum_size(Dimension dim){
         min_size = dim;
-        // Check if actual size is less than minimum size
         act_size.w = std::max(min_size.w,dim.w);
         act_size.h = std::max(min_size.h,dim.h);
         dst=d_to_R(coords, act_size);
@@ -72,11 +67,9 @@ public:
     void set_tex(SDL_Texture* tex_t){SDL_DestroyTexture(tex);tex = tex_t;tex_loaded = true;};
 
     void draw(SDL_Renderer* ren){
-        //load_dst();
-        // Fill Background color
-        SDL_SetRenderDrawColor(ren, bg_color.r,bg_color.g,bg_color.b,bg_color.a);
+                SDL_SetRenderDrawColor(ren, bg_color.r,bg_color.g,bg_color.b,bg_color.a);
         SDL_RenderFillRect(ren, &dst);
-        // Fill border
+
         if(border.get_size()>0){
             SDL_Color border_color = border.get_color();
             SDL_SetRenderDrawColor(ren, border_color.r,border_color.g,border_color.b,border_color.a);

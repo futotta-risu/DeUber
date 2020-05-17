@@ -33,7 +33,7 @@ void load_game_components(){
 void load_GameApp(GameApp* gApp, const std::string& map_file_name){
     gApp->load();
 
-    gApp->gm->load_map(map_file_name.c_str());
+    gApp->gm->load_map(map_file_name);
     gApp->gm->set_algorithm(algorithm_type::BFS);
     gApp->gm->read_car_list("../data/cars/car_list1.txt");
     gApp->gm->get_game()->e_man.add_to_order(G_CAR);

@@ -1,10 +1,7 @@
-//
-// Created by erikberter on 20/03/2020.
-//
-
 #include "SDL_ttf.h"
 #include "CWindow.h"
 #include <iostream>
+#include <CMouse.h>
 
 int CWindow::window_id = 1;
 
@@ -55,12 +52,12 @@ CWindow::~CWindow(){
 
 void CWindow::run_window(){
     int last_frame, act_frame;
-    int i = 0;
+    window_update();
     while(w_active){
         last_frame = SDL_GetTicks();
+        window_render();
         window_input();
         window_update();
-        window_render();
 
         act_frame = SDL_GetTicks();
         if(act_frame-last_frame<WINDOW_FPS_DELAY)
@@ -81,6 +78,7 @@ void CWindow::window_input(){
 }
 
 void CWindow::window_update(){
+    CMouse::getMouseCoords();
     window_panel->update();
 }
 

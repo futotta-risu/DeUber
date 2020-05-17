@@ -39,7 +39,7 @@ public:
     void input() override {};
     void update() override {};
     void draw(SDL_Renderer* ren) override {
-        if(!is_drawed()){
+        if(!is_drawn()){
             if(get_background_color().a)
                 set_background(get_parent()->get_background_color());
             TTF_Font* font_r = TTF_OpenFont(font.get_font().c_str(), 128);
@@ -49,7 +49,7 @@ public:
             SDL_FreeSurface(surfaceMessage);
             TTF_CloseFont(font_r);
             //SDL_QueryTexture(Message, NULL, NULL, &(get_dst()->w), &(get_dst()->h));
-            set_drawed(true);
+            set_drawn(true);
         }
         draw_CUI(ren);
     };
