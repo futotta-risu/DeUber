@@ -11,22 +11,25 @@
 #include <component/CLabel.h>
 using namespace std;
 
-const unsigned int WIDTH_LOG     =   600;
-const unsigned int HEIGHT_LOG    =   800;
+const unsigned int WIDTH_LOG     =   800;
+const unsigned int HEIGHT_LOG    =   620;
 
 class Login : public CWindow {
 private:
 
     CPanel *login_panel = nullptr;
     CLabel *lblwelcome = nullptr;
-    CTextBox *usertxt = nullptr;
-    CTextBox *password = nullptr;
     CLabel *lbluser = nullptr;
     CLabel *lblpass = nullptr;
-    CButton *btnLogIn = nullptr;
-    CButton *btnregister = nullptr;
+
 
 public:
+
+    CButton *btnLogIn = nullptr;
+    CButton *btnregister = nullptr;
+    CTextBox *usertxt = nullptr;
+    CTextBox *password = nullptr;
+
 
     Login() : CWindow("") {
         set_default_window();
@@ -47,13 +50,34 @@ public:
     void load_components() {
         login_panel = new CPanel();
         login_panel->set_size(HEIGHT_LOG, WIDTH_LOG);
-        usertxt = new CTextBox();
-        password = new CTextBox();
+        login_panel->set_layout(new AbsoluteLayout());
+
         lblwelcome = new CLabel("Bienvenido a DeUber, Introduce tus datos para iniciar sesion");
+        lblwelcome->set_size({700,80});
+        lblwelcome->set_pos({50, 10});
+
         lbluser = new CLabel("Usuario:");
+        lbluser->set_size({200, 80});
+        lbluser->set_pos({15, 110});
+        usertxt = new CTextBox();
+        usertxt->set_size({600, 80});
+        usertxt->set_pos({15, 210});
+
         lblpass = new CLabel("Contraseña:");
+        lblpass->set_size({200, 80});
+        lblpass->set_pos({15, 310});
+        password = new CTextBox();
+        password->set_size({600, 80});
+        password->set_pos({15, 410});
+
         btnLogIn = new CButton("Iniciar Sesion");
+        btnLogIn->set_size({300,80});
+        btnLogIn->set_pos({75,510});
         btnregister = new CButton("Registrarse");
+        btnregister->set_size({300,80});
+        btnregister->set_pos({425,510});
+
+
 
         login_panel->add(lblwelcome);
         login_panel->add(lbluser);

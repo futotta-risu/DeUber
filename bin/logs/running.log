@@ -193,3 +193,29 @@
 2020-05-17 18:06:31.788 INFO  [17340] [GameManager::load_map@54] Map loaded
 2020-05-17 18:06:31.788 INFO  [17340] [GameManager::read_car_list@84] Car list read
 2020-05-17 18:06:31.788 INFO  [17340] [GameManager::read_car_list@84] Car list read
+2020-05-17 18:19:21.923 INFO  [6120] [start_visual_interface@31] Selected map: 
+2020-05-17 18:21:41.948 INFO  [12740] [start_visual_interface@31] Selected map: 
+2020-05-17 18:31:07.113 INFO  [8416] [start_visual_interface@31] Selected map: ej3.map
+2020-05-17 18:31:07.376 DEBUG [8416] [Game::load_defs@27] Loading Assets
+2020-05-17 18:31:07.376 DEBUG [8416] [Game::load_defs@27] Loading Assets
+2020-05-17 18:31:07.409 DEBUG [8416] [Game::load_defs@29] Loading Entities
+2020-05-17 18:31:07.409 DEBUG [8416] [Game::load_defs@29] Loading Entities
+2020-05-17 18:31:07.412 DEBUG [8416] [Game::load_defs@31] Loading Stages
+2020-05-17 18:31:07.412 DEBUG [8416] [Game::load_defs@31] Loading Stages
+2020-05-17 18:31:07.412 INFO  [8416] [GameApp::load@38] Game loaded
+2020-05-17 18:31:07.412 INFO  [8416] [GameApp::load@38] Game loaded
+2020-05-17 18:31:07.416 INFO  [8416] [GameManager::load_map@54] Map loaded
+2020-05-17 18:31:07.416 INFO  [8416] [GameManager::load_map@54] Map loaded
+2020-05-17 18:31:07.417 INFO  [8416] [GameManager::read_car_list@84] Car list read
+2020-05-17 18:31:07.417 INFO  [8416] [GameManager::read_car_list@84] Car list read
+2020-05-17 18:33:39.393 INFO  [5424] [start_visual_interface@31] Selected map: ej3.res
+2020-05-17 18:33:39.690 DEBUG [5424] [Game::load_defs@27] Loading Assets
+2020-05-17 18:33:39.690 DEBUG [5424] [Game::load_defs@27] Loading Assets
+2020-05-17 18:33:39.701 DEBUG [5424] [Game::load_defs@29] Loading Entities
+2020-05-17 18:33:39.701 DEBUG [5424] [Game::load_defs@29] Loading Entities
+2020-05-17 18:33:39.705 DEBUG [5424] [Game::load_defs@31] Loading Stages
+2020-05-17 18:33:39.705 DEBUG [5424] [Game::load_defs@31] Loading Stages
+2020-05-17 18:33:39.705 INFO  [5424] [GameApp::load@38] Game loaded
+2020-05-17 18:33:39.705 INFO  [5424] [GameApp::load@38] Game loaded
+2020-05-17 18:44:41.442 INFO  [2836] [start_visual_interface@31] Selected map: 
+2020-05-17 18:47:52.890 INFO  [13948] [start_visual_interface@31] Selected map: 

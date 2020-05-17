@@ -25,12 +25,19 @@ void start_non_visual_interface(){
 void start_visual_interface(){
     std::string map_name;
     Login login_window;
-    login_window.~Login();
-    do{
-        MapSelector t(&map_name,"../data/maps/");
-        PLOG_INFO << "Selected map: " << map_name;
-    }while(map_name.empty());
-    start_visual_interface(map_name);
+    if(login_window.btnLogIn->pressed){
+        if(login_window.usertxt->get_text().compare("root") == 0 && login_window.password->get_text().compare("1234") == 0) {
+            login_window.~Login();
+            do {
+                MapSelector t(&map_name, "../data/maps/");
+                PLOG_INFO << "Selected map: " << map_name;
+            } while (map_name.empty());
+            start_visual_interface(map_name);
+        }
+    }
+
+
+
 }
 
 int main(int argc, char* argv[]) {
