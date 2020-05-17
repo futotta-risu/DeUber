@@ -88,3 +88,5 @@
 2020-04-21 01:07:31.633 INFO  [388] [GameManager::load_map@54] Map loaded
 2020-04-21 01:07:31.633 INFO  [388] [GameManager::read_car_list@84] Car list read
 2020-04-21 01:07:31.633 INFO  [388] [GameManager::read_car_list@84] Car list read
+2020-05-17 17:31:39.523 INFO  [14588] [start_visual_interface@28] Selected map: 
+2020-05-17 17:31:40.753 INFO  [14588] [start_visual_interface@28] Selected map: 
