@@ -55,6 +55,10 @@ public:
         return static_cast<int>(map_values[y][x].act_val);
     }
 
+    cell_char** get_map_values(){
+        return map_values;
+    }
+
     // Operators
 
     // Other Functions

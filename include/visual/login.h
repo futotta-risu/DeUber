@@ -31,7 +31,7 @@ public:
     CTextBox *password = nullptr;
 
 
-    Login() : CWindow("") {
+    Login() : CWindow("Inicio Sesion") {
         set_default_window();
         load_components();
         this->init_window();
@@ -73,11 +73,26 @@ public:
         btnLogIn = new CButton("Iniciar Sesion");
         btnLogIn->set_size({300,80});
         btnLogIn->set_pos({75,510});
+        btnLogIn->set_window(this);
+        btnLogIn->set_action_listener([&](CWindow *win){
+            const std::string& user = usertxt->get_text();
+            const std::string& pass= password->get_text();
+            if(user.compare("root") == 0 && pass.compare("1234") == 0){
+                std::string map_name;
+                do {
+                    MapSelector t(&map_name, "../data/maps/");
+                    PLOG_INFO << "Selected map: " << map_name;
+                } while (map_name.empty());
+                start_visual_interface(map_name);
+            }
+        });
+
         btnregister = new CButton("Registrarse");
         btnregister->set_size({300,80});
         btnregister->set_pos({425,510});
+        btnregister->set_action_listener([&](CWindow *win){
 
-
+        });
 
         login_panel->add(lblwelcome);
         login_panel->add(lbluser);
