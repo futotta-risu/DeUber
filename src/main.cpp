@@ -12,6 +12,8 @@
 #include <plog/Log.h>
 #include <visual/login.h>
 
+
+
 void start_non_visual_interface(){
     // First Step get the info menu to get the whole running_info data
     running_info run_inf = run_menu(menu_file);
@@ -23,7 +25,16 @@ void start_non_visual_interface(){
 }
 
 void start_visual_interface(){
-    Login login_window;
+    do{
+        Login login_window;
+    }while(login_data == 0);
+
+    std::string map_name;
+    do {
+        MapSelector t(&map_name, "../data/maps/");
+        PLOG_INFO << "Selected map: " << map_name;
+    } while (map_name.empty());
+    start_visual_interface(map_name);
     }
 
 

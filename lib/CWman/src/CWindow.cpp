@@ -27,7 +27,9 @@ void CWindow::set_defaults(){
 
 void CWindow::init_window(){
     w_active = true;
+    std::cout << "hola1" << std::endl;
     run_window();
+    std::cout << "hola2" << std::endl;
 }
 
 

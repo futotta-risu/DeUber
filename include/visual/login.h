@@ -14,6 +14,8 @@ using namespace std;
 const unsigned int WIDTH_LOG     =   800;
 const unsigned int HEIGHT_LOG    =   620;
 
+extern int login_data;
+
 class Login : public CWindow {
 private:
 
@@ -78,12 +80,8 @@ public:
             const std::string& user = usertxt->get_text();
             const std::string& pass= password->get_text();
             if(user.compare("root") == 0 && pass.compare("1234") == 0){
-                std::string map_name;
-                do {
-                    MapSelector t(&map_name, "../data/maps/");
-                    PLOG_INFO << "Selected map: " << map_name;
-                } while (map_name.empty());
-                start_visual_interface(map_name);
+
+                login_data = 1;
             }
         });
 

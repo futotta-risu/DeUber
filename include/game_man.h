@@ -1,11 +1,5 @@
-//
-// Created by whiwho on 08/04/2020.
-//
-
 #ifndef DEUBER_GAME_MAN_H
 #define DEUBER_GAME_MAN_H
-
-
 
 #include <algorithms/algorithm_helper.h>
 #include <plog/Log.h>
@@ -55,7 +49,6 @@ public:
     }
     void seed_map_entities(){
         seed_map_tile_entities();
-        seed_map_goals_entities(3);
     }
 
     void seed_map_tile_entities(){
@@ -69,11 +62,6 @@ public:
                 dynamic_cast<TransformComponent*>(temp_tile->get_component(ComponentHelper::TRANSFORM))->set_pos(32*r,32*t);
             }
         }
-    }
-
-    void seed_map_goals_entities(const short n_goals){
-        for(int i = 0; i < n_goals; i++)
-            add_random_goal();
     }
 
     void read_car_list(const char* car_list_file){
@@ -98,11 +86,12 @@ public:
     }
 
     void add_random_goal(){
-        int x_r, y_r;
+        int x_r, y_r, tries = 0;
         do{
             x_r = rand()%mapa->get_width();
             y_r = rand()%mapa->get_height();
-        }while(mapa->get_cell(x_r, y_r)!=0 || mapa->check_goal(x_r,y_r) || (x_r == y_r && x_r == 1));
+            if(tries > 25) return;
+        }while( mapa->get_cell(x_r, y_r)!=0  || mapa->check_goal(x_r,y_r));
         Entity* new_goal;
         try{
              new_goal = &create_entity("goal");

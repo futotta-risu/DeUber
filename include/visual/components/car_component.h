@@ -35,7 +35,6 @@ public:
     }
 
     void update() override{
-        // TODO Fix car speed to tile size
         if(++counter%(32/CAR_SPEED)==0)
             alg->move_car(mapa, act_car);
         set_vel_from_dir(act_car->dir);

@@ -20,8 +20,8 @@ private:
     CScrollPanel* map_files_scroll_pane = nullptr;
     CPanel* map_files_panel = nullptr;
 
-    //CPanel* map_preview_panel = nullptr;
-    //CTextBox* map_preview_txt = nullptr;
+    CPanel* map_preview_panel = nullptr;
+    CTextBox* map_preview_txt = nullptr;
 
 
     std::string *map_file_ptr = nullptr;
@@ -52,11 +52,11 @@ public:
         map_files_panel = new CPanel();
         map_files_scroll_pane->set_panel(map_files_panel);
 
-        /*
+
         map_preview_panel = new CPanel();
         map_preview_panel->set_layout(new VerticalFlowLayout);
         map_preview_txt = new CTextBox();
-        */
+
 
         this->add(map_files_scroll_pane);
         //this->add(map_preview_panel);
@@ -69,10 +69,12 @@ public:
         but->set_size({200,100});
 
         const std::string& map_file_c_t = file_name;
-        //const char* temp_name = file_name.c_str();
-        but->set_action_listener([&, map_file_c_t](CWindow *win){
+        char* temp_name = new char[file_name.size() + 1];
+        std::copy(file_name.begin(), file_name.end(), temp_name);
+        temp_name[file_name.size()] = '\0';
+        but->set_action_listener([&, map_file_c_t, temp_name](CWindow *win){
             *map_file_ptr = map_file_c_t;
-            /*
+
             Map temp_map;
             temp_map.read_map(temp_name);
             const std::string value0 = "0";
@@ -98,7 +100,7 @@ public:
                 map_preview_txt->set_text(temp_value);
             }
             map_preview_panel->add(map_preview_txt);
-            */
+
         });
         but->set_window(this);
         return but;

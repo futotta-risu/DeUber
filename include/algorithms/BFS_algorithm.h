@@ -114,6 +114,11 @@ public:
         act_car->dir = dir;
         map_t->move_car(act_car->get_id(),dir);
     }
+
+    void reload(){
+
+        
+    }
 private:
 };
 

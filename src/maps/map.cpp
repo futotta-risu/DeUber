@@ -155,7 +155,7 @@ void Map::move_car(int id, int dir){
     int val_x_n = val_x + (((dir+1)%2==0) ? 0: ((dir == 2) ? 1 : -1));
 
 
-    if(map_values[val_y_n][val_x_n].def_val == BUILDING || map_values[val_y_n][val_x_n].act_val==CAR){
+    if(map_values[val_y_n][val_x_n].def_val == BUILDING){
         (*car_list)[index_of_car].dir = 0;
         (*car_list)[index_of_car].set_operation(NONE);
         return;
@@ -186,7 +186,9 @@ int** Map::get_aval_map(){
 bool Map::check_goal(int pos_x, int pos_y){
     if(!check_coords(pos_x, pos_y))
         throw invalid_coords(pos_x, pos_y, this);
-    return goal_list.count(pos_y * n_height + pos_x) != 0;
+    if(goal_list.count(pos_y * n_height + pos_x) != 0)
+        return goal_list[pos_y * n_height + pos_x]->active;
+    return false;
 }
 
 

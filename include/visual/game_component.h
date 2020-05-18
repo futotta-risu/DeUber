@@ -1,18 +1,16 @@
-//
-// Created by erikberter on 22/03/2020.
-//
-
 #ifndef DEUBER_GAME_COMPONENT_H
 #define DEUBER_GAME_COMPONENT_H
 
 #include <SDL.h>
 #include <game.h>
+#include <random>
 
 #include "ECS/entity_manager.h"
 #include "ECS/asset_manager.h"
 
 #include "game_man.h"
 #include "CComponent.h"
+
 
 class Collision_component;
 
@@ -42,6 +40,7 @@ public:
 
     void update() override {
         if(paused) return;
+        if(rand()%60==0){gm->add_random_goal();update_layout();}
         g->e_man.update();
         counter++;
     };
