@@ -1,5 +1,5 @@
 //
-// Created by aritz on 21/02/2020.
+// Created by aritzugazaga on 21/02/2020.
 //
 #include <stdio.h>
 #include <stdlib.h>
@@ -204,7 +204,7 @@ int selectMapa() {
     return 0;
 }
 
-int updateUsuaio() {
+int updateUsuario() {
     sqlite3 *db;
     char *zErrMsg = 0;
     int rc;
@@ -222,7 +222,7 @@ int updateUsuaio() {
     }
 
     /* Create merged SQL statement */
-    sql = "UPDATE USUARIO set NOMBRE = 'Marcos' where ID=1; " \
+    sql = "UPDATE USUARIO set nombre = 'Marcos' where ID=1; " \
          "SELECT * from USUARIO";
 
     /* Execute SQL statement */
@@ -337,4 +337,41 @@ int deleteFromMapa() {
     }
     sqlite3_close(db);
     return 0;
+}
+
+// Devuelve 1 == login correcto, Devuelve 0 == login incorrecto
+int login(char *nombre, char *contraseña) {
+    sqlite3 *db;
+    char *zErrMsg = 0;
+    int rc;
+    char *sql;
+    const char* data = "Callback function called";
+
+    /* Open database */
+    rc = sqlite3_open("database.db", &db);
+
+    if( rc ) {
+        fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
+        return(0);
+    } else {
+        fprintf(stderr, "Opened database successfully\n");
+    }
+
+    /* Create merged SQL statement */
+    sql = "SELECT from USUARIO where NOMBRE = %s and CONTRASEÑA = %s; ";
+    sprintf(sql, nombre, contraseña);
+
+    /* Execute SQL statement */
+    rc = sqlite3_exec(db, sql, callback, (void*)data, &zErrMsg);
+
+    if( rc != SQLITE_OK ) {
+        fprintf(stderr, "SQL error: %s\n", zErrMsg);
+        sqlite3_free(zErrMsg);
+        return 0;
+    } else {
+        fprintf(stdout, "Operation done successfully\n");
+        return 1;
+    }
+    
+    sqlite3_close(db);
 }
