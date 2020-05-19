@@ -7,11 +7,11 @@
 
 #include <vector>
 #include <iostream>
-#include <layout/border_layout.h>
+#include <layout/BorderLayout.h>
 #include "CComponent.h"
-#include "layout/window_layout.h"
-#include "layout/absolute_layout.h"
-#include "layout/vertical_flow_layout.h"
+#include "layout/WindowLayout.h"
+#include "layout/AbsoluteLayout.h"
+#include "layout/VerticalFlowLayout.h"
 
 class CPanel : public CComponent{
 private:
@@ -86,6 +86,9 @@ public:
         }
         return nullptr;
     };
+    void clear(){
+        component_list.clear();
+    }
 };
 
 #endif //WINDOWMANAGER_PANEL_COMPONENT_H

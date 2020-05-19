@@ -12,7 +12,7 @@
 class GameManager{
 private:
 
-    bool map_loaded;
+    bool map_loaded = false;
     Map *mapa;
     generic_algorithm *alg;
     Game *gM;
@@ -49,6 +49,10 @@ public:
     }
     void seed_map_entities(){
         seed_map_tile_entities();
+    }
+
+    bool is_map_loaded(){
+        return map_loaded;
     }
 
     void seed_map_tile_entities(){

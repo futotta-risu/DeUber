@@ -54,6 +54,10 @@ public:
         draw_CUI(ren);
     };
     virtual void update_layout(){};
+    void set_text(const std::string& text){
+        set_drawn(false);
+        lbl_tex = text;
+    }
 };
 
 #endif //DEUBER_COMPONENT_LABEL_H

@@ -30,12 +30,8 @@ void start_visual_interface(){
     }while(login_data == 0);
 
     std::string map_name;
-    do {
-        MapSelector t(&map_name, "../data/maps/");
-        PLOG_INFO << "Selected map: " << map_name;
-    } while (map_name.empty());
-    start_visual_interface(map_name);
-    }
+    DeUber deUber;
+}
 
 
 int main(int argc, char* argv[]) {

@@ -80,8 +80,8 @@ public:
             const std::string& user = usertxt->get_text();
             const std::string& pass= password->get_text();
             if(user.compare("root") == 0 && pass.compare("1234") == 0){
-
                 login_data = 1;
+                dispose();
             }
         });
 

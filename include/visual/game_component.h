@@ -18,7 +18,6 @@ class GameApp : public CComponent{
 private:
     int counter = 0;
     bool paused = false;
-
 public:
     GameManager *gm;
     Game *g;
@@ -39,12 +38,13 @@ public:
     void input() override {};
 
     void update() override {
-        if(paused) return;
+        if(paused || !gm->is_map_loaded()) return;
         if(rand()%60==0){gm->add_random_goal();update_layout();}
         g->e_man.update();
         counter++;
     };
     void draw(SDL_Renderer *ren) override {
+        gm->is_map_loaded();
         g->e_man.draw();
     };
     void update_layout() override {
@@ -55,8 +55,17 @@ public:
         return g->e_man.man.add_entity();
     };
 
+    void reset(){
+        delete g;
+        delete gm;
+        gm = new GameManager();
+    }
+
     void set_paused(){
         paused = !paused;
+    }
+    bool is_paused(){
+        return paused;
     }
 };
 

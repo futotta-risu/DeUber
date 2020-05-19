@@ -1,4 +1,4 @@
-#include <CMouse.h>
+#include "CMouse.h"
 
 int CMouse::mouse_x=0,
     CMouse::mouse_y=0;

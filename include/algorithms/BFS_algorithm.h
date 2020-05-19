@@ -18,6 +18,7 @@ public:
             return;
         if((*map)[coords.second][coords.first]>3 || (*map)[coords.second][coords.first]==1) return;
         if((*map)[coords.second][coords.first]==3) {
+            if(rand()%5==0) return; // Skip some goals
             *goal_coords = std::make_pair(coords.first,coords.second);
             *reached=true;
             return;

@@ -9,14 +9,18 @@
 
 #include "SDL.h"
 
-#include "layout/window_layout.h"
+#include "layout/WindowLayout.h"
 #include "component/CPanel.h"
 #include <string>
 
-#include "layout/border_layout.h"
+#include "layout/BorderLayout.h"
 
 const unsigned short WINDOW_FPS = 60;
 constexpr unsigned short WINDOW_FPS_DELAY = 1000/WINDOW_FPS;
+
+namespace CWindowData{
+    extern unsigned int n_window;
+}
 
 class CWindow{
 private:
@@ -51,7 +55,7 @@ public:
     CWindow();
     CWindow(std::string w_title_t);
     ~CWindow();
-
+    void dispose();
 
     void set_size(int w,int h){
         w_width = w;

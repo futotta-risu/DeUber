@@ -166,7 +166,6 @@ void Map::move_car(int id, int dir){
     map_values[val_y][val_x].act_val = map_values[val_y][val_x].def_val;
     map_values[val_y_n][val_x_n].act_val = CAR;
     (*car_list)[index_of_car].set_coords(val_x_n,val_y_n);
-
 }
 
 int** Map::get_aval_map(){
