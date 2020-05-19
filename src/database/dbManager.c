@@ -3,6 +3,7 @@
 //
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "sqlite3.h"
 
 static int callback(int argc, char **argv, char **azColName) {
@@ -337,41 +338,4 @@ int deleteFromMapa() {
     }
     sqlite3_close(db);
     return 0;
-}
-
-// Devuelve 1 == login correcto, Devuelve 0 == login incorrecto
-int login(char *nombre, char *contraseña) {
-    sqlite3 *db;
-    char *zErrMsg = 0;
-    int rc;
-    char *sql;
-    const char* data = "Callback function called";
-
-    /* Open database */
-    rc = sqlite3_open("database.db", &db);
-
-    if( rc ) {
-        fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
-        return(0);
-    } else {
-        fprintf(stderr, "Opened database successfully\n");
-    }
-
-    /* Create merged SQL statement */
-    sql = "SELECT from USUARIO where NOMBRE = %s and CONTRASEÑA = %s; ";
-    sprintf(sql, nombre, contraseña);
-
-    /* Execute SQL statement */
-    rc = sqlite3_exec(db, sql, callback, (void*)data, &zErrMsg);
-
-    if( rc != SQLITE_OK ) {
-        fprintf(stderr, "SQL error: %s\n", zErrMsg);
-        sqlite3_free(zErrMsg);
-        return 0;
-    } else {
-        fprintf(stdout, "Operation done successfully\n");
-        return 1;
-    }
-    
-    sqlite3_close(db);
 }
