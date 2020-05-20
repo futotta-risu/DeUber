@@ -1706,3 +1706,129 @@
 2020-05-19 03:03:32.799 DEBUG [11860] [Game::load_defs@31] Loading Stages
 2020-05-19 03:03:32.799 INFO  [11860] [GameApp::load@35] Game loaded
 2020-05-19 03:03:32.799 INFO  [11860] [GameApp::load@35] Game loaded
+2020-05-19 23:45:20.155 DEBUG [21516] [Game::load_defs@27] Loading Assets
+2020-05-19 23:45:20.155 DEBUG [21516] [Game::load_defs@27] Loading Assets
+2020-05-19 23:45:20.206 DEBUG [21516] [Game::load_defs@29] Loading Entities
+2020-05-19 23:45:20.206 DEBUG [21516] [Game::load_defs@29] Loading Entities
+2020-05-19 23:45:20.232 DEBUG [21516] [Game::load_defs@31] Loading Stages
+2020-05-19 23:45:20.232 DEBUG [21516] [Game::load_defs@31] Loading Stages
+2020-05-19 23:45:20.232 INFO  [21516] [GameApp::load@35] Game loaded
+2020-05-19 23:45:20.232 INFO  [21516] [GameApp::load@35] Game loaded
+2020-05-19 23:45:39.851 DEBUG [21516] [Game::load_defs@27] Loading Assets
+2020-05-19 23:45:39.851 DEBUG [21516] [Game::load_defs@27] Loading Assets
+2020-05-19 23:45:39.851 DEBUG [21516] [Game::load_defs@27] Loading Assets
+2020-05-19 23:45:39.858 DEBUG [21516] [Game::load_defs@29] Loading Entities
+2020-05-19 23:45:39.858 DEBUG [21516] [Game::load_defs@29] Loading Entities
+2020-05-19 23:45:39.858 DEBUG [21516] [Game::load_defs@29] Loading Entities
+2020-05-19 23:45:39.860 DEBUG [21516] [Game::load_defs@31] Loading Stages
+2020-05-19 23:45:39.860 DEBUG [21516] [Game::load_defs@31] Loading Stages
+2020-05-19 23:45:39.860 DEBUG [21516] [Game::load_defs@31] Loading Stages
+2020-05-19 23:45:39.860 INFO  [21516] [GameApp::load@35] Game loaded
+2020-05-19 23:45:39.860 INFO  [21516] [GameApp::load@35] Game loaded
+2020-05-19 23:45:39.860 INFO  [21516] [GameApp::load@35] Game loaded
+2020-05-19 23:45:39.862 INFO  [21516] [GameManager::load_map@48] Map loaded
+2020-05-19 23:45:39.862 INFO  [21516] [GameManager::load_map@48] Map loaded
+2020-05-19 23:45:39.862 INFO  [21516] [GameManager::load_map@48] Map loaded
+2020-05-19 23:45:39.868 INFO  [21516] [GameManager::read_car_list@76] Car list read
+2020-05-19 23:45:39.868 INFO  [21516] [GameManager::read_car_list@76] Car list read
+2020-05-19 23:45:39.868 INFO  [21516] [GameManager::read_car_list@76] Car list read
+2020-05-19 23:45:51.678 DEBUG [21516] [Game::load_defs@27] Loading Assets
+2020-05-19 23:45:51.678 DEBUG [21516] [Game::load_defs@27] Loading Assets
+2020-05-19 23:45:51.678 DEBUG [21516] [Game::load_defs@27] Loading Assets
+2020-05-19 23:45:51.678 DEBUG [21516] [Game::load_defs@27] Loading Assets
+2020-05-19 23:45:51.686 DEBUG [21516] [Game::load_defs@29] Loading Entities
+2020-05-19 23:45:51.686 DEBUG [21516] [Game::load_defs@29] Loading Entities
+2020-05-19 23:45:51.686 DEBUG [21516] [Game::load_defs@29] Loading Entities
+2020-05-19 23:45:51.686 DEBUG [21516] [Game::load_defs@29] Loading Entities
+2020-05-19 23:45:51.687 DEBUG [21516] [Game::load_defs@31] Loading Stages
+2020-05-19 23:45:51.687 DEBUG [21516] [Game::load_defs@31] Loading Stages
+2020-05-19 23:45:51.687 DEBUG [21516] [Game::load_defs@31] Loading Stages
+2020-05-19 23:45:51.687 DEBUG [21516] [Game::load_defs@31] Loading Stages
+2020-05-19 23:45:51.687 INFO  [21516] [GameApp::load@35] Game loaded
+2020-05-19 23:45:51.687 INFO  [21516] [GameApp::load@35] Game loaded
+2020-05-19 23:45:51.687 INFO  [21516] [GameApp::load@35] Game loaded
+2020-05-19 23:45:51.687 INFO  [21516] [GameApp::load@35] Game loaded
+2020-05-19 23:45:51.704 INFO  [21516] [GameManager::load_map@48] Map loaded
+2020-05-19 23:45:51.704 INFO  [21516] [GameManager::load_map@48] Map loaded
+2020-05-19 23:45:51.704 INFO  [21516] [GameManager::load_map@48] Map loaded
+2020-05-19 23:45:51.704 INFO  [21516] [GameManager::load_map@48] Map loaded
+2020-05-19 23:45:51.705 INFO  [21516] [GameManager::read_car_list@76] Car list read
+2020-05-19 23:45:51.705 INFO  [21516] [GameManager::read_car_list@76] Car list read
+2020-05-19 23:45:51.705 INFO  [21516] [GameManager::read_car_list@76] Car list read
+2020-05-19 23:45:51.705 INFO  [21516] [GameManager::read_car_list@76] Car list read
+2020-05-19 23:46:27.034 DEBUG [4288] [Game::load_defs@27] Loading Assets
+2020-05-19 23:46:27.034 DEBUG [4288] [Game::load_defs@27] Loading Assets
+2020-05-19 23:46:27.043 DEBUG [4288] [Game::load_defs@29] Loading Entities
+2020-05-19 23:46:27.043 DEBUG [4288] [Game::load_defs@29] Loading Entities
+2020-05-19 23:46:27.045 DEBUG [4288] [Game::load_defs@31] Loading Stages
+2020-05-19 23:46:27.045 DEBUG [4288] [Game::load_defs@31] Loading Stages
+2020-05-19 23:46:27.045 INFO  [4288] [GameApp::load@35] Game loaded
+2020-05-19 23:46:27.045 INFO  [4288] [GameApp::load@35] Game loaded
+2020-05-19 23:46:33.239 DEBUG [4288] [Game::load_defs@27] Loading Assets
+2020-05-19 23:46:33.239 DEBUG [4288] [Game::load_defs@27] Loading Assets
+2020-05-19 23:46:33.239 DEBUG [4288] [Game::load_defs@27] Loading Assets
+2020-05-19 23:46:33.243 DEBUG [4288] [Game::load_defs@29] Loading Entities
+2020-05-19 23:46:33.243 DEBUG [4288] [Game::load_defs@29] Loading Entities
+2020-05-19 23:46:33.243 DEBUG [4288] [Game::load_defs@29] Loading Entities
+2020-05-19 23:46:33.245 DEBUG [4288] [Game::load_defs@31] Loading Stages
+2020-05-19 23:46:33.245 DEBUG [4288] [Game::load_defs@31] Loading Stages
+2020-05-19 23:46:33.245 DEBUG [4288] [Game::load_defs@31] Loading Stages
+2020-05-19 23:46:33.245 INFO  [4288] [GameApp::load@35] Game loaded
+2020-05-19 23:46:33.245 INFO  [4288] [GameApp::load@35] Game loaded
+2020-05-19 23:46:33.245 INFO  [4288] [GameApp::load@35] Game loaded
+2020-05-19 23:46:33.249 INFO  [4288] [GameManager::load_map@48] Map loaded
+2020-05-19 23:46:33.249 INFO  [4288] [GameManager::load_map@48] Map loaded
+2020-05-19 23:46:33.249 INFO  [4288] [GameManager::load_map@48] Map loaded
+2020-05-19 23:46:33.250 INFO  [4288] [GameManager::read_car_list@76] Car list read
+2020-05-19 23:46:33.250 INFO  [4288] [GameManager::read_car_list@76] Car list read
+2020-05-19 23:46:33.250 INFO  [4288] [GameManager::read_car_list@76] Car list read
+2020-05-20 00:03:42.814 DEBUG [20008] [Game::load_defs@27] Loading Assets
+2020-05-20 00:03:42.814 DEBUG [20008] [Game::load_defs@27] Loading Assets
+2020-05-20 00:03:42.820 DEBUG [20008] [Game::load_defs@29] Loading Entities
+2020-05-20 00:03:42.820 DEBUG [20008] [Game::load_defs@29] Loading Entities
+2020-05-20 00:03:42.822 DEBUG [20008] [Game::load_defs@31] Loading Stages
+2020-05-20 00:03:42.822 DEBUG [20008] [Game::load_defs@31] Loading Stages
+2020-05-20 00:03:42.823 INFO  [20008] [GameApp::load@35] Game loaded
+2020-05-20 00:03:42.823 INFO  [20008] [GameApp::load@35] Game loaded
+2020-05-20 15:12:13.277 DEBUG [27296] [Game::load_defs@27] Loading Assets
+2020-05-20 15:12:13.277 DEBUG [27296] [Game::load_defs@27] Loading Assets
+2020-05-20 15:12:13.311 DEBUG [27296] [Game::load_defs@29] Loading Entities
+2020-05-20 15:12:13.311 DEBUG [27296] [Game::load_defs@29] Loading Entities
+2020-05-20 15:12:13.328 DEBUG [27296] [Game::load_defs@31] Loading Stages
+2020-05-20 15:12:13.328 DEBUG [27296] [Game::load_defs@31] Loading Stages
+2020-05-20 15:12:13.328 INFO  [27296] [GameApp::load@35] Game loaded
+2020-05-20 15:12:13.328 INFO  [27296] [GameApp::load@35] Game loaded
+2020-05-20 18:11:26.124 DEBUG [9360] [Game::load_defs@27] Loading Assets
+2020-05-20 18:11:26.124 DEBUG [9360] [Game::load_defs@27] Loading Assets
+2020-05-20 18:11:26.131 DEBUG [9360] [Game::load_defs@29] Loading Entities
+2020-05-20 18:11:26.131 DEBUG [9360] [Game::load_defs@29] Loading Entities
+2020-05-20 18:11:26.133 DEBUG [9360] [Game::load_defs@31] Loading Stages
+2020-05-20 18:11:26.133 DEBUG [9360] [Game::load_defs@31] Loading Stages
+2020-05-20 18:11:26.133 INFO  [9360] [GameApp::load@35] Game loaded
+2020-05-20 18:11:26.133 INFO  [9360] [GameApp::load@35] Game loaded
+2020-05-20 18:27:44.588 DEBUG [27300] [Game::load_defs@27] Loading Assets
+2020-05-20 18:27:44.588 DEBUG [27300] [Game::load_defs@27] Loading Assets
+2020-05-20 18:27:44.599 DEBUG [27300] [Game::load_defs@29] Loading Entities
+2020-05-20 18:27:44.599 DEBUG [27300] [Game::load_defs@29] Loading Entities
+2020-05-20 18:27:44.600 DEBUG [27300] [Game::load_defs@31] Loading Stages
+2020-05-20 18:27:44.600 DEBUG [27300] [Game::load_defs@31] Loading Stages
+2020-05-20 18:27:44.600 INFO  [27300] [GameApp::load@35] Game loaded
+2020-05-20 18:27:44.600 INFO  [27300] [GameApp::load@35] Game loaded
+2020-05-20 18:27:49.686 DEBUG [27300] [Game::load_defs@27] Loading Assets
+2020-05-20 18:27:49.686 DEBUG [27300] [Game::load_defs@27] Loading Assets
+2020-05-20 18:27:49.686 DEBUG [27300] [Game::load_defs@27] Loading Assets
+2020-05-20 18:27:49.695 DEBUG [27300] [Game::load_defs@29] Loading Entities
+2020-05-20 18:27:49.695 DEBUG [27300] [Game::load_defs@29] Loading Entities
+2020-05-20 18:27:49.695 DEBUG [27300] [Game::load_defs@29] Loading Entities
+2020-05-20 18:27:49.696 DEBUG [27300] [Game::load_defs@31] Loading Stages
+2020-05-20 18:27:49.696 DEBUG [27300] [Game::load_defs@31] Loading Stages
+2020-05-20 18:27:49.696 DEBUG [27300] [Game::load_defs@31] Loading Stages
+2020-05-20 18:27:49.696 INFO  [27300] [GameApp::load@35] Game loaded
+2020-05-20 18:27:49.696 INFO  [27300] [GameApp::load@35] Game loaded
+2020-05-20 18:27:49.696 INFO  [27300] [GameApp::load@35] Game loaded
+2020-05-20 18:27:49.698 INFO  [27300] [GameManager::load_map@48] Map loaded
+2020-05-20 18:27:49.698 INFO  [27300] [GameManager::load_map@48] Map loaded
+2020-05-20 18:27:49.698 INFO  [27300] [GameManager::load_map@48] Map loaded
+2020-05-20 18:27:49.705 INFO  [27300] [GameManager::read_car_list@76] Car list read
+2020-05-20 18:27:49.705 INFO  [27300] [GameManager::read_car_list@76] Car list read
+2020-05-20 18:27:49.705 INFO  [27300] [GameManager::read_car_list@76] Car list read

@@ -2,6 +2,7 @@
 // Created by lande on 17/05/2020.
 //
 
+
 #ifndef DEUBER_LOGIN_H
 #define DEUBER_LOGIN_H
 
@@ -9,10 +10,19 @@
 #include <component/CButton.h>
 #include <component/CTextBox.h>
 #include <component/CLabel.h>
+#include <windows.h>
+
+
+
+
+
 using namespace std;
+
 
 const unsigned int WIDTH_LOG     =   800;
 const unsigned int HEIGHT_LOG    =   620;
+const int WIDTH_AVI     =   500;
+const  int HEIGHT_AVI    =   300;
 
 extern int login_data;
 
@@ -20,9 +30,11 @@ class Login : public CWindow {
 private:
 
     CPanel *login_panel = nullptr;
+    CPanel *panelAviso=nullptr;
     CLabel *lblwelcome = nullptr;
     CLabel *lbluser = nullptr;
     CLabel *lblpass = nullptr;
+    CLabel *lblAviso=nullptr;
 
 
 public:
@@ -31,6 +43,8 @@ public:
     CButton *btnregister = nullptr;
     CTextBox *usertxt = nullptr;
     CTextBox *password = nullptr;
+
+
 
 
     Login() : CWindow("Inicio Sesion") {
@@ -88,7 +102,23 @@ public:
         btnregister = new CButton("Registrarse");
         btnregister->set_size({300,80});
         btnregister->set_pos({425,510});
+        btnregister->set_window(this);
         btnregister->set_action_listener([&](CWindow *win){
+           /*char buff[100];
+           string mensaje = "hola mundo";
+           sprintf_s(buff,"El mensage es : %s",mensaje.c_str());*/
+
+
+            if((usertxt->get_text().compare("")==0) || (password->get_text().compare("")==0)){
+
+               MessageBox(NULL,"Debes introducir los datos","ERROR",0 );
+
+
+
+
+
+                login_panel->add(panelAviso);
+            }
 
         });
 
@@ -99,6 +129,8 @@ public:
         login_panel->add(password);
         login_panel->add(btnLogIn);
         login_panel->add(btnregister);
+
+
         this->add(login_panel);
 
     }
