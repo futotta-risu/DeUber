@@ -12,6 +12,8 @@
 #include <component/CLabel.h>
 #include <windows.h>
 
+#include <dbManager.cpp>
+
 
 
 
@@ -119,6 +121,15 @@ public:
 
                 login_panel->add(panelAviso);
             }
+            String user;
+            String pass;
+            user = usertxt->get_text();
+            pass=password->get_text();
+             do{
+                 registro(user,pass);
+
+
+               }while(usertxt->get_text().compare("")==1) || (password->get_text().compare("")==1));
 
         });
 
