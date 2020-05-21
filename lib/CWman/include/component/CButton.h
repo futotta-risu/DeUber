@@ -1,7 +1,3 @@
-//
-// Created by erikberter on 20/03/2020.
-//
-
 #ifndef WINDOWMANAGER_CBUTTON_H
 #define WINDOWMANAGER_CBUTTON_H
 

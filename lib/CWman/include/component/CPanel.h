@@ -1,7 +1,3 @@
-//
-// Created by erikberter on 21/03/2020.
-//
-
 #ifndef WINDOWMANAGER_PANEL_COMPONENT_H
 #define WINDOWMANAGER_PANEL_COMPONENT_H
 

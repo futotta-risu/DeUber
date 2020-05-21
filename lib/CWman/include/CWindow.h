@@ -1,7 +1,3 @@
-//
-// Created by erikberter on 20/03/2020.
-//
-
 #ifndef WINDOWMANAGER_WINDOW_HANDLER_H
 #define WINDOWMANAGER_WINDOW_HANDLER_H
 

@@ -1,7 +1,3 @@
-//
-// Created by whiwho on 23/03/2020.
-//
-
 #ifndef DEUBER_COMPONENT_LABEL_H
 #define DEUBER_COMPONENT_LABEL_H
 

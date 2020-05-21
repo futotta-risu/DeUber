@@ -1,8 +1,3 @@
-//
-// Created by lande on 17/05/2020.
-//
-
-
 #ifndef DEUBER_LOGIN_H
 #define DEUBER_LOGIN_H
 
@@ -30,6 +25,14 @@ private:
     CLabel *lbluser, *lblpass;
     CButton *btnLogIn, *btnregister ;
     CTextBox *usertxt, *password ;
+
+    bool _check_valid_input(const std::string& user, const std::string& pass) {
+        if (user.empty() || pass.empty())
+            MessageBox(nullptr, "Empty fields detected", "ERROR", 0);
+        else return true;
+
+        return false;
+    }
 
 public:
     Login() : CWindow("DeUber Login") {
@@ -71,12 +74,17 @@ public:
         btnLogIn->set_window(this);
         btnLogIn->set_border_size(0);
         btnLogIn->set_action_listener([&](CWindow *win){
-            std::string user = usertxt->get_text();
-            std::string pass = password->get_text();
-            if(user == "root" && pass == "1234"){
-                login_data = 1;
-                dispose();
-            }
+            const char* user = usertxt->get_text().c_str();
+            const char* pass = password->get_text().c_str();
+            if(_check_valid_input(user, pass)) return;
+
+            try{
+                if(DBManager::login_user(user, pass))
+                    login_data = 1;
+
+            }catch(const std::exception& e){}
+
+            dispose();
         });
 
         btnregister = new CButton("Sing Up");
@@ -85,17 +93,19 @@ public:
         btnregister->set_window(this);
         btnregister->set_border_size(0);
         btnregister->set_action_listener([&](CWindow *win){
-            std::string user = usertxt->get_text();
-            std::string pass = password->get_text();
+            const char *user = usertxt->get_text().c_str();
+            const char *pass = password->get_text().c_str();
 
-            if(user.empty() || pass.empty()){
-               MessageBox(nullptr,"Debes introducir los datos","ERROR",0 );
+            if(_check_valid_input(user, pass)) return;
+            if(DBManager::is_user_registered(user)) {
+                MessageBox(nullptr, "Username already taken", "ERROR", 0);
                 return;
             }
-            registro(user.c_str(),pass.c_str());
+
+            DBManager::sing_up_user(user,pass);
         });
 
-        CPanel *bottom = new CPanel();
+        auto bottom = new CPanel();
         bottom->set_layout(new FlowLayout(0,0));
         bottom->add(btnLogIn);
         bottom->add(btnregister);
@@ -105,6 +115,7 @@ public:
         add(password);
         add(bottom);
     }
+
 
 };
 #endif //DEUBER_LOGIN_H

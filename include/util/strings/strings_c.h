@@ -17,4 +17,6 @@ char *trim(char *str);
 }
 #endif
 
+
+
 #endif //DEUBER_STRINGS_C_H

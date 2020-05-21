@@ -1,7 +1,3 @@
-//
-// Created by whiwho on 15/04/2020.
-//
-
 #ifndef WINDOW_MANAGER_CSCROLLPANEL_H
 #define WINDOW_MANAGER_CSCROLLPANEL_H
 

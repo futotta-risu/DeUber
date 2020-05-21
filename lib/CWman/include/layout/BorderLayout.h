@@ -1,7 +1,3 @@
-//
-// Created by erikberter on 21/03/2020.
-//
-
 #ifndef WINDOWMANAGER_BORDER_LAYOUT_H
 #define WINDOWMANAGER_BORDER_LAYOUT_H
 

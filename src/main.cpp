@@ -47,5 +47,6 @@ int main(int argc, char* argv[]) {
     if(visual_interface) start_visual_interface();
     else start_non_visual_interface();
 
+
     return EXIT_SUCCESS;
 }

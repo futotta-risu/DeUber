@@ -1,7 +1,3 @@
-//
-// Created by whiwho on 14/04/2020.
-//
-
 #ifndef WINDOW_MANAGER_CBAR_H
 #define WINDOW_MANAGER_CBAR_H
 

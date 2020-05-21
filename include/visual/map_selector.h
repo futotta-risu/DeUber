@@ -71,6 +71,7 @@ public:
         this->add(map_files_scroll_pane, BorderLayout::CENTER);
         this->add(map_preview_panel, BorderLayout::EAST);
         bottom_panel->add(load_but);
+        bottom_panel->set_layout(new VerticalFlowLayout(0,0));
         this->add(bottom_panel, BorderLayout::SOUTH);
     }
 
@@ -99,7 +100,6 @@ public:
                 map_preview_panel->add(new CLabel(temp_value));
                 temp_value = "";
             }
-            std::cout << "Valor " << temp_value << std::endl;
             map_preview_txt->set_text(temp_value);
 
         });

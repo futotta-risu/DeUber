@@ -1,11 +1,20 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include <string>
+#include <database/dbManager.h>
+#include <util/strings/strings_cpp.h>
 
-#include "database/sqlite3.h"
-#include "database/dbManager.h"
+using namespace DBManager;
 
-static int callback(void* ola, int argc, char **argv, char **azColName) {
+const char* callback_data = "Callback function called";
+
+const std::string db_name               =   "../data/database.s3db";
+
+const std::string insert_query          =   "INSERT INTO user (username,password) VALUES ('%un', '%pd');";
+const std::string select_query          =   "SELECT username FROM user WHERE username='%un' AND password='%pd'";
+const std::string get_all_users         =   "SELECT * FROM user";
+
+const std::string get_user              =   "SELECT username FROM user WHERE username='%un'";
+
+int callback(void* notUser, int argc, char **argv, char **azColName) {
     int i;
     for(i = 0; i<argc; i++) {
         printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
@@ -14,75 +23,98 @@ static int callback(void* ola, int argc, char **argv, char **azColName) {
     return 0;
 }
 
-// Devuelve 1 == login correcto, Devuelve 0 == login incorrecto
-int iniciarSesion(const char *nombre, const char *pass) {
-    sqlite3 *db;
-    char *zErrMsg = 0;
-    int rc;
-    char *sql;
-    const char* data = "Callback function called";
+void _print_sqlite_error(char *zErrMsg){
+    fprintf(stderr, "SQL error: %s\n", zErrMsg);
+    sqlite3_free(zErrMsg);
+}
 
-    /* Open database */
-    rc = sqlite3_open("database.db", &db);
+int _sqlite3_exec_db(db_comp *db_struct, const char* query){
+    return sqlite3_exec(db_struct->db, query, callback, (void*)callback_data, &db_struct->zErrMsg);
+}
 
-    if( rc ) {
-        fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
-        return(0);
-    } else {
-        fprintf(stderr, "Opened database successfully\n");
+int _sqlite3_connect(db_comp *db){
+    int rc = sqlite3_open(db_name.c_str(), &db->db);
+    if(rc)
+        fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db->db));
+
+    return rc;
+}
+
+std::string _replace_user_pass(std::string main_query, const std::string& username, const  std::string& password){
+    replace(main_query,"%un",username);
+    replace(main_query,"%pd",password);
+
+    return main_query;
+}
+
+bool DBManager::login_user(const char *username, const char *password) {
+    db_comp db_struct;
+    bool correct_login = true;
+
+    if(_sqlite3_connect(&db_struct) != SQLITE_OK )
+        throw database_open_error("Could not open database on login.", db_name);
+
+    std::string query = _replace_user_pass(select_query, username, password);
+
+    if(sqlite3_prepare( db_struct.db, query.c_str() , -1, &db_struct.stmt, nullptr ) != SQLITE_OK) {
+        _print_sqlite_error(db_struct.zErrMsg);
+        sqlite3_close(db_struct.db);
+        return false;
     }
 
-    /* Create merged SQL statement */
-    //sql = "SELECT from USUARIO where NOMBRE = '" + static_cast<std::string>(nombre) + "' and pass = '" + static_cast<std::string>(pass) + "'; ";
+    if (sqlite3_step(db_struct.stmt) == SQLITE_DONE)
+        correct_login = false;
 
-    /* Execute SQL statement */
-    rc = sqlite3_exec(db, sql, callback, (void*)data, &zErrMsg);
-
-    if( rc != SQLITE_OK ) {
-        fprintf(stderr, "SQL error: %s\n", zErrMsg);
-        sqlite3_free(zErrMsg);
-        return 0;
-    } else {
-        fprintf(stdout, "Operation done successfully\n");
-        return 1;
-    }
-    
-    sqlite3_close(db);
+    sqlite3_close(db_struct.db);
+    return correct_login;
 }
 
 
-int registro(const char *nombre,const  char *pass) {
-    sqlite3 *db;
-    char *zErrMsg = 0;
-    int rc;
-    char *sql;
-    const char* data = "Callback function called";
 
-    /* Open database */
-    rc = sqlite3_open("database.db", &db);
+void DBManager::sing_up_user(const char *username,const  char *password){
+    db_comp db_struct;
 
-    if( rc ) {
-        fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
-        return(0);
-    } else {
-        fprintf(stderr, "Opened database successfully\n");
-    }
+    if(_sqlite3_connect(&db_struct) != SQLITE_OK)
+        throw database_open_error("Could not open database on sing up.", db_name);
 
-    /* Create merged SQL statement */
-    //sql = "INSERT INTO USUARIO (ID_USUARIO,NOMBRE,pass) VALUES ('"+ static_cast<std::string>(id) +"', '"+ static_cast<std::string>(nombre)+"', '" + static_cast<std::string>(nombre) + "');";
-
-    /* Execute SQL statement */
-    rc = sqlite3_exec(db, sql, callback, (void*)data, &zErrMsg);
-
-    if( rc != SQLITE_OK ) {
-        fprintf(stderr, "SQL error: %s\n", zErrMsg);
-        sqlite3_free(zErrMsg);
-    } else {
-        fprintf(stdout, "Operation done successfully\n");
-    }
+    std::string query = _replace_user_pass(insert_query, username, password);
+    if( _sqlite3_exec_db(&db_struct, query.c_str()) != SQLITE_OK )
+        _print_sqlite_error(db_struct.zErrMsg);
     
-    sqlite3_close(db);
-
-    return 0;
+    sqlite3_close(db_struct.db);
 }
 
+bool DBManager::is_user_registered(const char *username){
+    db_comp db_struct;
+
+    if(_sqlite3_connect(&db_struct) != SQLITE_OK)
+        throw database_open_error("Could not open database on sing up.", db_name);
+
+    bool user_exists = true;
+
+    const char* query = _replace_user_pass(get_user, username, "").c_str();
+
+    if(sqlite3_prepare( db_struct.db, query , -1, &db_struct.stmt, nullptr ) != SQLITE_OK) {
+        _print_sqlite_error(db_struct.zErrMsg);
+        sqlite3_close(db_struct.db);
+        return false;
+    }
+
+    if (sqlite3_step(db_struct.stmt) == SQLITE_DONE)
+        user_exists = false;
+
+    sqlite3_close(db_struct.db);
+    return user_exists;
+}
+
+void DBManager::print_users(){
+    db_comp db_struct;
+
+    if(_sqlite3_connect(&db_struct) != SQLITE_OK)
+        throw database_open_error("Could not open database on sing up.", db_name);
+
+    if( _sqlite3_exec_db(&db_struct, get_all_users.c_str()) != SQLITE_OK )
+        _print_sqlite_error(db_struct.zErrMsg);
+
+    sqlite3_close(db_struct.db);
+}

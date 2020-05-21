@@ -1,7 +1,3 @@
-//
-// Created by whiwho on 25/03/2020.
-//
-
 #ifndef WINDOW_MANAGER_KEYBOARD_H
 #define WINDOW_MANAGER_KEYBOARD_H
 
