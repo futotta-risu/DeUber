@@ -1832,3 +1832,55 @@
 2020-05-20 18:27:49.705 INFO  [27300] [GameManager::read_car_list@76] Car list read
 2020-05-20 18:27:49.705 INFO  [27300] [GameManager::read_car_list@76] Car list read
 2020-05-20 18:27:49.705 INFO  [27300] [GameManager::read_car_list@76] Car list read
+2020-05-21 02:31:05.828 DEBUG [8776] [Game::load_defs@27] Loading Assets
+2020-05-21 02:31:05.828 DEBUG [8776] [Game::load_defs@27] Loading Assets
+2020-05-21 02:31:05.869 DEBUG [8776] [Game::load_defs@29] Loading Entities
+2020-05-21 02:31:05.869 DEBUG [8776] [Game::load_defs@29] Loading Entities
+2020-05-21 02:31:05.882 DEBUG [8776] [Game::load_defs@31] Loading Stages
+2020-05-21 02:31:05.882 DEBUG [8776] [Game::load_defs@31] Loading Stages
+2020-05-21 02:31:05.882 INFO  [8776] [GameApp::load@35] Game loaded
+2020-05-21 02:31:05.882 INFO  [8776] [GameApp::load@35] Game loaded
+2020-05-21 02:31:14.312 DEBUG [8776] [Game::load_defs@27] Loading Assets
+2020-05-21 02:31:14.312 DEBUG [8776] [Game::load_defs@27] Loading Assets
+2020-05-21 02:31:14.312 DEBUG [8776] [Game::load_defs@27] Loading Assets
+2020-05-21 02:31:14.315 DEBUG [8776] [Game::load_defs@29] Loading Entities
+2020-05-21 02:31:14.315 DEBUG [8776] [Game::load_defs@29] Loading Entities
+2020-05-21 02:31:14.315 DEBUG [8776] [Game::load_defs@29] Loading Entities
+2020-05-21 02:31:14.315 DEBUG [8776] [Game::load_defs@31] Loading Stages
+2020-05-21 02:31:14.315 DEBUG [8776] [Game::load_defs@31] Loading Stages
+2020-05-21 02:31:14.315 DEBUG [8776] [Game::load_defs@31] Loading Stages
+2020-05-21 02:31:14.316 INFO  [8776] [GameApp::load@35] Game loaded
+2020-05-21 02:31:14.316 INFO  [8776] [GameApp::load@35] Game loaded
+2020-05-21 02:31:14.316 INFO  [8776] [GameApp::load@35] Game loaded
+2020-05-21 02:31:14.317 INFO  [8776] [GameManager::load_map@48] Map loaded
+2020-05-21 02:31:14.317 INFO  [8776] [GameManager::load_map@48] Map loaded
+2020-05-21 02:31:14.317 INFO  [8776] [GameManager::load_map@48] Map loaded
+2020-05-21 02:31:14.320 INFO  [8776] [GameManager::read_car_list@76] Car list read
+2020-05-21 02:31:14.320 INFO  [8776] [GameManager::read_car_list@76] Car list read
+2020-05-21 02:31:14.320 INFO  [8776] [GameManager::read_car_list@76] Car list read
+2020-05-21 03:36:24.055 DEBUG [13116] [Game::load_defs@27] Loading Assets
+2020-05-21 03:36:24.055 DEBUG [13116] [Game::load_defs@27] Loading Assets
+2020-05-21 03:36:24.059 DEBUG [13116] [Game::load_defs@29] Loading Entities
+2020-05-21 03:36:24.059 DEBUG [13116] [Game::load_defs@29] Loading Entities
+2020-05-21 03:36:24.059 DEBUG [13116] [Game::load_defs@31] Loading Stages
+2020-05-21 03:36:24.059 DEBUG [13116] [Game::load_defs@31] Loading Stages
+2020-05-21 03:36:24.060 INFO  [13116] [GameApp::load@35] Game loaded
+2020-05-21 03:36:24.060 INFO  [13116] [GameApp::load@35] Game loaded
+2020-05-21 03:36:27.431 DEBUG [13116] [Game::load_defs@27] Loading Assets
+2020-05-21 03:36:27.431 DEBUG [13116] [Game::load_defs@27] Loading Assets
+2020-05-21 03:36:27.431 DEBUG [13116] [Game::load_defs@27] Loading Assets
+2020-05-21 03:36:27.433 DEBUG [13116] [Game::load_defs@29] Loading Entities
+2020-05-21 03:36:27.433 DEBUG [13116] [Game::load_defs@29] Loading Entities
+2020-05-21 03:36:27.433 DEBUG [13116] [Game::load_defs@29] Loading Entities
+2020-05-21 03:36:27.434 DEBUG [13116] [Game::load_defs@31] Loading Stages
+2020-05-21 03:36:27.434 DEBUG [13116] [Game::load_defs@31] Loading Stages
+2020-05-21 03:36:27.434 DEBUG [13116] [Game::load_defs@31] Loading Stages
+2020-05-21 03:36:27.434 INFO  [13116] [GameApp::load@35] Game loaded
+2020-05-21 03:36:27.434 INFO  [13116] [GameApp::load@35] Game loaded
+2020-05-21 03:36:27.434 INFO  [13116] [GameApp::load@35] Game loaded
+2020-05-21 03:36:27.435 INFO  [13116] [GameManager::load_map@48] Map loaded
+2020-05-21 03:36:27.435 INFO  [13116] [GameManager::load_map@48] Map loaded
+2020-05-21 03:36:27.435 INFO  [13116] [GameManager::load_map@48] Map loaded
+2020-05-21 03:36:27.435 INFO  [13116] [GameManager::read_car_list@76] Car list read
+2020-05-21 03:36:27.435 INFO  [13116] [GameManager::read_car_list@76] Car list read
+2020-05-21 03:36:27.435 INFO  [13116] [GameManager::read_car_list@76] Car list read

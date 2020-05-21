@@ -10,34 +10,31 @@
 #include <utils/collision.h>
 #include <CMouse.h>
 
-class CWindow;
 
+class CWindow;
 class CAbstractButton : public CComponent{
 private:
-    int button_temp = 0;
 
     std::function<void(CWindow*)> action_listener = nullptr;
     CWindow *win = nullptr;
+    bool inside = false;
 public:
     bool pressed = false;
 
     CAbstractButton() : CComponent() {};
 
-    CAbstractButton(int pos_x, int pos_y) : CComponent(), pressed{false}{};
-
     ~CAbstractButton() = default;
 
     void input() override{
         SDL_PumpEvents();
-        if(CMouse::isClickLeft()) {
-            if(is_inside_rect(get_dst(), CMouse::mouse_x, CMouse::mouse_y))
-                set_pressed(true);
-        }else if(pressed){
-                set_pressed(false);
-                if(action_listener== nullptr || win == nullptr)
-                    return;
-                action_listener(win);
-            }
+
+        if(is_inside_rect(get_dst(), CMouse::mouse_x, CMouse::mouse_y)){
+            set_pressed(CMouse::isClickLeft());
+            set_inside(!CMouse::isClickLeft());
+        }else{
+            if(pressed && !CMouse::isClickLeft()) set_pressed(false);
+            set_inside(false);
+        }
     };
 
     void update() override{};
@@ -54,10 +51,25 @@ public:
 
     void set_pressed(bool pressed_t){
         if(pressed_t==pressed) return;
+        if(!pressed_t) react_button();
 
         set_background(SDL_Color_dsp(get_background_color(),
                                      (pressed_t) ? -30 : 30));
         pressed = !pressed;
+    }
+
+    void set_inside(bool inside_t){
+        if(inside_t==inside) return;
+
+        set_background(SDL_Color_dsp(get_background_color(),
+                                     (inside_t) ? -10 : 10));
+        inside = !inside;
+    }
+
+    void react_button(){
+        if(action_listener== nullptr || win == nullptr)
+            return;
+        action_listener(win);
     }
 };
 #endif //WINDOW_MANAGER_CABSTRACTBUTTON_H

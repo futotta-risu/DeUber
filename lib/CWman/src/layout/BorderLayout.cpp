@@ -5,8 +5,8 @@ BorderLayout::BorderLayout(){
     v_gap       = 10;
     h_margin    = 10;
     change_layout(WindowLayout::LayoutType::BORDER);
-    for(int i = 0; i < 5; i++)
-        comps[i]=nullptr;
+    for(auto & comp : comps)
+        comp=nullptr;
 
 }
 
@@ -17,9 +17,9 @@ void BorderLayout::set_size(std::vector<CComponent*> component_list, CComponent*
     int act_width = 0;
     int act_height = 0;
 
-    for(int i =0 ; i < 5; i++)
-        if(comps[i]!= nullptr)
-            if(comps[i]->is_container()) comps[i]->update_layout();
+    for(auto & comp : comps)
+        if(comp!= nullptr)
+            if(comp->is_container()) comp->update_layout();
 
 
     int temp_w[5], temp_h[5];

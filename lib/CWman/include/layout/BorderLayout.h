@@ -13,7 +13,7 @@ private:
     int v_gap;
 
     // NORTH, SOUTH, EAST, WEST, CENTER
-    CComponent *comps[5];
+    CComponent *comps[5]{};
 public:
 
     enum BLPosition{

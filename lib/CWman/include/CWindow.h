@@ -60,6 +60,14 @@ public:
     void set_size(int w,int h){
         w_width = w;
         w_height = h;
+        SDL_SetWindowSize(win,w,h);
+    }
+
+    void set_title(const std::string& title_t){
+        SDL_SetWindowTitle(win, title_t.c_str());
+    }
+    std::string get_title(){
+        return SDL_GetWindowTitle(win);
     }
 
     void init_window();
@@ -74,6 +82,10 @@ public:
 
     SDL_Renderer** get_render(){
         return &ren;
+    }
+
+    CPanel* get_panel(){
+        return window_panel;
     }
 };
 

@@ -41,6 +41,8 @@ public:
     };
     ~MapSelector(){
         delete map_files_scroll_pane;
+        delete bottom_panel;
+        delete map_preview_panel;
     };
 
     void set_default_window(){

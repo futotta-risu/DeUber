@@ -7,10 +7,10 @@
 #include "menu.h"
 #include "algorithms/algorithm_helper.h"
 #include "running_menu.h"
-#include "visual/visual_run_handler.h"
-#include <visual/map_selector.h>
-#include <plog/Log.h>
+#include <visual/main_menu.h>
 #include <visual/login.h>
+
+#include <plog/Log.h>
 
 
 
@@ -25,12 +25,14 @@ void start_non_visual_interface(){
 }
 
 void start_visual_interface(){
-    do{
-        Login login_window;
-    }while(login_data == 0);
 
-    std::string map_name;
-    DeUber deUber;
+    auto login_window = new Login();
+    delete login_window;
+
+    if(login_data==1){
+        auto deUber = new DeUber();
+        delete deUber;
+    }
 }
 
 

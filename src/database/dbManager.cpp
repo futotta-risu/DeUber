@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string>
-#include "sqlite3.h"
 
-static int callback(int argc, char **argv, char **azColName) {
+#include "database/sqlite3.h"
+#include "database/dbManager.h"
+
+static int callback(void* ola, int argc, char **argv, char **azColName) {
     int i;
     for(i = 0; i<argc; i++) {
         printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
@@ -13,7 +15,7 @@ static int callback(int argc, char **argv, char **azColName) {
 }
 
 // Devuelve 1 == login correcto, Devuelve 0 == login incorrecto
-int iniciarSesion(char *nombre, char *contraseña) {
+int iniciarSesion(const char *nombre, const char *pass) {
     sqlite3 *db;
     char *zErrMsg = 0;
     int rc;
@@ -31,7 +33,7 @@ int iniciarSesion(char *nombre, char *contraseña) {
     }
 
     /* Create merged SQL statement */
-    sql = "SELECT from USUARIO where NOMBRE = '" + static_cast<std::string>(nombre) + "' and CONTRASEÑA = '" + static_cast<std::string>(contraseña) + "'; ";
+    //sql = "SELECT from USUARIO where NOMBRE = '" + static_cast<std::string>(nombre) + "' and pass = '" + static_cast<std::string>(pass) + "'; ";
 
     /* Execute SQL statement */
     rc = sqlite3_exec(db, sql, callback, (void*)data, &zErrMsg);
@@ -49,7 +51,7 @@ int iniciarSesion(char *nombre, char *contraseña) {
 }
 
 
-int registro(char *id, char *nombre, char *contraseña) {
+int registro(const char *nombre,const  char *pass) {
     sqlite3 *db;
     char *zErrMsg = 0;
     int rc;
@@ -67,7 +69,7 @@ int registro(char *id, char *nombre, char *contraseña) {
     }
 
     /* Create merged SQL statement */
-    sql = "INSERT INTO USUARIO (ID_USUARIO,NOMBRE,CONTRASEÑA) VALUES ('"+ static_cast<std::string>(id) +"', '"+ static_cast<std::string>(nombre)+"', '" + static_cast<std::string>(nombre) + "');";
+    //sql = "INSERT INTO USUARIO (ID_USUARIO,NOMBRE,pass) VALUES ('"+ static_cast<std::string>(id) +"', '"+ static_cast<std::string>(nombre)+"', '" + static_cast<std::string>(nombre) + "');";
 
     /* Execute SQL statement */
     rc = sqlite3_exec(db, sql, callback, (void*)data, &zErrMsg);

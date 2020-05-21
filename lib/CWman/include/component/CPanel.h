@@ -86,6 +86,7 @@ public:
         }
         return nullptr;
     };
+
     void clear(){
         component_list.clear();
     }
