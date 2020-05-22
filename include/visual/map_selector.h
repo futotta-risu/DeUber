@@ -38,7 +38,6 @@ public:
 
     MapSelector(std::string* map_file_t, std::string map_files_path_t) : CWindow("Map Selector"),
     map_file_ptr{map_file_t}, map_files_path{std::move(map_files_path_t)}{
-        std::cout << "CRADA VENTADA " << CGlobal::n_window << std::endl;
         _set_default_window_properties();
         _create_components();
         _create_bottom_panel();
