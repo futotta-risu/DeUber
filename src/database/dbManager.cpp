@@ -2,6 +2,8 @@
 #include <database/dbManager.h>
 #include <util/strings/strings_cpp.h>
 
+#include <iostream>
+
 using namespace DBManager;
 
 const char* callback_data = "Callback function called";
@@ -55,7 +57,8 @@ bool DBManager::login_user(const char *username, const char *password) {
         throw DBManager::database_open_error(
                 "Could not open database on login.", db_name);
 
-    std::string query = _replace_user_pass(select_query, username, password);
+    std::string query_t = select_query;
+    std::string query = _replace_user_pass(query_t, username, password);
 
     if(sqlite3_prepare( db_struct.db, query.c_str() , -1, &db_struct.stmt, nullptr ) != SQLITE_OK) {
         _print_sqlite_error(db_struct.zErrMsg);
@@ -79,7 +82,8 @@ void DBManager::sing_up_user(const char *username,const  char *password){
         throw DBManager::database_open_error(
                 "Could not open database on sing up.", db_name);
 
-    std::string query = _replace_user_pass(insert_query, username, password);
+    std::string query_t = insert_query;
+    std::string query = _replace_user_pass(query_t, username, password);
     if( _sqlite3_exec_db(&db_struct, query.c_str()) != SQLITE_OK )
         _print_sqlite_error(db_struct.zErrMsg);
 
@@ -95,7 +99,8 @@ bool DBManager::is_user_registered(const char *username){
 
     bool user_exists = true;
 
-    const char* query = _replace_user_pass(get_user, username, "").c_str();
+    std::string query_t = get_user;
+    const char* query = _replace_user_pass(query_t, username, "").c_str();
 
     if(sqlite3_prepare( db_struct.db, query , -1, &db_struct.stmt, nullptr ) != SQLITE_OK) {
         _print_sqlite_error(db_struct.zErrMsg);

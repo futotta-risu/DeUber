@@ -91,11 +91,14 @@ public:
 
     void add_random_goal(){
         int x_r, y_r, tries = 0;
+        bool is_car = false;
         do{
+            is_car = false;
             x_r = rand()%mapa->get_width();
             y_r = rand()%mapa->get_height();
             if(tries > 25) return;
-        }while( mapa->get_cell(x_r, y_r)!=0  || mapa->check_goal(x_r,y_r));
+            if(mapa->car_in_pos(x_r,y_r)) is_car=true;
+        }while( mapa->get_cell(x_r, y_r)!=0  || mapa->check_goal(x_r,y_r) || is_car);
         Entity* new_goal;
         try{
              new_goal = &create_entity("goal");

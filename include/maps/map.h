@@ -91,6 +91,8 @@ public:
     bool check_coords(int x, int y);
     void clear_cell(int pos_x, int pos_y);
 
+
+    bool car_in_pos(int x_r,int y_r);
 };
 
 

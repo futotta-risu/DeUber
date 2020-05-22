@@ -199,6 +199,14 @@ bool Map::check_coords(int x, int y){
     return true;
 }
 
+bool Map::car_in_pos(int x_r,int y_r){
+    for(car c : *car_list){
+        if(c.get_coord_x()==x_r && c.get_coord_y()==y_r)
+            return true;
+    }
+    return false;
+}
+
 void Map::set_car_list(std::vector<car> *car_list_t){
     car_list->clear();
     for(const auto& c : *car_list_t)

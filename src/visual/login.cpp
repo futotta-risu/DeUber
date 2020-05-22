@@ -80,6 +80,7 @@ void Login::_set_button_sing_up_action(){
             return;
         }
         DBManager::sing_up_user(user,pass);
+        MessageBox(nullptr, "User signed up :) ", "WELL DONE!", 0);
     });
 }
 
