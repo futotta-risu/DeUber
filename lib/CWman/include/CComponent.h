@@ -82,13 +82,12 @@ public:
     }
     bool is_selected(){return selected;};
     void set_selected(bool selected_t){
-            if(CGlobal::component_selected==selected_t && CGlobal::n_component_selected==CGlobal::n_window) return;
 
-            if(selected_t) CGlobal::n_component_selected++;
-            else CGlobal::n_component_selected--;
+        if(selected_t) CGlobal::n_component_selected++;
+        else CGlobal::n_component_selected--;
 
-            CGlobal::component_selected = selected_t;
-            selected = selected_t;
+        CGlobal::component_selected = selected_t;
+        selected = selected_t;
     };
 };
 

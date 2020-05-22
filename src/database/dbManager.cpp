@@ -82,7 +82,7 @@ void DBManager::sing_up_user(const char *username,const  char *password){
     std::string query = _replace_user_pass(insert_query, username, password);
     if( _sqlite3_exec_db(&db_struct, query.c_str()) != SQLITE_OK )
         _print_sqlite_error(db_struct.zErrMsg);
-    
+
     sqlite3_close(db_struct.db);
 }
 
