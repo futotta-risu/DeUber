@@ -23,6 +23,7 @@ DeUber::DeUber() : CWindow("DeUber") {
 
     init_window();
 }
+
 void DeUber::_set_default_window_properties(){
     set_size(WIDTH, HEIGHT);
     set_layout(new BorderLayout());
@@ -57,12 +58,10 @@ void DeUber::_set_pause_action(){
         gAppC->set_paused();
         pauseButton->set_text(
                 pauseButtonText[(int) gAppC->is_paused()]);
-
     });
 }
 void DeUber::_set_load_map_action(){
-    auto map_name = new std::string;
-    load_map->set_action_listener([&, map_name](CWindow* win){
+    load_map->set_action_listener([&](CWindow* win){
         std::string map_name_t;
         MapSelector t(&map_name_t, "../data/maps/");
 
@@ -77,23 +76,28 @@ void DeUber::_set_load_map_action(){
 
 void DeUber::_set_button_properties(CButton *btn){
     btn->set_window(this);
-    btn->set_size({150,100});
+    btn->set_size({100,50});
+    btn->set_minimum_size({100,50});
     btn->set_border_size(0);
     btn->set_background(155,183,181,255);
 }
 
-void DeUber::_load_top_menu(){
-    top_bar = new CPanel();
+void DeUber::_set_top_bar_properties(){
     top_bar->set_layout(new FlowLayout(0,0));
     top_bar->set_size(50,600);
     top_bar->set_minimum_size({600,50});
+    top_bar->set_background(155,183,181,255);
+    top_bar->set_border_size(0);
+}
+
+void DeUber::_load_top_menu(){
+    top_bar = new CPanel();
+    _set_top_bar_properties();
 
     pause = new CButton("Pause");
     pause->set_id("PauseButton");
     _set_pause_action();
     _set_button_properties(pause);
-
-
 
     load_map = new CButton("Load Map");
     _set_load_map_action();

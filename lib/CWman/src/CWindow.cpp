@@ -1,13 +1,13 @@
-//
-// Created by erikberter on 20/03/2020.
-//
-
 #include "SDL_ttf.h"
 #include "CWindow.h"
 #include <iostream>
 #include <CMouse.h>
+#include <CGlobal.h>
 
-unsigned int CWindowData::n_window = 0;
+bool CGlobal::component_selected = false;
+int CGlobal::n_component_selected = 0;
+unsigned int CGlobal::n_window = 0;
+
 int CWindow::window_id = 1;
 
 CWindow::CWindow(){
@@ -21,7 +21,7 @@ CWindow::CWindow(std::string w_title_t){
 }
 
 void CWindow::set_defaults(){
-    CWindowData::n_window++;
+    CGlobal::n_window++;
 
     w_height = 600;
     w_width = 800;
@@ -53,7 +53,7 @@ CWindow::~CWindow(){
     window_panel->~CPanel();
     SDL_DestroyWindow(win);
 
-    if(CWindowData::n_window-- == 1){
+    if(CGlobal::n_window-- == 1){
         SDL_DestroyRenderer(ren);
         SDL_QuitSubSystem(SDL_INIT_VIDEO|SDL_INIT_EVENTS);
         SDL_Quit();

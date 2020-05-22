@@ -19,9 +19,6 @@
 const unsigned short WINDOW_FPS = 60;
 constexpr unsigned short WINDOW_FPS_DELAY = 1000/WINDOW_FPS;
 
-namespace CWindowData{
-    extern unsigned int n_window;
-}
 
 class CWindow{
 private:

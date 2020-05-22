@@ -6,13 +6,19 @@
 
 class CBar : public CComponent{
 private:
-    // Component Metadata
     int     max_height // Bar Height
         ,   act_height; // Bar position
-    // Component vals
 
-    // Component Render
+    bool pressed;
+
     SDL_Color bar_color, bar_back;
+
+    void _set_pressed(bool pressed_t){
+        if(pressed_t == pressed) return;
+        pressed = pressed_t;
+        set_selected(pressed_t);
+    }
+
 public:
 
     CBar() : CComponent(){set_default();};
@@ -20,7 +26,11 @@ public:
 
     void set_default(){
         set_background(0,244,244,255);
-        set_size({30,500});
+        set_border_size(0);
+
+        set_minimum_size({10,40});
+        set_size({20,500});
+
         bar_color = {112,111,111};
         bar_back = {219,219,219};
         max_height = 50;
@@ -29,12 +39,15 @@ public:
     }
     void input() override {
         SDL_PumpEvents();
+        if(!is_selectable()) return;
         int x,y;
-        if(SDL_GetMouseState(&x,&y) & SDL_BUTTON(SDL_BUTTON_LEFT))
-            if (is_inside_rect(get_dst(), x, y)){
+        if(SDL_GetMouseState(&x,&y) & SDL_BUTTON(SDL_BUTTON_LEFT)){
+            if (is_inside_rect(get_dst(), x, y) || pressed){
                 act_height = std::min(std::max(get_dst()->y+max_height/2, y),
                         get_dst()->y+get_dst()->h-max_height/2);
-                set_drawn(false);}
+                set_drawn(false);_set_pressed(true);}
+        }else _set_pressed(false);
+
     }
     void update() override {};
     void draw(SDL_Renderer *ren) override{
@@ -48,11 +61,10 @@ public:
             SDL_Rect size_back = {0,0,get_dst()->w,get_dst()->h};
             SDL_RenderFillRect(ren, &size_back);
             SDL_SetRenderDrawColor(ren, bar_color.r,bar_color.g,bar_color.b,bar_color.a);
-            SDL_Rect size = {0,act_height-max_height/2-get_dst()->y,get_dst()->w,max_height};
+            SDL_Rect size = {0,act_height-max_height/2-get_dst()->y,get_size().w,max_height};
 
             SDL_RenderFillRect(ren, &size);
-
-            SDL_SetRenderTarget(ren, NULL);
+            SDL_SetRenderTarget(ren, nullptr);
             set_tex_CUI(bar_tex);
             set_drawn(true);
         }
@@ -62,9 +74,9 @@ public:
 
     int get_act_height(){return act_height-max_height/2;};
     int get_bar_height(){return max_height;};
-    float get_percentaje(){
-        float act_percentaje = static_cast<float>(act_height-max_height/2)/ static_cast<float>(get_dst()->h-max_height);
-        return act_percentaje;
+    float get_percentage(){
+        float act_percentage = static_cast<float>(act_height-max_height/2)/ static_cast<float>(get_dst()->h-max_height);
+        return act_percentage;
     }
 };
 

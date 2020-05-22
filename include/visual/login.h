@@ -35,8 +35,9 @@ private:
 
     void _set_default_window_properties();
     void _create_components();
-    void _add_components();
     void _load_components();
+    void _add_components();
+
 
 public:
 

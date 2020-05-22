@@ -34,14 +34,9 @@ private:
     void _set_load_map_action();
 
     void _set_button_properties(CButton *btn);
+    void _set_top_bar_properties();
 public:
     DeUber();
-
-
-
-
-
-
 
 };
 

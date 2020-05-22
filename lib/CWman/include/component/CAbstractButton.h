@@ -19,16 +19,17 @@ private:
     CWindow *win = nullptr;
     bool inside = false;
 
-    void set_pressed(bool pressed_t){
+    void _set_pressed(bool pressed_t){
         if(pressed_t==pressed) return;
-        if(!pressed_t) react_button();
+        if(!pressed_t) _react_button();
 
         set_background(SDL_Color_dsp(get_background_color(),
                                      (pressed_t) ? -30 : 30));
         pressed = !pressed;
+        set_selected(pressed_t);
     }
 
-    void set_inside(bool inside_t){
+    void _set_inside(bool inside_t){
         if(inside_t==inside) return;
 
         set_background(SDL_Color_dsp(get_background_color(),
@@ -36,7 +37,7 @@ private:
         inside = !inside;
     }
 
-    void react_button(){
+    void _react_button(){
         if(action_listener== nullptr || win == nullptr)
             return;
         action_listener(win);
@@ -50,13 +51,13 @@ public:
 
     void input() override{
         SDL_PumpEvents();
-
+        if(!is_selectable()) return;
         if(is_inside_rect(get_dst(), CMouse::mouse_x, CMouse::mouse_y)){
-            set_pressed(CMouse::isClickLeft());
-            set_inside(!CMouse::isClickLeft());
+            _set_pressed(CMouse::isClickLeft());
+            _set_inside(!CMouse::isClickLeft());
         }else{
-            if(pressed && !CMouse::isClickLeft()) set_pressed(false);
-            set_inside(false);
+            if(pressed && !CMouse::isClickLeft()) _set_pressed(false);
+            _set_inside(false);
         }
     };
 

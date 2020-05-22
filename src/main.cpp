@@ -11,6 +11,7 @@
 #include <visual/login.h>
 
 #include <plog/Log.h>
+#include <visual/map_selector.h>
 
 void start_non_visual_interface(){
     // First Step get the info menu to get the whole running_info data

@@ -3,10 +3,18 @@
 
 #include <string>
 #include <SDL_render.h>
-#include "misc/CBorder.h"
-#include "CUI.h"
+#include <misc/CBorder.h>
+#include <CGlobal.h>
+#include <CUI.h>
 
 #include <algorithm>
+
+namespace CGlobal{
+    extern bool component_selected;
+    extern int n_component_selected;
+    extern unsigned int n_window;
+}
+
 
 class CComponent{
 private:
@@ -16,6 +24,8 @@ private:
     bool container = false;
     bool drawn= false;
     bool resizable = true;
+
+    bool selected = false;
 
     std::string component_id;
 public:
@@ -66,6 +76,20 @@ public:
 
     void set_resizable(bool resizable_t){resizable = resizable_t;};
     bool is_resizable(){return resizable;};
+
+    bool is_selectable(){
+        return !(CGlobal::n_component_selected==CGlobal::n_window && !is_selected());
+    }
+    bool is_selected(){return selected;};
+    void set_selected(bool selected_t){
+            if(CGlobal::component_selected==selected_t && CGlobal::n_component_selected==CGlobal::n_window) return;
+
+            if(selected_t) CGlobal::n_component_selected++;
+            else CGlobal::n_component_selected--;
+
+            CGlobal::component_selected = selected_t;
+            selected = selected_t;
+    };
 };
 
 #endif //WINDOWMANAGER_WINDOW_COMPONENT_H
