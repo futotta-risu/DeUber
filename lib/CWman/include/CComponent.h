@@ -3,13 +3,10 @@
 
 #include <string>
 #include <SDL_render.h>
-#include "CBorder.h"
+#include "misc/CBorder.h"
 #include "CUI.h"
 
 #include <algorithm>
-
-const unsigned int DEFAULT_WIDTH     =   100u;
-const unsigned int DEFAULT_HEIGHT    =   40u;
 
 class CComponent{
 private:
@@ -25,7 +22,7 @@ public:
     static int id;
     bool visible = true;
 
-    CComponent() : component_id{"Component_"+std::to_string(id++)}{};
+    CComponent() : component_id{"Component_"+std::to_string(id++)}, parent(nullptr){};
     ~CComponent() = default;
 
     virtual void input() = 0;

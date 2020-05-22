@@ -53,10 +53,10 @@ void BorderLayout::set_size(std::vector<CComponent*> component_list, CComponent*
     if(comps[0]!= nullptr)
         comps[0]->set_size({act_width-2*h_margin,temp_h[0]});
 
-    for(int i = 2; i <= 4; i++)
+    for(int i = 1; i <= 3; i++)
         if(comps[i]!= nullptr)
             comps[i]->set_size({temp_w[i],height_t});
 
-    if(comps[1]!= nullptr)
-        comps[1]->set_size({act_width-2*h_margin,temp_h[1]});
+    if(comps[4]!= nullptr)
+        comps[4]->set_size({act_width-2*h_margin,temp_h[4]});
 }

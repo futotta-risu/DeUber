@@ -2,7 +2,7 @@
 #define WINDOW_MANAGER_CTOGGLEBUTTON_H
 #include <CComponent.h>
 #include <utils/collision.h>
-#include <CFont.h>
+#include <misc/CFont.h>
 #include <SDL_ttf.h>
 #include "CAbstractButton.h"
 

@@ -3,7 +3,7 @@
 
 #include <CComponent.h>
 #include <SDL_ttf.h>
-#include <CFont.h>
+#include <misc/CFont.h>
 #include <locale>
 #include <cstring>
 #include <utils/collision.h>
@@ -12,18 +12,14 @@
 
 class CTextBox : public CComponent{
 private:
-
     bool focused = false;
     CFont font;
 
     int key_board_tick = 0;
-    int last_char = -1;
-    int last_char_tick = 0;
+    Uint8 last_key_code = 0;
 
-    // Component Values
     std::string text_value;
 
-    // Component Renders
     SDL_Texture *tex =  nullptr;
     SDL_Rect pos = {0,0};
 public:
@@ -33,29 +29,34 @@ public:
     std::vector<std::pair<int,int> > keyboard_printable_chars = {
             {4,40},{42,43},{44,49},{54,57}};
 
-    // Runtime Handlers
+
     void input() override {
         if(CMouse::isClickLeft())
             set_focused(is_inside_rect(get_dst(), CMouse::mouse_x, CMouse::mouse_y));
 
         if(focused){
-            if(key_board_tick>0){
-                key_board_tick--;
-                return;
-            }
+
             const Uint8 *keys = SDL_GetKeyboardState(nullptr);
             auto key_code = static_cast<SDL_Scancode>(0);
             for(auto p : keyboard_printable_chars)
                 for(int i = p.first; i < p.second; i++)
                     if(keys[i]) key_code = static_cast<SDL_Scancode>(i);
+            if(key_code == last_key_code || key_code == 0){
+                if(key_board_tick>0){
+                    key_board_tick--;
+                    return;
+                }
+            }
 
             if(key_code>0 && key_code!=42) text_value += static_cast<char>(SDL_GetKeyFromScancode(key_code));
             else if(key_code==42 && !text_value.empty()) text_value.pop_back();
 
 
             if(key_code>0){
+                last_key_code = key_code;
                 set_drawn(false);
-                key_board_tick = 5;
+                if(key_code == 42) key_board_tick = 7;
+                else key_board_tick = 12;
             }
         }
 

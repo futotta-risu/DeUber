@@ -5,28 +5,43 @@
 #include "algorithms/generic_algorithm.h"
 #include "maps/map.h"
 
-#include "SDL.h"
-#include "SDL_image.h"
+#include <SDL.h>
 
-#include "running_info.h"
-
-#include "CWindow.h"
+#include <CWindow.h>
+#include <component/CButton.h>
 #include "game_component.h"
 
-const int WIDTH = 800, HEIGHT = 600;
+#define G_CAR 25
+
+static const char* pauseButtonText[2] = {"Pause", "Play"};
+
+const int WIDTH = 600, HEIGHT = 600;
 
 class DeUber : public CWindow{
 private:
+    CPanel *top_bar;
+    CButton *load_map, *pause;
+
     GameApp *gApp;
+
+
+    void _set_default_window_properties();
+    void _load_game_components();
+    void _load_GameApp();
+    void _load_top_menu();
+
+    void _set_pause_action();
+    void _set_load_map_action();
+
+    void _set_button_properties(CButton *btn);
 public:
     DeUber();
 
-    void set_default_window();
 
-    void load_game_components();
 
-    void load_GameApp();
-    void load_top_buttons();
+
+
+
 
 };
 

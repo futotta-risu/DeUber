@@ -12,8 +12,6 @@
 
 #include <plog/Log.h>
 
-
-
 void start_non_visual_interface(){
     // First Step get the info menu to get the whole running_info data
     running_info run_inf = run_menu(menu_file);
@@ -25,6 +23,7 @@ void start_non_visual_interface(){
 }
 
 void start_visual_interface(){
+
 
     auto login_window = new Login();
     delete login_window;
@@ -39,6 +38,7 @@ void start_visual_interface(){
 int main(int argc, char* argv[]) {
     plog::init(plog::debug, "logs/running.log");
     srand(time(nullptr));
+
 
     bool visual_interface = true;
     if (argc > 1)

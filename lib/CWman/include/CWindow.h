@@ -1,3 +1,7 @@
+//
+// Created by erikberter on 20/03/2020.
+//
+
 #ifndef WINDOWMANAGER_WINDOW_HANDLER_H
 #define WINDOWMANAGER_WINDOW_HANDLER_H
 
@@ -8,6 +12,7 @@
 #include "layout/WindowLayout.h"
 #include "component/CPanel.h"
 #include <string>
+#include <utils/SDL2_conv.h>
 
 #include "layout/BorderLayout.h"
 
@@ -49,7 +54,7 @@ public:
     static int window_id;
 
     CWindow();
-    CWindow(std::string w_title_t);
+    explicit CWindow(std::string w_title_t);
     ~CWindow();
     void dispose();
 
@@ -66,13 +71,17 @@ public:
         return SDL_GetWindowTitle(win);
     }
 
+    void set_resizable(bool resizable){
+        SDL_SetWindowResizable(win,to_SDL_bool(resizable));
+    }
+
     void init_window();
 
     void set_layout(WindowLayout* layout);
     void add(CComponent* component);
     void add(CComponent* component, BorderLayout::BLPosition p);
 
-    CComponent* get_component_by_id(std::string id){
+    CComponent* get_component_by_id(const std::string& id){
         return window_panel->get_component_by_id(id);
     };
 

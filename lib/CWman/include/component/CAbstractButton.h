@@ -18,6 +18,29 @@ private:
     std::function<void(CWindow*)> action_listener = nullptr;
     CWindow *win = nullptr;
     bool inside = false;
+
+    void set_pressed(bool pressed_t){
+        if(pressed_t==pressed) return;
+        if(!pressed_t) react_button();
+
+        set_background(SDL_Color_dsp(get_background_color(),
+                                     (pressed_t) ? -30 : 30));
+        pressed = !pressed;
+    }
+
+    void set_inside(bool inside_t){
+        if(inside_t==inside) return;
+
+        set_background(SDL_Color_dsp(get_background_color(),
+                                     (inside_t) ? -10 : 10));
+        inside = !inside;
+    }
+
+    void react_button(){
+        if(action_listener== nullptr || win == nullptr)
+            return;
+        action_listener(win);
+    }
 public:
     bool pressed = false;
 
@@ -49,27 +72,6 @@ public:
 
     void set_window(CWindow *win_t){win = win_t;};
 
-    void set_pressed(bool pressed_t){
-        if(pressed_t==pressed) return;
-        if(!pressed_t) react_button();
 
-        set_background(SDL_Color_dsp(get_background_color(),
-                                     (pressed_t) ? -30 : 30));
-        pressed = !pressed;
-    }
-
-    void set_inside(bool inside_t){
-        if(inside_t==inside) return;
-
-        set_background(SDL_Color_dsp(get_background_color(),
-                                     (inside_t) ? -10 : 10));
-        inside = !inside;
-    }
-
-    void react_button(){
-        if(action_listener== nullptr || win == nullptr)
-            return;
-        action_listener(win);
-    }
 };
 #endif //WINDOW_MANAGER_CABSTRACTBUTTON_H

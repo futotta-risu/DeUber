@@ -5,7 +5,7 @@
 
 #include <SDL.h>
 #include <iostream>
-#include "CDimension.h"
+#include "meta/CDimension.h"
 
 class CUI{
 private:
@@ -23,7 +23,7 @@ private:
     SDL_Color bg_color = get_color(GREY);
 public:
     CUI() : min_size{Dimension{100,100}}, act_size{Dimension{100,100}},
-        coords{Position{0,0}}, tex_loaded{false}, tex{nullptr}{dst = d_to_R(coords,act_size);};
+        coords{Position{0,0}}, tex_loaded{false}, tex{nullptr},dst{d_to_R(coords,act_size)}{};
     ~CUI(){SDL_DestroyTexture(tex);};
 
     Dimension get_minimum_size(){return min_size;};
@@ -79,7 +79,7 @@ public:
         // Reset Color
         SDL_SetRenderDrawColor(ren, 255,255,255,255);
         if(tex_loaded)
-            SDL_RenderCopy(ren, tex,NULL, &dst);
+            SDL_RenderCopy(ren, tex,nullptr, &dst);
 
     };
 };

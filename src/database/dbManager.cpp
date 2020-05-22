@@ -52,7 +52,8 @@ bool DBManager::login_user(const char *username, const char *password) {
     bool correct_login = true;
 
     if(_sqlite3_connect(&db_struct) != SQLITE_OK )
-        throw database_open_error("Could not open database on login.", db_name);
+        throw DBManager::database_open_error(
+                "Could not open database on login.", db_name);
 
     std::string query = _replace_user_pass(select_query, username, password);
 
@@ -75,7 +76,8 @@ void DBManager::sing_up_user(const char *username,const  char *password){
     db_comp db_struct;
 
     if(_sqlite3_connect(&db_struct) != SQLITE_OK)
-        throw database_open_error("Could not open database on sing up.", db_name);
+        throw DBManager::database_open_error(
+                "Could not open database on sing up.", db_name);
 
     std::string query = _replace_user_pass(insert_query, username, password);
     if( _sqlite3_exec_db(&db_struct, query.c_str()) != SQLITE_OK )
@@ -88,7 +90,8 @@ bool DBManager::is_user_registered(const char *username){
     db_comp db_struct;
 
     if(_sqlite3_connect(&db_struct) != SQLITE_OK)
-        throw database_open_error("Could not open database on sing up.", db_name);
+        throw DBManager::database_open_error(
+                "Could not open database on sing up.", db_name);
 
     bool user_exists = true;
 
@@ -111,7 +114,8 @@ void DBManager::print_users(){
     db_comp db_struct;
 
     if(_sqlite3_connect(&db_struct) != SQLITE_OK)
-        throw database_open_error("Could not open database on sing up.", db_name);
+        throw DBManager::database_open_error(
+                "Could not open database on sing up.", db_name);
 
     if( _sqlite3_exec_db(&db_struct, get_all_users.c_str()) != SQLITE_OK )
         _print_sqlite_error(db_struct.zErrMsg);
